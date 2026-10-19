@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,64 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ritesh Mahato | My Website</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #10172a, #123b50);
-      color: white;
-      text-align: center;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: white;
+      background: linear-gradient(135deg, #080b20, #191044, #071b35);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 24px;
+      text-align: center;
+      border: 1px solid rgba(120, 150, 255, 0.4);
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 40px rgba(80, 90, 255, 0.2);
+    }
+
+    .avatar {
+      width: 95px;
+      height: 95px;
+      margin: 0 auto 22px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-    }
-    .card {
-      max-width: 500px;
-      width: 100%;
-      padding: 40px 24px;
-      border: 1px solid #ffffff35;
-      border-radius: 24px;
-      background: #ffffff10;
-      box-shadow: 0 15px 45px #0005;
-    }
-    .avatar {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 20px;
       border-radius: 50%;
-      background: #76e4df;
-      color: #102030;
-      display: grid;
-      place-items: center;
       font-size: 38px;
-      font-weight: bold;
+      background: linear-gradient(135deg, #725bff, #00cfff);
+      box-shadow: 0 0 25px rgba(0, 207, 255, 0.3);
     }
-    h1 { font-size: 32px; margin-bottom: 10px; }
-    p { color: #d5e5f0; line-height: 1.7; }
-    a {
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    h1 span {
+      color: #68dcff;
+    }
+
+    .tagline {
+      color: #c7cbe0;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 13px 24px;
+      margin: 6px;
+      padding: 13px 20px;
       border-radius: 30px;
-      background: #76e4df;
-      color: #102030;
       text-decoration: none;
       font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #6755ff, #008cff);
     }
-    footer { margin-top: 28px; color: #b8cad6; font-size: 13px; }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #9ba4c5;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
   <main class="card">
     <div class="avatar">RM</div>
-    <h1>Good Evening! 👋</h1>
-    <h2>I'm Ritesh Mahato</h2>
-    <p>Welcome to my personal website.</p>
-    <p>I'm a student, always learning and building something new. 🚀</p>
-    <a href="https://github.com/riteshmahato01">Visit My GitHub</a>
-    <footer>Made with ❤️ by Ritesh Mahato</footer>
+
+    <h1>Hey, I'm <span>Ritesh!</span></h1>
+
+    <p class="tagline">
+      Welcome to my personal website ✨<br>
+      Student • Learner • Future Developer
+    </p>
+
+    <a class="button"
+       href="https://github.com/riteshmahato01"
+       target="_blank" rel="noopener noreferrer">
+      Visit My GitHub ↗
+    </a>
+
+    <footer>
+      Made with ❤️ by Ritesh Mahato
+    </footer>
   </main>
 </body>
 </html>
