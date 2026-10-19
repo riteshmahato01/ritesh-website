@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080b20">
-  <meta name="description" content="Welcome to the personal website of Ritesh Mahato, student, learner and future developer.">
-  <title>Ritesh Mahato | Personal Website</title>
+  <meta name="description" content="The personal portfolio of Ritesh Mahato — student, learner and future developer.">
+  <title>Ritesh Mahato | Portfolio</title>
 
   <style>
+    :root {
+      --bg: #080b20;
+      --panel: rgba(255, 255, 255, 0.055);
+      --border: rgba(104, 220, 255, 0.22);
+      --blue: #68dcff;
+      --purple: #8170ff;
+      --text: #f5f7ff;
+      --muted: #c1c8df;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -20,44 +30,42 @@
 
     body {
       min-height: 100vh;
-      padding: 35px 15px;
+      padding: 28px 14px;
       font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
+      color: var(--text);
       background: linear-gradient(
-        -45deg,
-        #050816,
-        #111033,
-        #071b35,
-        #10102b
+        -45deg, #050816, #15103a, #071b35, #10102b
       );
       background-size: 400% 400%;
       animation: backgroundMove 14s ease infinite;
     }
 
     @keyframes backgroundMove {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
-    .card {
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    .container {
       width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 35px 24px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.055);
-      border: 1px solid rgba(104, 220, 255, 0.28);
-      border-radius: 26px;
-      box-shadow: 0 0 45px rgba(61, 83, 255, 0.15);
-      backdrop-filter: blur(12px);
-      animation: cardEnter 1s ease-out both;
+      max-width: 760px;
+      margin: auto;
+      animation: appear 0.9s ease-out both;
     }
 
-    @keyframes cardEnter {
+    @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(22px);
       }
       to {
         opacity: 1;
@@ -65,14 +73,30 @@
       }
     }
 
+    .panel {
+      margin-bottom: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(61, 83, 255, 0.10);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      padding-top: 38px;
+      padding-bottom: 36px;
+    }
+
     .avatar {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 24px;
+      width: 124px;
+      height: 124px;
+      margin: 0 auto 23px;
       overflow: hidden;
+      border: 3px solid var(--blue);
       border-radius: 50%;
-      border: 3px solid #68dcff;
-      box-shadow: 0 0 15px rgba(0, 207, 255, 0.35);
+      box-shadow: 0 0 24px rgba(0, 207, 255, 0.35);
       animation: photoGlow 3s ease-in-out infinite alternate;
     }
 
@@ -84,112 +108,266 @@
     }
 
     @keyframes photoGlow {
-      from {
-        box-shadow: 0 0 12px rgba(0, 207, 255, 0.3);
-      }
-      to {
-        box-shadow: 0 0 30px rgba(114, 91, 255, 0.8);
-      }
+      from { box-shadow: 0 0 12px rgba(0, 207, 255, 0.25); }
+      to { box-shadow: 0 0 30px rgba(129, 112, 255, 0.8); }
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     h1 {
-      margin-bottom: 14px;
-      font-size: clamp(27px, 7vw, 36px);
+      margin-bottom: 13px;
+      font-size: clamp(30px, 7vw, 46px);
+      line-height: 1.2;
     }
 
     h1 span {
-      color: #68dcff;
-      text-shadow: 0 0 15px rgba(104, 220, 255, 0.25);
+      color: var(--blue);
+      text-shadow: 0 0 18px rgba(104, 220, 255, 0.2);
     }
 
-    .tagline {
-      margin-bottom: 24px;
-      color: #c7cbe0;
+    .subtitle {
+      min-height: 28px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .typing {
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .cursor {
+      display: inline-block;
+      margin-left: 2px;
+      color: var(--blue);
+      animation: blink 0.8s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to { visibility: hidden; }
+    }
+
+    .intro {
+      max-width: 510px;
+      margin: 0 auto 23px;
+      color: var(--muted);
       line-height: 1.9;
       font-size: 15px;
     }
 
-    .button,
-    .social-links a {
-      display: inline-block;
-      margin: 7px 4px;
-      padding: 13px 19px;
-      color: #ffffff;
-      background: linear-gradient(110deg, #6755ff, #008cff);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .actions,
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 30px;
-      text-decoration: none;
+      background: linear-gradient(110deg, #6755ff, #008cff);
+      color: white;
       font-size: 14px;
       font-weight: bold;
-      box-shadow: 0 0 12px rgba(0, 140, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 0 13px rgba(0, 140, 255, 0.2);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
 
-    .button:hover,
-    .social-links a:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 0 24px rgba(0, 207, 255, 0.65);
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 24px rgba(0, 207, 255, 0.55);
     }
 
-    .about,
-    .social-links {
-      margin-top: 34px;
-      padding-top: 27px;
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.07);
     }
 
-    .about h2,
-    .social-links h2 {
-      margin-bottom: 17px;
-      color: #68dcff;
+    .section-title {
+      margin-bottom: 18px;
+      color: var(--blue);
       font-size: 23px;
     }
 
-    .about p {
-      margin-bottom: 15px;
-      color: #d4d7e8;
+    .section-copy {
+      color: var(--muted);
       font-size: 15px;
       line-height: 1.9;
     }
 
-    .about h3 {
-      margin-top: 22px;
+    .section-copy p + p {
+      margin-top: 13px;
+    }
+
+    .tagline {
+      margin-top: 19px;
       color: #b6aaff;
-      font-size: 15px;
-      line-height: 1.7;
+      font-weight: bold;
+      line-height: 1.8;
     }
 
-    .social-links a {
-      padding: 12px 16px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      text-align: left;
     }
 
-    footer {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.13);
-      color: #9ba4c5;
+    .item {
+      min-width: 0;
+      padding: 19px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 17px;
+      background: rgba(5, 10, 32, 0.45);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(104, 220, 255, 0.5);
+    }
+
+    .item h3 {
+      margin-bottom: 10px;
+      color: #e6e9ff;
+      font-size: 16px;
+    }
+
+    .item p {
+      color: var(--muted);
       font-size: 13px;
       line-height: 1.8;
     }
 
-    a:focus-visible {
-      outline: 2px solid #68dcff;
-      outline-offset: 4px;
+    .status {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 5px 9px;
+      border: 1px solid rgba(104, 220, 255, 0.25);
+      border-radius: 20px;
+      color: var(--blue);
+      font-size: 11px;
     }
 
-    @media (max-width: 380px) {
+    .skill {
+      margin-top: 17px;
+      text-align: left;
+    }
+
+    .skill:first-of-type {
+      margin-top: 0;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: #e6e9ff;
+      font-size: 14px;
+    }
+
+    .skill-label span:last-child {
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    .track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #6755ff, #00cfff);
+      animation: skillLoad 1.4s ease-out forwards;
+    }
+
+    .skill:nth-of-type(2) .track span {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes skillLoad {
+      to { width: var(--level); }
+    }
+
+    .music-note {
+      margin-bottom: 13px;
+      font-size: 38px;
+    }
+
+    .music-caption {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .player-status {
+      min-height: 24px;
+      margin-top: 15px;
+      color: var(--blue);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 22px 10px 8px;
+      color: #9ba4c5;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
       body {
-        padding: 20px 10px;
+        padding: 16px 10px;
       }
 
-      .card {
-        padding: 28px 15px;
+      .panel {
+        padding: 24px 16px;
+        border-radius: 20px;
       }
 
-      .button,
-      .social-links a {
-        padding: 11px 14px;
+      .hero {
+        padding-top: 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        padding: 12px 15px;
         font-size: 13px;
+      }
+
+      .section-title {
+        font-size: 21px;
       }
     }
 
@@ -206,74 +384,251 @@
 </head>
 
 <body>
-  <main class="card">
+  <main class="container">
 
-    <div class="avatar">
-      <img src="ritesh.png" alt="Ritesh Mahato">
-    </div>
+    <header class="panel hero">
+      <div class="avatar">
+        <img src="ritesh.png" alt="Ritesh Mahato">
+      </div>
 
-    <h1>Hey, I'm <span>Ritesh!</span></h1>
+      <p class="eyebrow">WELCOME TO MY WORLD</p>
+      <h1>Hey, I'm <span>Ritesh!</span></h1>
 
-    <p class="tagline">
-      Welcome to my personal website ✨<br>
-      Student • Learner • Future Developer
-    </p>
-
-    <a
-      class="button"
-      href="https://github.com/riteshmahato01"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💻 Visit My GitHub ↗
-    </a>
-
-    <section class="about" id="about">
-      <h2>About Me 👋</h2>
-
-      <p>
-        Hi, I'm Ritesh Mahato! I'm a student,
-        a curious learner, and an aspiring developer.
-        I enjoy learning new things, exploring technology,
-        and building creative projects.
+      <p class="subtitle">
+        <span class="typing" id="typing-text">Student</span><span class="cursor" aria-hidden="true">|</span>
       </p>
 
-      <p>
-        My goal is to improve my skills, turn my ideas
-        into reality, and create something meaningful.
+      <p class="intro">
+        Welcome to my personal website ✨
+        I'm learning, exploring technology, and building my skills
+        one step at a time.
       </p>
 
-      <h3>✨ Learning Today • Building Tomorrow</h3>
+      <div class="actions">
+        <a class="btn"
+           href="https://github.com/riteshmahato01"
+           target="_blank" rel="noopener noreferrer">
+          💻 Visit My GitHub
+        </a>
+
+        <a class="btn secondary" href="#about">
+          👋 About Me
+        </a>
+      </div>
+    </header>
+
+    <section class="panel" id="about">
+      <h2 class="section-title">About Me 👋</h2>
+
+      <div class="section-copy">
+        <p>
+          Hi, I'm Ritesh Mahato! I'm a student, a curious learner,
+          and an aspiring developer.
+        </p>
+        <p>
+          I enjoy learning new things, exploring technology,
+          and turning ideas into creative projects.
+          My goal is to keep improving and build something meaningful.
+        </p>
+      </div>
+
+      <p class="tagline">✨ Learning Today • Building Tomorrow</p>
     </section>
 
-    <section class="social-links" id="connect">
-      <h2>Connect With Me 🤝</h2>
+    <section class="panel" id="projects">
+      <h2 class="section-title">My Projects 🚀</h2>
 
-      <a
-        href="https://github.com/riteshmahato01"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        💻 GitHub
-      </a>
+      <div class="grid">
+        <article class="item">
+          <h3>🌐 Personal Website</h3>
+          <p>
+            My own portfolio website, built to learn web design
+            and share a little about myself.
+          </p>
+          <span class="status">Current Project</span>
+        </article>
 
-      <a
-        href="https://www.instagram.com/6__nine_/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📸 Instagram
-      </a>
+        <article class="item">
+          <h3>💡 Future Project</h3>
+          <p>
+            A placeholder for my next idea. I'll replace this
+            demo card when I build another project.
+          </p>
+          <span class="status">Demo · Not built yet</span>
+        </article>
+      </div>
+    </section>
 
-      <a href="mailto:mbackbencher01@gmail.com">
-        ✉️ Contact Me
-      </a>
+    <section class="panel" id="skills">
+      <h2 class="section-title">My Skills 📚</h2>
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>HTML</span>
+          <span>Learning</span>
+        </div>
+        <div class="track" aria-label="HTML learning progress">
+          <span style="--level: 45%"></span>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label">
+          <span>CSS</span>
+          <span>Learning</span>
+        </div>
+        <div class="track" aria-label="CSS learning progress">
+          <span style="--level: 30%"></span>
+        </div>
+      </div>
+
+      <p class="music-caption" style="margin-top: 18px; margin-bottom: 0;">
+        Progress bars are illustrative, not test scores.
+        I'm learning and improving every day!
+      </p>
+    </section>
+
+    <section class="panel" id="music">
+      <div class="music-note" aria-hidden="true">🎵</div>
+      <h2 class="section-title">Music Corner</h2>
+
+      <p class="music-caption">
+        Bollywood vibes, coming soon! Add your own audio file
+        to enable playback. No fake music links here.
+      </p>
+
+      <audio id="music-player" controls preload="none"
+             aria-label="Bollywood music player"
+             style="display: none; width: 100%;">
+      </audio>
+
+      <div class="actions">
+        <button class="btn" id="music-button" type="button">
+          🎧 Add My Music
+        </button>
+        <input id="music-file" type="file" accept="audio/*"
+               hidden aria-label="Choose a music file">
+      </div>
+
+      <p class="player-status" id="player-status" aria-live="polite">
+        Choose an audio file from your device to play it here.
+      </p>
+    </section>
+
+    <section class="panel" id="connect">
+      <h2 class="section-title">Connect With Me 🤝</h2>
+
+      <div class="social-links">
+        <a class="btn"
+           href="https://github.com/riteshmahato01"
+           target="_blank" rel="noopener noreferrer">
+          💻 GitHub
+        </a>
+
+        <a class="btn"
+           href="https://www.instagram.com/6__nine_/"
+           target="_blank" rel="noopener noreferrer">
+          📸 Instagram
+        </a>
+
+        <a class="btn"
+           href="mailto:mbackbencher01@gmail.com">
+          ✉️ Contact Me
+        </a>
+      </div>
     </section>
 
     <footer>
-      Made with ❤️ by Ritesh Mahato
+      Made with ❤️ by Ritesh Mahato<br>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+        Back to top ↑
+      </a>
     </footer>
 
   </main>
+
+  <script>
+    // Typing animation
+    const typingText = document.getElementById("typing-text");
+    const words = [
+      "Student",
+      "Learner",
+      "Future Developer"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const word = words[wordIndex];
+
+      if (deleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+
+      typingText.textContent = word.slice(0, charIndex);
+
+      let delay = deleting ? 55 : 100;
+
+      if (!deleting && charIndex === word.length) {
+        deleting = true;
+        delay = 1200;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 350;
+      }
+
+      window.setTimeout(typeEffect, delay);
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      typeEffect();
+    } else {
+      typingText.textContent = "Student • Learner • Future Developer";
+      document.querySelector(".cursor").hidden = true;
+    }
+
+    // Optional local music player. No external audio URLs required.
+    const musicButton = document.getElementById("music-button");
+    const musicFile = document.getElementById("music-file");
+    const musicPlayer = document.getElementById("music-player");
+    const playerStatus = document.getElementById("player-status");
+    let localMusicURL = null;
+
+    musicButton.addEventListener("click", function () {
+      musicFile.click();
+    });
+
+    musicFile.addEventListener("change", function () {
+      const file = musicFile.files && musicFile.files[0];
+
+      if (!file) return;
+
+      if (localMusicURL) {
+        URL.revokeObjectURL(localMusicURL);
+      }
+
+      localMusicURL = URL.createObjectURL(file);
+      musicPlayer.src = localMusicURL;
+      musicPlayer.style.display = "block";
+      musicPlayer.load();
+
+      playerStatus.textContent = "Selected: " + file.name;
+      musicPlayer.play().catch(function () {
+        playerStatus.textContent =
+          "Music ready! Press Play to start listening.";
+      });
+    });
+
+    window.addEventListener("pagehide", function () {
+      if (localMusicURL) {
+        URL.revokeObjectURL(localMusicURL);
+      }
+    });
+  </script>
 </body>
 </html>
