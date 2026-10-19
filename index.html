@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ritesh Mahato | My Website</title>
+  <meta name="theme-color" content="#080b20">
+  <meta name="description" content="Welcome to the personal website of Ritesh Mahato, student, learner and future developer.">
+  <title>Ritesh Mahato | Personal Website</title>
 
   <style>
     * {
@@ -12,108 +14,193 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       min-height: 100vh;
-      padding: 30px 15px;
-      color: white;
-      background: linear-gradient(135deg, #080b20, #191044, #071b35);
+      padding: 35px 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+      background: linear-gradient(
+        -45deg,
+        #050816,
+        #111033,
+        #071b35,
+        #10102b
+      );
+      background-size: 400% 400%;
+      animation: backgroundMove 14s ease infinite;
+    }
+
+    @keyframes backgroundMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .card {
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 35px 22px;
+      padding: 35px 24px;
       text-align: center;
-      border: 1px solid rgba(120, 150, 255, 0.4);
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.07);
-      box-shadow: 0 0 40px rgba(80, 90, 255, 0.2);
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(104, 220, 255, 0.28);
+      border-radius: 26px;
+      box-shadow: 0 0 45px rgba(61, 83, 255, 0.15);
+      backdrop-filter: blur(12px);
+      animation: cardEnter 1s ease-out both;
+    }
+
+    @keyframes cardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .avatar {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 22px;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
       overflow: hidden;
       border-radius: 50%;
-      background: linear-gradient(135deg, #725bff, #00cfff);
-      box-shadow: 0 0 25px rgba(0, 207, 255, 0.3);
+      border: 3px solid #68dcff;
+      box-shadow: 0 0 15px rgba(0, 207, 255, 0.35);
+      animation: photoGlow 3s ease-in-out infinite alternate;
     }
 
     .avatar img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    @keyframes photoGlow {
+      from {
+        box-shadow: 0 0 12px rgba(0, 207, 255, 0.3);
+      }
+      to {
+        box-shadow: 0 0 30px rgba(114, 91, 255, 0.8);
+      }
+    }
+
     h1 {
-      font-size: 30px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-size: clamp(27px, 7vw, 36px);
     }
 
     h1 span {
       color: #68dcff;
+      text-shadow: 0 0 15px rgba(104, 220, 255, 0.25);
     }
 
     .tagline {
+      margin-bottom: 24px;
       color: #c7cbe0;
-      line-height: 1.8;
-      margin-bottom: 22px;
+      line-height: 1.9;
+      font-size: 15px;
     }
 
-    .button, .social-links a {
+    .button,
+    .social-links a {
       display: inline-block;
       margin: 7px 4px;
-      padding: 12px 18px;
-      border-radius: 25px;
+      padding: 13px 19px;
+      color: #ffffff;
+      background: linear-gradient(110deg, #6755ff, #008cff);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
       text-decoration: none;
+      font-size: 14px;
       font-weight: bold;
-      color: white;
-      background: linear-gradient(90deg, #6755ff, #008cff);
-      transition: transform 0.2s;
+      box-shadow: 0 0 12px rgba(0, 140, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .button:hover, .social-links a:hover {
-      transform: translateY(-3px);
+    .button:hover,
+    .social-links a:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 24px rgba(0, 207, 255, 0.65);
     }
 
-    .about {
-      margin-top: 35px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(255,255,255,0.2);
+    .about,
+    .social-links {
+      margin-top: 34px;
+      padding-top: 27px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
     }
 
-    .about h2, .social-links h2 {
-      margin-bottom: 16px;
+    .about h2,
+    .social-links h2 {
+      margin-bottom: 17px;
       color: #68dcff;
+      font-size: 23px;
     }
 
     .about p {
-      color: #d4d7e8;
-      line-height: 1.8;
       margin-bottom: 15px;
+      color: #d4d7e8;
+      font-size: 15px;
+      line-height: 1.9;
     }
 
     .about h3 {
-      font-size: 16px;
       margin-top: 22px;
       color: #b6aaff;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
-    .social-links {
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(255,255,255,0.2);
+    .social-links a {
+      padding: 12px 16px;
     }
 
     footer {
       margin-top: 30px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.13);
       color: #9ba4c5;
       font-size: 13px;
+      line-height: 1.8;
+    }
+
+    a:focus-visible {
+      outline: 2px solid #68dcff;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 380px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .card {
+        padding: 28px 15px;
+      }
+
+      .button,
+      .social-links a {
+        padding: 11px 14px;
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -132,13 +219,16 @@
       Student • Learner • Future Developer
     </p>
 
-    <a class="button"
-       href="https://github.com/riteshmahato01"
-       target="_blank" rel="noopener noreferrer">
-      Visit My GitHub ↗
+    <a
+      class="button"
+      href="https://github.com/riteshmahato01"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💻 Visit My GitHub ↗
     </a>
 
-    <section class="about">
+    <section class="about" id="about">
       <h2>About Me 👋</h2>
 
       <p>
@@ -156,20 +246,26 @@
       <h3>✨ Learning Today • Building Tomorrow</h3>
     </section>
 
-    <section class="social-links">
+    <section class="social-links" id="connect">
       <h2>Connect With Me 🤝</h2>
 
-      <a href="https://github.com/riteshmahato01"
-         target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://github.com/riteshmahato01"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         💻 GitHub
       </a>
 
-      <a href="https://www.instagram.com/"
-         target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.instagram.com/6__nine_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         📸 Instagram
       </a>
 
-      <a href="mbackbencher01@gmail.com">
+      <a href="mailto:mbackbencher01@gmail.com">
         ✉️ Contact Me
       </a>
     </section>
