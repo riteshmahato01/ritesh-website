@@ -52,3 +52,325 @@ a { color: inherit; text-decoration: none; }
 @keyframes drift {
   0%,100% { transform: translate(0,0) scale(1); }
   33% { transform: translate(60px,40px) scale(1.12); }
+  66% { transform: translate(-40px,70px) scale(.94); }
+}
+.grain { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .05;
+  background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 4px 4px; }
+
+/* ---------- Layout ---------- */
+.wrap { width: min(100% - 32px, 1080px); margin: 0 auto; }
+section { padding: 70px 0; scroll-margin-top: 80px; }
+.eyebrow { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.title { font-size: clamp(28px, 5vw, 42px); font-weight: 800; line-height: 1.15; margin-bottom: 28px; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* ---------- Floating nav ---------- */
+.nav {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 50;
+  width: min(100% - 24px, 640px);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 8px 10px 8px 18px;
+  background: var(--glass); border: 1px solid var(--glass-b); border-radius: 999px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: var(--shadow);
+}
+.logo { font-weight: 800; font-size: 18px; }
+.logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.links { display: flex; gap: 4px; }
+.links a { padding: 7px 13px; border-radius: 999px; font-size: 14px; color: var(--muted); transition: .2s; }
+.links a:hover, .links a.active { color: var(--text); background: var(--glass-b); }
+.toggle { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--glass-b); background: var(--glass);
+  color: var(--text); font-size: 17px; cursor: pointer; transition: transform .3s; }
+.toggle:hover { transform: rotate(25deg) scale(1.08); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font: inherit; font-weight: 600;
+  border: 1px solid var(--glass-b); background: var(--glass); color: var(--text); cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s; }
+.btn:hover { transform: translateY(-3px); }
+.btn.primary { background: var(--grad); border: 0; color: #fff; box-shadow: 0 10px 30px rgba(192,76,255,.35); }
+.btn.primary:hover { box-shadow: 0 14px 38px rgba(192,76,255,.5); }
+.btn.sm { padding: 8px 16px; font-size: 14px; }
+
+/* ---------- Hero ---------- */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 110px 0 50px; }
+.hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-size: 13px;
+  background: var(--glass); border: 1px solid var(--glass-b); margin-bottom: 18px; }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 #34d399aa; animation: ping 1.8s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 9px #34d39900; } 100% { box-shadow: 0 0 0 0 #34d39900; } }
+h1 { font-size: clamp(40px, 8vw, 78px); line-height: 1.02; font-weight: 800; letter-spacing: -1.5px; }
+.role { font-size: clamp(18px, 3vw, 26px); color: var(--muted); margin: 16px 0 28px; min-height: 40px; }
+.role b { color: var(--text); }
+.caret { display: inline-block; width: 3px; height: 1em; background: var(--b); margin-left: 3px; vertical-align: -3px; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.avatar-wrap { position: relative; width: min(100%, 340px); aspect-ratio: 1; margin: 0 auto; }
+.avatar-wrap::before { content: ""; position: absolute; inset: -6px; border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+  background: var(--grad); animation: morph 9s ease-in-out infinite, spin 14s linear infinite; filter: blur(2px); }
+.avatar-wrap::after { content: ""; position: absolute; inset: -30px; border-radius: 50%; background: var(--grad); opacity: .25; filter: blur(50px); z-index: -1; }
+.avatar { position: relative; width: 100%; height: 100%; object-fit: cover; border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+  border: 6px solid var(--bg); animation: morph 9s ease-in-out infinite; background: var(--glass); }
+.avatar-fallback { display: none; position: absolute; inset: 0; place-items: center; font-size: 90px; font-weight: 800; z-index: 1; }
+@keyframes morph {
+  0%,100% { border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%; }
+  50% { border-radius: 58% 42% 45% 55% / 52% 58% 42% 48%; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.chip-float { position: absolute; padding: 8px 14px; border-radius: 14px; font-size: 13px; font-weight: 600;
+  background: var(--glass); border: 1px solid var(--glass-b); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow); animation: bob 5s ease-in-out infinite; z-index: 2; }
+.chip-float.c1 { top: 6%; right: -4%; }
+.chip-float.c2 { bottom: 10%; left: -6%; animation-delay: -2.5s; }
+@keyframes bob { 50% { transform: translateY(-10px); } }
+
+/* ---------- Marquee ---------- */
+.marquee { overflow: hidden; border-block: 1px solid var(--glass-b); padding: 16px 0; background: var(--glass); }
+.track { display: flex; gap: 44px; width: max-content; animation: slide 26s linear infinite; font-size: 20px; font-weight: 700; color: var(--muted); }
+.track span::after { content: "✦"; margin-left: 44px; color: var(--b); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- Bento / cards ---------- */
+.glass { background: var(--glass); border: 1px solid var(--glass-b); border-radius: 24px; padding: 28px;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow); }
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+.about-grid p { color: var(--muted); font-size: 17px; }
+.about-grid p + p { margin-top: 12px; }
+.mission { margin-top: 18px; padding: 14px 18px; border-radius: 16px; background: var(--glass-b); font-weight: 600; }
+.stats { display: grid; gap: 18px; }
+.stat b { display: block; font-size: 42px; line-height: 1; font-weight: 800; }
+.stat span { color: var(--muted); font-size: 14px; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
+.proj { position: relative; overflow: hidden; transition: transform .3s, border-color .3s; }
+.proj:hover { transform: translateY(-8px); border-color: var(--b); }
+.proj .num { font-size: 56px; font-weight: 800; line-height: 1; opacity: .18; margin-bottom: 14px; }
+.proj h3 { font-size: 21px; margin-bottom: 8px; }
+.proj p { color: var(--muted); font-size: 15px; }
+.status { display: inline-block; margin: 16px 0 0; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+.st-on { background: #34d39922; color: #34d399; }
+.st-wip { background: #fbbf2422; color: #fbbf24; }
+.st-load { background: #4cc9ff22; color: var(--c); }
+.proj .btn { margin-top: 16px; display: flex; width: fit-content; }
+.proj::after { content: ""; position: absolute; width: 160px; height: 160px; right: -50px; bottom: -50px; border-radius: 50%;
+  background: var(--grad); opacity: .15; filter: blur(30px); transition: opacity .3s; }
+.proj:hover::after { opacity: .45; }
+
+.skill { margin-bottom: 20px; }
+.skill:last-of-type { margin-bottom: 0; }
+.skill-top { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+.skill-top span:last-child { color: var(--muted); font-weight: 500; font-size: 14px; }
+.bar { height: 10px; border-radius: 10px; background: var(--glass-b); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; border-radius: 10px; background: var(--grad); transition: width 1.3s cubic-bezier(.2,.8,.2,1); }
+.note { margin-top: 20px; color: var(--muted); font-size: 14px; }
+
+.music p { color: var(--muted); }
+.music .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 18px 0 12px; }
+.music audio { width: 100%; margin-top: 8px; border-radius: 12px; }
+.fname { color: var(--muted); font-size: 14px; }
+
+.contact { text-align: center; padding: 48px 24px; background: var(--glass); }
+.contact h2 { font-size: clamp(30px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+.contact p { color: var(--muted); max-width: 460px; margin: 0 auto 26px; }
+.contact .cta { justify-content: center; }
+
+footer { text-align: center; padding: 34px 16px 40px; color: var(--muted); font-size: 14px; }
+
+#top { position: fixed; right: 16px; bottom: 18px; width: 46px; height: 46px; border-radius: 50%; display: none; place-items: center;
+  background: var(--grad); color: #fff; font-size: 20px; box-shadow: 0 10px 30px rgba(192,76,255,.4); z-index: 40; }
+
+/* ---------- Reveal ---------- */
+.js .reveal { opacity: 0; transform: translateY(34px); transition: opacity .8s ease, transform .8s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero { padding-top: 100px; min-height: auto; padding-bottom: 40px; }
+  .cta { justify-content: center; }
+  .avatar-wrap { width: min(70%, 260px); order: -1; }
+  .about-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .stat b { font-size: 30px; }
+}
+@media (max-width: 560px) {
+  .links a { padding: 6px 9px; font-size: 13px; }
+  .nav { padding-left: 14px; }
+  .logo { display: none; }
+  section { padding: 50px 0; }
+  .glass { padding: 22px; border-radius: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+<script>document.documentElement.className = "js";</script>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="logo" href="#home">ritesh<span>.</span></a>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="toggle" id="theme" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill"><i></i> Open to learning &amp; internships</div>
+        <h1>Hey, I'm <span class="grad-text">Ritesh</span> 👋</h1>
+        <p class="role">I'm a <b id="role"></b><span class="caret"></span></p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See my work →</a>
+          <!-- Upload your resume as resume.pdf in the same folder -->
+          <a class="btn" href="resume.pdf" download>⬇ Resume</a>
+          <a class="btn" href="#contact">Say hi</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <img class="avatar" src="ritesh.png" alt="Ritesh Mahato" data-try="0"
+             onerror="var n=['ritesh.jpg','ritesh.jpeg','Ritesh.png','Ritesh.jpg','photo.jpg','photo.png','profile.jpg','profile.png'];var i=+this.dataset.try;if(i<n.length){this.dataset.try=i+1;this.src=n[i];}else{this.style.display='none';this.nextElementSibling.style.display='grid';}">
+        <div class="avatar-fallback grad-text">RM</div>
+        <div class="chip-float c1">✨ Always learning</div>
+        <div class="chip-float c2">💻 HTML · CSS · JS</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="track">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span><span>Creative Ideas</span><span>Learning Daily</span>
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span><span>Creative Ideas</span><span>Learning Daily</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow">Who am I</p>
+      <h2 class="title">A little <span class="grad-text">about me</span></h2>
+      <div class="about-grid">
+        <div class="glass">
+          <p>Hello! I'm Ritesh Mahato. I'm learning, exploring technology and building my own corner of the internet. This website is my personal digital space where I can share my journey and projects.</p>
+          <p>I'm a student interested in web development and technology. Right now I'm focusing on HTML, CSS and JavaScript, and I'm looking for internships and beginner-friendly projects where I can learn from real work.</p>
+          <div class="mission">🎯 Current mission: Learn. Build. Improve. Repeat.</div>
+        </div>
+        <div class="glass stats">
+          <div class="stat"><b class="grad-text" data-count="3">0</b><span>Projects</span></div>
+          <div class="stat"><b class="grad-text" data-count="4">0</b><span>Skills</span></div>
+          <div class="stat"><b class="grad-text">∞</b><span>Curiosity</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow">What I've built</p>
+      <h2 class="title">My <span class="grad-text">projects</span></h2>
+      <div class="projects">
+        <article class="glass proj">
+          <div class="num">01</div>
+          <h3>Personal Website</h3>
+          <p>My own portfolio, built with HTML and CSS and published using GitHub Pages.</p>
+          <span class="status st-on">● ONLINE</span>
+          <a class="btn sm" href="https://github.com/riteshmahato01/ritesh-website" target="_blank" rel="noopener noreferrer">View code ↗</a>
+        </article>
+        <article class="glass proj">
+          <div class="num">02</div>
+          <h3>Learning Lab</h3>
+          <p>A space for experiments, coding practice and new ideas as I keep learning.</p>
+          <span class="status st-wip">● IN PROGRESS</span>
+          <a class="btn sm" href="https://github.com/riteshmahato01?tab=repositories" target="_blank" rel="noopener noreferrer">View repos ↗</a>
+        </article>
+        <article class="glass proj">
+          <div class="num">03</div>
+          <h3>Next Project</h3>
+          <p>The next idea is loading. More projects will be added here as I build them.</p>
+          <span class="status st-load">● LOADING...</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow">What I know</p>
+      <h2 class="title">Skills &amp; <span class="grad-text">learning</span></h2>
+      <div class="glass" id="skillBox">
+        <!-- Change data-w (percent) and the label to match your real level -->
+        <div class="skill"><div class="skill-top"><span>HTML</span><span>Comfortable</span></div><div class="bar"><i data-w="65%"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>CSS</span><span>Comfortable</span></div><div class="bar"><i data-w="60%"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>GitHub Pages</span><span>Basics</span></div><div class="bar"><i data-w="45%"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>JavaScript</span><span>Learning</span></div><div class="bar"><i data-w="25%"></i></div></div>
+        <p class="note">These are learning areas, not a claim of expert-level experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section id="music" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow">Vibe check</p>
+      <h2 class="title">Music <span class="grad-text">corner</span> 🎧</h2>
+      <div class="glass music">
+        <p>Got a favourite song? Choose an audio file from your phone to play it here. No song is preloaded.</p>
+        <div class="row">
+          <label class="btn primary" for="audioFile">🎵 Choose audio file</label>
+          <input id="audioFile" type="file" accept="audio/*" hidden>
+          <span class="fname" id="audioName" aria-live="polite">No audio selected.</span>
+        </div>
+        <audio id="player" controls preload="none"></audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <div class="glass contact">
+        <p class="eyebrow">Let's connect</p>
+        <h2>Got an idea? <span class="grad-text">Let's talk.</span></h2>
+        <p>Want to connect or check out my work? Find me here.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:mbackbencher01@gmail.com">✉ Email me</a>
+          <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          <!-- Add your LinkedIn: <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Built with curiosity by Ritesh Mahato · © <span id="year"></span></footer>
+<a href="#home" id="top" aria-label="Back to top">↑</a>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// ---- Theme toggle (remembers choice) ----
+const root = document.documentElement;
+const themeBtn = document.getElementById("theme");
+function setTheme(t) {
+  root.setAttribute("data-theme", t);
+  themeBtn.textContent = t === "light" ? "☀️" : "🌙";
+  try { localStorage.setItem("theme", t); } catch (e) {}
+}
+le
