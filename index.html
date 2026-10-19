@@ -1,9 +1,10 @@
-j<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ritesh Mahato | My Website</title>
+
   <style>
     * {
       margin: 0;
@@ -11,45 +12,19 @@ j<!DOCTYPE html>
       box-sizing: border-box;
     }
 
-<section class="social-links">
-  <h2>Connect With Me 🤝</h2>
-  <a href="https://github.com/" target="_blank">💻 GitHub</a>
-  <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
-  <a href="mailto:your@email.com">✉️ Contact Me</a>
-</section>
-
-<style>
-.social-links {
-  text-align: center;
-  padding: 25px 10px;
-}
-.social-links a {
-  display: inline-block;
-  margin: 8px;
-  padding: 12px 18px;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-}
-</style>
-</body>
-  
     body {
       font-family: Arial, sans-serif;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      padding: 30px 15px;
       color: white;
       background: linear-gradient(135deg, #080b20, #191044, #071b35);
     }
 
     .card {
       width: 100%;
-      max-width: 440px;
-      padding: 40px 24px;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 35px 22px;
       text-align: center;
       border: 1px solid rgba(120, 150, 255, 0.4);
       border-radius: 25px;
@@ -58,16 +33,19 @@ j<!DOCTYPE html>
     }
 
     .avatar {
-      width: 95px;
-      height: 95px
+      width: 110px;
+      height: 110px;
       margin: 0 auto 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
       border-radius: 50%;
-      font-size: 38px;
       background: linear-gradient(135deg, #725bff, #00cfff);
       box-shadow: 0 0 25px rgba(0, 207, 255, 0.3);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     h1 {
@@ -81,42 +59,70 @@ j<!DOCTYPE html>
 
     .tagline {
       color: #c7cbe0;
-      line-height: 1.7;
-      margin-bottom: 25px;
+      line-height: 1.8;
+      margin-bottom: 22px;
     }
 
-    .button {
+    .button, .social-links a {
       display: inline-block;
-      margin: 6px;
-      padding: 13px 20px;
-      border-radius: 30px;
+      margin: 7px 4px;
+      padding: 12px 18px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
       color: white;
       background: linear-gradient(90deg, #6755ff, #008cff);
+      transition: transform 0.2s;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
+    .button:hover, .social-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    .about {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .about h2, .social-links h2 {
+      margin-bottom: 16px;
+      color: #68dcff;
+    }
+
+    .about p {
+      color: #d4d7e8;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .about h3 {
+      font-size: 16px;
+      margin-top: 22px;
+      color: #b6aaff;
+    }
+
+    .social-links {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
     }
 
     footer {
       margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.15);
       color: #9ba4c5;
       font-size: 13px;
     }
-    .avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-    }
   </style>
 </head>
+
 <body>
   <main class="card">
+
     <div class="avatar">
-  <img src="ritesh.png" alt="Ritesh Mahato">
+      <img src="ritesh.png" alt="Ritesh Mahato">
     </div>
 
     <h1>Hey, I'm <span>Ritesh!</span></h1>
@@ -132,27 +138,46 @@ j<!DOCTYPE html>
       Visit My GitHub ↗
     </a>
 
-<section class="about">
-  <h2>About Me 👋</h2>
+    <section class="about">
+      <h2>About Me 👋</h2>
 
-  <p>
-    Hi, I'm Ritesh Mahato!
-    I'm a student, a curious learner, and an aspiring developer.
-    I enjoy learning new things, exploring technology,
-    and building creative projects.
-  </p>
+      <p>
+        Hi, I'm Ritesh Mahato! I'm a student,
+        a curious learner, and an aspiring developer.
+        I enjoy learning new things, exploring technology,
+        and building creative projects.
+      </p>
 
-  <p>
-    My goal is to improve my skills, turn my ideas into reality,
-    and create something meaningful.
-  </p>
+      <p>
+        My goal is to improve my skills, turn my ideas
+        into reality, and create something meaningful.
+      </p>
 
-  <h3>✨ Learning Today • Building Tomorrow</h3>
-</section>
-    
+      <h3>✨ Learning Today • Building Tomorrow</h3>
+    </section>
+
+    <section class="social-links">
+      <h2>Connect With Me 🤝</h2>
+
+      <a href="https://github.com/riteshmahato01"
+         target="_blank" rel="noopener noreferrer">
+        💻 GitHub
+      </a>
+
+      <a href="https://www.instagram.com/"
+         target="_blank" rel="noopener noreferrer">
+        📸 Instagram
+      </a>
+
+      <a href="mailto:your@email.com">
+        ✉️ Contact Me
+      </a>
+    </section>
+
     <footer>
       Made with ❤️ by Ritesh Mahato
     </footer>
+
   </main>
 </body>
 </html>
