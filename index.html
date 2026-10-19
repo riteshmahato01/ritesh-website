@@ -1,55 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080d20">
-<title>Ritesh Mahato | Personal Website</title>
+<title>Ritesh Mahato | My World</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#080d20;color:#f4f6ff;line-height:1.7}
+:root{--bg:#080d20;--panel:#111a33;--purple:#a78bfa;--muted:#c5cbe0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:system-ui,Arial,sans-serif;background:radial-gradient(ellipse at 15% 0%,#30205d,transparent 36%),radial-gradient(ellipse at 100% 30%,#102a52,transparent 32%),var(--bg);color:#f5f5ff;line-height:1.7}
 .container{width:min(100% - 30px,950px);margin:auto}
-header{padding:20px 0;border-bottom:1px solid #ffffff18}
-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:22px;font-weight:bold;color:#a78bfa}
-nav a{color:#ddd;text-decoration:none;margin-left:12px;font-size:14px}
+header{position:sticky;top:0;z-index:5;background:#080d20e8;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff18}
+nav{min-height:65px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:900;color:var(--purple);text-decoration:none}
+.navlinks{display:flex;gap:13px;flex-wrap:wrap}
+.navlinks a{color:#d6d9ec;text-decoration:none;font-size:13px}
+.navlinks a:hover{color:var(--purple)}
 .hero{text-align:center;padding:65px 0 45px}
-.avatar{width:145px;height:145px;border-radius:50%;object-fit:cover;border:4px solid #a78bfa;box-shadow:0 0 30px #8b5cf655}
-h1{font-size:clamp(30px,7vw,48px);margin:20px 0 8px}
-h1 span{color:#a78bfa}
-.subtitle{color:#c4c9df;font-size:17px}
-.tag{display:inline-block;margin-top:15px;padding:5px 14px;border:1px solid #a78bfa66;border-radius:25px;color:#c4b5fd}
-.btn{display:inline-block;text-decoration:none;color:white;background:#7655e8;padding:11px 18px;border-radius:12px;margin:8px 5px;font-weight:bold;border:0;cursor:pointer}
-.btn:hover{background:#947af5}
-.panel{background:#111a33;border:1px solid #ffffff13;border-radius:20px;padding:25px;margin:22px 0;box-shadow:0 12px 35px #0002}
-.section-title{font-size:25px;margin-bottom:12px;color:#c4b5fd}
-p{color:#d4d8e8}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.card{background:#182341;padding:18px;border-radius:14px;border:1px solid #ffffff12}
-.card h3{margin-bottom:6px;color:#e0d7ff}
-.skill{display:inline-block;background:#202c4b;border:1px solid #ffffff15;padding:7px 12px;margin:5px;border-radius:20px;color:#ddd}
+.avatar{width:145px;height:145px;border-radius:50%;object-fit:cover;border:3px solid #c4b5fd;box-shadow:0 0 35px #8b5cf677;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+h1{font-size:clamp(32px,7vw,55px);line-height:1.2;margin:22px 0 12px}
+.gradient{background:linear-gradient(90deg,#c4b5fd,#7dd3fc,#f0abfc);background-clip:text;-webkit-background-clip:text;color:transparent}
+.subtitle{color:var(--muted);font-size:18px}
+#typing{color:#c4b5fd;min-height:30px;margin-top:5px}
+.pill{display:inline-block;margin-top:12px;padding:5px 13px;border:1px solid #a78bfa66;border-radius:30px;color:#ddd3ff}
+.btn{display:inline-block;text-decoration:none;color:white;background:linear-gradient(135deg,#8059ed,#5941bc);padding:11px 17px;border-radius:12px;margin:7px 4px;font-weight:700;transition:.2s;border:1px solid #ffffff20}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.15)}
+.secondary{background:#ffffff0b}
+.panel{margin:22px 0;padding:clamp(20px,4vw,30px);border-radius:21px;background:linear-gradient(145deg,#141e39,#0d152b);border:1px solid #ffffff18;box-shadow:0 16px 45px #0003;animation:appear .7s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-size:clamp(23px,4vw,29px);margin-bottom:12px}
+.section-title span{color:var(--purple)}
+p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:17px}
+.card{padding:19px;border-radius:16px;background:linear-gradient(145deg,#1b294b,#111a30);border:1px solid #ffffff16;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#a78bfa99}
+.emoji{font-size:28px}
+.card h3{margin:7px 0;color:#e5ddff}
+.card p{font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.skill{padding:7px 12px;border-radius:25px;background:#9b7bff15;border:1px solid #a78bfa55;color:#e3dcff}
+input[type=file]{max-width:100%;margin:12px 0;color:var(--muted)}
+audio{width:100%;margin-top:12px}
+#playerStatus{font-size:13px;color:#c4b5fd;margin-top:8px}
 .social-links{display:flex;justify-content:center;flex-wrap:wrap;margin-top:12px}
-.music-caption{font-size:14px;margin-bottom:15px}
-input[type=file]{max-width:100%;margin:10px 0;color:#ddd}
-audio{width:100%;margin-top:15px}
-#playerStatus{font-size:13px;margin-top:8px;color:#c4b5fd}
-footer{text-align:center;padding:28px 10px 35px;color:#aab1ca;font-size:14px}
+.counter{display:inline-flex;flex-direction:column;align-items:center;gap:7px;padding:16px;border:1px solid #ffffff20;background:#ffffff08;border-radius:16px;margin-top:12px}
+.counter img{max-width:100%;height:25px}
+footer{text-align:center;padding:30px 10px 40px;color:#aab1ca;font-size:14px}
 footer a{color:#c4b5fd;text-decoration:none}
-.top-link{position:fixed;right:15px;bottom:15px;background:#7655e8;color:white;text-decoration:none;padding:9px 13px;border-radius:50%;box-shadow:0 4px 18px #0006}
-@media(max-width:500px){nav{justify-content:center}nav a{margin:0 5px}.hero{padding-top:45px}.panel{padding:19px}}
+#topButton{display:none;position:fixed;right:15px;bottom:15px;width:44px;height:44px;border:0;border-radius:50%;background:#7655e8;color:white;font-size:23px;z-index:6}
+#toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#1b294b;border:1px solid #a78bfa88;padding:10px 16px;border-radius:12px;transition:.3s;z-index:8;text-align:center;width:max-content;max-width:90%;pointer-events:none}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:520px){nav{justify-content:center;padding:10px 0}.navlinks{justify-content:center;gap:10px}.hero{padding-top:45px}.avatar{width:130px;height:130px}.panel{margin:16px 0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header>
 <div class="container">
 <nav>
-<div class="logo">RM. ✨</div>
-<div>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#connect">Contact</a>
+<a class="logo" href="#top">RM. ✦</a>
+<div class="navlinks">
+<a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#music">Music</a><a href="#connect">Contact</a>
 </div>
 </nav>
 </div>
@@ -57,65 +70,63 @@ footer a{color:#c4b5fd;text-decoration:none}
 
 <main class="container" id="top">
 <section class="hero">
-<img class="avatar" src="ritesh.png" alt="Ritesh Mahato"
-onerror="this.style.display='none';document.getElementById('fallback').style.display='inline-flex'">
+<img class="avatar" src="ritesh.png" alt="Ritesh Mahato" onerror="this.style.display='none';document.getElementById('fallback').style.display='inline-flex'">
 <div id="fallback" class="avatar" style="display:none;align-items:center;justify-content:center;margin:auto;font-size:38px;font-weight:bold">RM</div>
-<h1>Good evening, I'm <span>Ritesh Mahato</span> 👋</h1>
-<p class="subtitle">Welcome to my personal corner of the internet.</p>
-<span class="tag">Learning • Growing • Building 🚀</span>
-<div style="margin-top:20px">
-<a class="btn" href="#about">Explore My Website ↓</a>
-<a class="btn" href="#connect">Contact Me</a>
+<h1>Hey, I'm <span class="gradient">Ritesh Mahato</span> 👋</h1>
+<p class="subtitle">Welcome to my little corner of the internet.</p>
+<p id="typing">Learning. Creating. Growing.</p>
+<span class="pill">✨ My journey, my ideas, my website</span>
+<div style="margin-top:18px">
+<a class="btn" href="#about">Explore My World ↓</a>
+<a class="btn secondary" href="#connect">Let's Connect ↗</a>
 </div>
 </section>
 
 <section class="panel" id="about">
-<h2 class="section-title">About Me 👋</h2>
-<p>Hey! I'm Ritesh Mahato. Welcome to my personal website. I'm learning new things, exploring technology and working on improving myself every day. This is my little space to share my journey and projects. Thanks for visiting! ❤️</p>
+<h2 class="section-title"><span>01.</span> About Me 👋</h2>
+<p>Hey! I'm Ritesh Mahato. I'm curious about technology, learning new skills and building things one step at a time. This is my personal space to share my journey, ideas and projects. I'm just getting started — and there's more to come! 🚀</p>
 </section>
 
 <section class="panel" id="projects">
-<h2 class="section-title">My Projects 🚀</h2>
+<h2 class="section-title"><span>02.</span> Things I'm Building 🚀</h2>
+<p>A few highlights from my learning journey.</p>
 <div class="grid">
-<div class="card">
-<h3>🌐 Personal Website</h3>
-<p>My first personal website, built with HTML and CSS and published using GitHub Pages.</p>
-</div>
-<div class="card">
-<h3>💡 Learning Journey</h3>
-<p>Exploring web development and learning how to create better websites step by step.</p>
-</div>
-<div class="card">
-<h3>🎯 Future Goals</h3>
-<p>Learning useful skills, creating more projects and turning ideas into reality.</p>
-</div>
+<article class="card"><div class="emoji">🌐</div><h3>My First Website</h3><p>A personal website made with HTML and CSS and published using GitHub Pages.</p></article>
+<article class="card"><div class="emoji">🧠</div><h3>Learning Every Day</h3><p>Exploring web design, digital tools and creative ways to build things.</p></article>
+<article class="card"><div class="emoji">🎯</div><h3>What's Next?</h3><p>More projects, new skills and a better version of this website over time.</p></article>
 </div>
 </section>
 
 <section class="panel" id="skills">
-<h2 class="section-title">My Skills & Interests 💻</h2>
-<div>
-<span class="skill">HTML</span>
-<span class="skill">CSS</span>
-<span class="skill">GitHub</span>
-<span class="skill">Web Development</span>
-<span class="skill">Learning</span>
-<span class="skill">Creativity</span>
+<h2 class="section-title"><span>03.</span> Skills & Interests 💡</h2>
+<p>Things I'm exploring and getting better at.</p>
+<div class="skills">
+<span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">GitHub</span><span class="skill">Web Design</span><span class="skill">Technology</span><span class="skill">Creativity</span><span class="skill">Learning</span>
 </div>
 </section>
 
 <section class="panel" id="music">
-<h2 class="section-title">Music Corner 🎵</h2>
-<p class="music-caption">Choose an audio file from your phone to listen here. The file stays on your device; it isn't uploaded to this website.</p>
-<label for="musicFile">Choose your music file:</label><br>
+<h2 class="section-title"><span>04.</span> My Music Corner 🎧</h2>
+<p>Choose an audio file from your phone to play it here. Your file stays on your device and is not uploaded.</p>
+<label for="musicFile">Choose music:</label><br>
 <input id="musicFile" type="file" accept="audio/*">
 <audio id="musicPlayer" controls style="display:none"></audio>
-<p id="playerStatus">Your music player is ready 🎧</p>
+<p id="playerStatus" aria-live="polite">Ready when you are 🎵</p>
+</section>
+
+<section class="panel" id="visitors" style="text-align:center">
+<h2 class="section-title"><span>05.</span> Thanks for Visiting 🌟</h2>
+<p>Every visit is part of this journey. Glad you're here!</p>
+<div class="counter">
+<strong>Website visitors</strong>
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Friteshmahato01.github.io%2Fritesh-website%2F&count_bg=%237C3AED&title_bg=%230F172A&icon=github.svg&icon_color=%23E7E7E7&title=Visitors&edge_flat=false" alt="Visitor counter">
+<small style="color:#aab1ca">Counter provided by an external service</small>
+</div>
 </section>
 
 <section class="panel" id="connect" style="text-align:center">
-<h2 class="section-title">Contact Me 📬</h2>
-<p class="music-caption">Want to connect? Find me on email, Instagram or GitHub!</p>
+<h2 class="section-title"><span>06.</span> Let's Connect 📬</h2>
+<p>Want to say hello? Find me here.</p>
 <div class="social-links">
 <a class="btn" href="mailto:mbackbencher01@gmail.com">✉️ Email Me</a>
 <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
@@ -128,33 +139,34 @@ onerror="this.style.display='none';document.getElementById('fallback').style.dis
 Made with ❤️ by Ritesh Mahato<br>
 <a href="#top">Back to top ↑</a>
 </footer>
-
-<a class="top-link" href="#top" aria-label="Back to top">↑</a>
+<button id="topButton" aria-label="Back to top">↑</button>
+<div id="toast" role="status">Welcome to my website! ✨</div>
 
 <script>
-const musicFile = document.getElementById("musicFile");
-const musicPlayer = document.getElementById("musicPlayer");
-const playerStatus = document.getElementById("playerStatus");
-let localMusicURL = null;
-
-musicFile.addEventListener("change", function () {
-  const file = musicFile.files && musicFile.files[0];
-  if (!file) return;
-
-  if (localMusicURL) URL.revokeObjectURL(localMusicURL);
-  localMusicURL = URL.createObjectURL(file);
-  musicPlayer.src = localMusicURL;
-  musicPlayer.style.display = "block";
-  musicPlayer.load();
-  playerStatus.textContent = "Selected: " + file.name;
-  musicPlayer.play().catch(function () {
-    playerStatus.textContent = "Music ready! Press Play to start listening.";
-  });
+const musicFile=document.getElementById("musicFile");
+const musicPlayer=document.getElementById("musicPlayer");
+const playerStatus=document.getElementById("playerStatus");
+let localMusicURL=null;
+musicFile.addEventListener("change",function(){
+ const file=musicFile.files&&musicFile.files[0];
+ if(!file)return;
+ if(localMusicURL)URL.revokeObjectURL(localMusicURL);
+ localMusicURL=URL.createObjectURL(file);
+ musicPlayer.src=localMusicURL;
+ musicPlayer.style.display="block";
+ musicPlayer.load();
+ playerStatus.textContent="Selected: "+file.name;
+ musicPlayer.play().catch(function(){playerStatus.textContent="Music ready! Press Play to start."});
 });
-
-window.addEventListener("pagehide", function () {
-  if (localMusicURL) URL.revokeObjectURL(localMusicURL);
-});
+window.addEventListener("pagehide",function(){if(localMusicURL)URL.revokeObjectURL(localMusicURL)});
+const topButton=document.getElementById("topButton");
+window.addEventListener("scroll",function(){topButton.style.display=window.scrollY>350?"block":"none"});
+topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+const toast=document.getElementById("toast");
+window.setTimeout(function(){toast.classList.add("show");window.setTimeout(function(){toast.classList.remove("show")},2800)},800);
+const phrases=["Learning. Creating. Growing.","Turning ideas into reality.","One step at a time. ✨"];
+let phraseIndex=0;
+window.setInterval(function(){phraseIndex=(phraseIndex+1)%phrases.length;document.getElementById("typing").textContent=phrases[phraseIndex]},2600);
 </script>
 </body>
 </html>
