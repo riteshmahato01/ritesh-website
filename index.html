@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050807">
+<meta name="description" content="Ritesh Mahato – student, learner and future developer. Portfolio with projects and skills.">
 <title>Ritesh Mahato | Cyber Portfolio</title>
 <style>
 :root {
@@ -151,6 +151,7 @@ h1 {
   box-shadow: 0 0 20px #39ff8877;
   outline: none;
 }
+.btn.small-btn { padding: 6px 12px; font-size: 13px; margin-top: 12px; }
 .section-title {
   color: var(--green);
   font-size: clamp(22px, 4vw, 30px);
@@ -194,6 +195,32 @@ h1 {
 }
 .small { color: var(--muted); font-size: 13px; margin-top: 12px; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+/* Skill bars */
+.skillrow { margin-bottom: 16px; }
+.skilltop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.skilltop span:last-child { color: var(--cyan); }
+.bar {
+  height: 8px;
+  border: 1px solid #39ff8844;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0006;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  box-shadow: 0 0 12px #39ff8888;
+  transition: width 1.2s ease;
+}
+
 footer {
   text-align: center;
   padding: 25px 16px;
@@ -261,6 +288,8 @@ footer {
         <div class="actions">
           <a class="btn" href="#projects">[ Explore Projects ]</a>
           <a class="btn" href="#contact">[ Connect With Me ]</a>
+          <!-- Upload your resume as resume.pdf in the same folder -->
+          <a class="btn" href="resume.pdf" download>[ Download Resume ]</a>
         </div>
       </div>
     </div>
@@ -273,6 +302,11 @@ footer {
         Hello! I'm Ritesh Mahato. I'm learning, exploring technology
         and building my own corner of the internet. This website is my
         personal digital space where I can share my journey and projects.
+      </p>
+      <p style="margin-top:12px">
+        I'm a student interested in web development and technology. Right now I'm
+        focusing on HTML, CSS and JavaScript, and I'm looking for internships and
+        beginner-friendly projects where I can learn from real work.
       </p>
       <p style="margin-top:12px;color:var(--green)">
         $ Current mission: Learn. Build. Improve. Repeat.
@@ -287,11 +321,13 @@ footer {
         <h3>01 // Personal Website</h3>
         <p>My own portfolio, built with HTML and CSS and published using GitHub Pages.</p>
         <p class="small">STATUS: ONLINE</p>
+        <a class="btn small-btn" href="https://github.com/riteshmahato01/ritesh-website" target="_blank" rel="noopener noreferrer">[ View Code ]</a>
       </article>
       <article class="card">
         <h3>02 // Learning Lab</h3>
         <p>A space for experiments, coding practice and new ideas as I keep learning.</p>
         <p class="small">STATUS: IN PROGRESS</p>
+        <a class="btn small-btn" href="https://github.com/riteshmahato01?tab=repositories" target="_blank" rel="noopener noreferrer">[ View Repos ]</a>
       </article>
       <article class="card">
         <h3>03 // Next Project</h3>
@@ -303,12 +339,25 @@ footer {
 
   <section id="skills">
     <h2 class="section-title">Skills & Learning</h2>
-    <div class="panel">
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-      <span class="tag">GitHub Pages</span>
+    <div class="panel" id="skillPanel">
+      <!-- Change data-w (percent) and the label to match your real level -->
+      <div class="skillrow">
+        <div class="skilltop"><span>HTML</span><span>Comfortable</span></div>
+        <div class="bar"><i data-w="65%"></i></div>
+      </div>
+      <div class="skillrow">
+        <div class="skilltop"><span>CSS</span><span>Comfortable</span></div>
+        <div class="bar"><i data-w="60%"></i></div>
+      </div>
+      <div class="skillrow">
+        <div class="skilltop"><span>GitHub Pages</span><span>Basics</span></div>
+        <div class="bar"><i data-w="45%"></i></div>
+      </div>
+      <div class="skillrow">
+        <div class="skilltop"><span>JavaScript</span><span>Learning</span></div>
+        <div class="bar"><i data-w="25%"></i></div>
+      </div>
       <span class="tag">Creative Ideas</span>
-      <span class="tag">Learning JavaScript</span>
       <p class="small">These are learning areas, not a claim of expert-level experience.</p>
     </div>
   </section>
@@ -334,6 +383,8 @@ footer {
         <a class="btn" href="mailto:mbackbencher01@gmail.com">[ Email ]</a>
         <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">[ Instagram ]</a>
         <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">[ GitHub Profile ]</a>
+        <!-- Add your LinkedIn: <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer">[ LinkedIn ]</a> -->
+        <a class="btn" href="resume.pdf" download>[ Resume ]</a>
       </div>
     </div>
   </section>
@@ -448,6 +499,22 @@ const topBtn = document.getElementById("topBtn");
 window.addEventListener("scroll", function () {
   topBtn.style.display = window.scrollY > 350 ? "block" : "none";
 });
+
+// Animate skill bars when the Skills section scrolls into view
+const skillPanel = document.getElementById("skillPanel");
+function fillBars() {
+  skillPanel.querySelectorAll(".bar i").forEach(function (b) {
+    b.style.width = b.dataset.w;
+  });
+}
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) { fillBars(); io.disconnect(); }
+  }, { threshold: 0.3 });
+  io.observe(skillPanel);
+} else {
+  fillBars();
+}
 </script>
 </body>
 </html>
