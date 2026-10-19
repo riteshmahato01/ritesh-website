@@ -1,172 +1,453 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080d20">
-<title>Ritesh Mahato | My World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050807">
+<title>Ritesh Mahato | Cyber Portfolio</title>
 <style>
-:root{--bg:#080d20;--panel:#111a33;--purple:#a78bfa;--muted:#c5cbe0}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:system-ui,Arial,sans-serif;background:radial-gradient(ellipse at 15% 0%,#30205d,transparent 36%),radial-gradient(ellipse at 100% 30%,#102a52,transparent 32%),var(--bg);color:#f5f5ff;line-height:1.7}
-.container{width:min(100% - 30px,950px);margin:auto}
-header{position:sticky;top:0;z-index:5;background:#080d20e8;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff18}
-nav{min-height:65px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-size:23px;font-weight:900;color:var(--purple);text-decoration:none}
-.navlinks{display:flex;gap:13px;flex-wrap:wrap}
-.navlinks a{color:#d6d9ec;text-decoration:none;font-size:13px}
-.navlinks a:hover{color:var(--purple)}
-.hero{text-align:center;padding:65px 0 45px}
-.avatar{width:145px;height:145px;border-radius:50%;object-fit:cover;border:3px solid #c4b5fd;box-shadow:0 0 35px #8b5cf677;animation:float 4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-8px)}}
-h1{font-size:clamp(32px,7vw,55px);line-height:1.2;margin:22px 0 12px}
-.gradient{background:linear-gradient(90deg,#c4b5fd,#7dd3fc,#f0abfc);background-clip:text;-webkit-background-clip:text;color:transparent}
-.subtitle{color:var(--muted);font-size:18px}
-#typing{color:#c4b5fd;min-height:30px;margin-top:5px}
-.pill{display:inline-block;margin-top:12px;padding:5px 13px;border:1px solid #a78bfa66;border-radius:30px;color:#ddd3ff}
-.btn{display:inline-block;text-decoration:none;color:white;background:linear-gradient(135deg,#8059ed,#5941bc);padding:11px 17px;border-radius:12px;margin:7px 4px;font-weight:700;transition:.2s;border:1px solid #ffffff20}
-.btn:hover{transform:translateY(-3px);filter:brightness(1.15)}
-.secondary{background:#ffffff0b}
-.panel{margin:22px 0;padding:clamp(20px,4vw,30px);border-radius:21px;background:linear-gradient(145deg,#141e39,#0d152b);border:1px solid #ffffff18;box-shadow:0 16px 45px #0003;animation:appear .7s ease both}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.section-title{font-size:clamp(23px,4vw,29px);margin-bottom:12px}
-.section-title span{color:var(--purple)}
-p{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:17px}
-.card{padding:19px;border-radius:16px;background:linear-gradient(145deg,#1b294b,#111a30);border:1px solid #ffffff16;transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:#a78bfa99}
-.emoji{font-size:28px}
-.card h3{margin:7px 0;color:#e5ddff}
-.card p{font-size:14px}
-.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
-.skill{padding:7px 12px;border-radius:25px;background:#9b7bff15;border:1px solid #a78bfa55;color:#e3dcff}
-input[type=file]{max-width:100%;margin:12px 0;color:var(--muted)}
-audio{width:100%;margin-top:12px}
-#playerStatus{font-size:13px;color:#c4b5fd;margin-top:8px}
-.social-links{display:flex;justify-content:center;flex-wrap:wrap;margin-top:12px}
-.counter{display:inline-flex;flex-direction:column;align-items:center;gap:7px;padding:16px;border:1px solid #ffffff20;background:#ffffff08;border-radius:16px;margin-top:12px}
-.counter img{max-width:100%;height:25px}
-footer{text-align:center;padding:30px 10px 40px;color:#aab1ca;font-size:14px}
-footer a{color:#c4b5fd;text-decoration:none}
-#topButton{display:none;position:fixed;right:15px;bottom:15px;width:44px;height:44px;border:0;border-radius:50%;background:#7655e8;color:white;font-size:23px;z-index:6}
-#toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#1b294b;border:1px solid #a78bfa88;padding:10px 16px;border-radius:12px;transition:.3s;z-index:8;text-align:center;width:max-content;max-width:90%;pointer-events:none}
-#toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:520px){nav{justify-content:center;padding:10px 0}.navlinks{justify-content:center;gap:10px}.hero{padding-top:45px}.avatar{width:130px;height:130px}.panel{margin:16px 0}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+:root {
+  --green: #39ff88;
+  --cyan: #00eaff;
+  --bg: #050807;
+  --panel: rgba(10, 24, 18, .88);
+  --muted: #a3b8ad;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: #eafff1;
+  font-family: Consolas, "Courier New", monospace;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 15% 15%, #073d2680, transparent 40%),
+    radial-gradient(ellipse at 90% 70%, #003c4b55, transparent 40%),
+    #050807;
+}
+#matrix {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: .20;
+  pointer-events: none;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #050807eF;
+  border-bottom: 1px solid #39ff8844;
+  backdrop-filter: blur(12px);
+}
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.logo {
+  color: var(--green);
+  font-weight: bold;
+  text-shadow: 0 0 12px #39ff8877;
+  font-size: 18px;
+}
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+}
+.navlinks a:hover { color: var(--green); }
+section {
+  width: min(100% - 36px, 1000px);
+  margin: auto;
+  padding: 65px 0;
+  scroll-margin-top: 70px;
+}
+.hero {
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.terminal {
+  width: 100%;
+  border: 1px solid #39ff8866;
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 0 35px #39ff8810, inset 0 0 25px #39ff8807;
+  overflow: hidden;
+}
+.terminalbar {
+  text-align: left;
+  padding: 10px 15px;
+  border-bottom: 1px solid #39ff8833;
+  color: var(--muted);
+  font-size: 12px;
+}
+.dots { color: var(--green); letter-spacing: 5px; }
+.herocontent { padding: 35px 20px 42px; }
+.avatar {
+  width: 135px;
+  height: 135px;
+  object-fit: cover;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 25px #39ff8844;
+  margin-bottom: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+h1 {
+  font-size: clamp(29px, 6vw, 48px);
+  line-height: 1.25;
+  color: var(--green);
+  text-shadow: 0 0 20px #39ff8844;
+  overflow-wrap: anywhere;
+}
+.subtitle { color: var(--cyan); margin-top: 10px; }
+.typing {
+  min-height: 32px;
+  color: var(--green);
+  margin: 10px 0 22px;
+}
+.cursor { animation: blink 1s steps(2) infinite; }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 17px;
+  border: 1px solid var(--green);
+  border-radius: 7px;
+  color: var(--green);
+  background: #39ff880c;
+  font-family: inherit;
+  cursor: pointer;
+  transition: .2s;
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--green);
+  color: #031008;
+  box-shadow: 0 0 20px #39ff8877;
+  outline: none;
+}
+.section-title {
+  color: var(--green);
+  font-size: clamp(22px, 4vw, 30px);
+  margin-bottom: 20px;
+}
+.section-title::before { content: "> "; color: var(--cyan); }
+.panel {
+  padding: 24px;
+  border: 1px solid #39ff8833;
+  border-radius: 12px;
+  background: var(--panel);
+}
+.panel p { color: #d1e5d8; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 16px;
+}
+.card {
+  padding: 20px;
+  border: 1px solid #39ff8833;
+  border-radius: 12px;
+  background: var(--panel);
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+  box-shadow: 0 0 22px #39ff8810;
+}
+.card h3 { color: var(--cyan); margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 14px; }
+.tag {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 5px 10px;
+  border: 1px solid #39ff8855;
+  border-radius: 5px;
+  color: var(--green);
+  font-size: 13px;
+}
+.small { color: var(--muted); font-size: 13px; margin-top: 12px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+footer {
+  text-align: center;
+  padding: 25px 16px;
+  border-top: 1px solid #39ff8844;
+  color: var(--muted);
+  font-size: 13px;
+}
+#topBtn {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  display: none;
+  z-index: 9;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (max-width: 600px) {
+  nav { align-items: flex-start; flex-direction: column; }
+  .navlinks { gap: 12px; }
+  section { padding: 44px 0; }
+  .hero { min-height: auto; padding-top: 45px; }
+  .herocontent { padding: 28px 14px 32px; }
+  .panel { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
 </style>
 </head>
 <body>
+<canvas id="matrix" aria-hidden="true"></canvas>
+
 <header>
-<div class="container">
-<nav>
-<a class="logo" href="#top">RM. ✦</a>
-<div class="navlinks">
-<a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#music">Music</a><a href="#connect">Contact</a>
-</div>
-</nav>
-</div>
+  <nav>
+    <a class="logo" href="#home">RITESH.exe</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
-<main class="container" id="top">
-<section class="hero">
-<img class="avatar" src="ritesh.png" alt="Ritesh Mahato" onerror="this.style.display='none';document.getElementById('fallback').style.display='inline-flex'">
-<div id="fallback" class="avatar" style="display:none;align-items:center;justify-content:center;margin:auto;font-size:38px;font-weight:bold">RM</div>
-<h1>Hey, I'm <span class="gradient">Ritesh Mahato</span> 👋</h1>
-<p class="subtitle">Welcome to my little corner of the internet.</p>
-<p id="typing">Learning. Creating. Growing.</p>
-<span class="pill">✨ My journey, my ideas, my website</span>
-<div style="margin-top:18px">
-<a class="btn" href="#about">Explore My World ↓</a>
-<a class="btn secondary" href="#connect">Let's Connect ↗</a>
-</div>
-</section>
+<main>
+  <section class="hero" id="home">
+    <div class="terminal">
+      <div class="terminalbar">
+        <span class="dots">● ● ●</span> &nbsp; system://profile
+      </div>
+      <div class="herocontent">
+        <img class="avatar" src="ritesh.png" alt="Ritesh Mahato"
+             onerror="this.style.display='none'">
+        <p style="color:var(--muted)">// SYSTEM ONLINE</p>
+        <h1>Ritesh Mahato</h1>
+        <p class="subtitle">Student • Learner • Future Developer</p>
+        <p class="typing"><span id="typed">Initializing system...</span><span class="cursor">_</span></p>
+        <div class="actions">
+          <a class="btn" href="#projects">[ Explore Projects ]</a>
+          <a class="btn" href="#contact">[ Connect With Me ]</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="panel" id="about">
-<h2 class="section-title"><span>01.</span> About Me 👋</h2>
-<p>Hey! I'm Ritesh Mahato. I'm curious about technology, learning new skills and building things one step at a time. This is my personal space to share my journey, ideas and projects. I'm just getting started — and there's more to come! 🚀</p>
-</section>
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="panel">
+      <p>
+        Hello! I'm Ritesh Mahato. I'm learning, exploring technology
+        and building my own corner of the internet. This website is my
+        personal digital space where I can share my journey and projects.
+      </p>
+      <p style="margin-top:12px;color:var(--green)">
+        $ Current mission: Learn. Build. Improve. Repeat.
+      </p>
+    </div>
+  </section>
 
-<section class="panel" id="projects">
-<h2 class="section-title"><span>02.</span> Things I'm Building 🚀</h2>
-<p>A few highlights from my learning journey.</p>
-<div class="grid">
-<article class="card"><div class="emoji">🌐</div><h3>My First Website</h3><p>A personal website made with HTML and CSS and published using GitHub Pages.</p></article>
-<article class="card"><div class="emoji">🧠</div><h3>Learning Every Day</h3><p>Exploring web design, digital tools and creative ways to build things.</p></article>
-<article class="card"><div class="emoji">🎯</div><h3>What's Next?</h3><p>More projects, new skills and a better version of this website over time.</p></article>
-</div>
-</section>
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>01 // Personal Website</h3>
+        <p>My own portfolio, built with HTML and CSS and published using GitHub Pages.</p>
+        <p class="small">STATUS: ONLINE</p>
+      </article>
+      <article class="card">
+        <h3>02 // Learning Lab</h3>
+        <p>A space for experiments, coding practice and new ideas as I keep learning.</p>
+        <p class="small">STATUS: IN PROGRESS</p>
+      </article>
+      <article class="card">
+        <h3>03 // Next Project</h3>
+        <p>The next idea is loading. More projects will be added here as I build them.</p>
+        <p class="small">STATUS: LOADING...</p>
+      </article>
+    </div>
+  </section>
 
-<section class="panel" id="skills">
-<h2 class="section-title"><span>03.</span> Skills & Interests 💡</h2>
-<p>Things I'm exploring and getting better at.</p>
-<div class="skills">
-<span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">GitHub</span><span class="skill">Web Design</span><span class="skill">Technology</span><span class="skill">Creativity</span><span class="skill">Learning</span>
-</div>
-</section>
+  <section id="skills">
+    <h2 class="section-title">Skills & Learning</h2>
+    <div class="panel">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">GitHub Pages</span>
+      <span class="tag">Creative Ideas</span>
+      <span class="tag">Learning JavaScript</span>
+      <p class="small">These are learning areas, not a claim of expert-level experience.</p>
+    </div>
+  </section>
 
-<section class="panel" id="music">
-<h2 class="section-title"><span>04.</span> My Music Corner 🎧</h2>
-<p>Choose an audio file from your phone to play it here. Your file stays on your device and is not uploaded.</p>
-<label for="musicFile">Choose music:</label><br>
-<input id="musicFile" type="file" accept="audio/*">
-<audio id="musicPlayer" controls style="display:none"></audio>
-<p id="playerStatus" aria-live="polite">Ready when you are 🎵</p>
-</section>
+  <section id="music">
+    <h2 class="section-title">Music Corner</h2>
+    <div class="panel">
+      <p>Got a favourite song? Choose an audio file from your phone to play it here. No song is preloaded.</p>
+      <div class="actions" style="justify-content:flex-start">
+        <label class="btn" for="audioFile">[ Choose Audio File ]</label>
+        <input id="audioFile" type="file" accept="audio/*" hidden>
+      </div>
+      <p id="audioName" class="small" aria-live="polite">No audio selected.</p>
+      <audio id="player" controls preload="none" style="width:100%;margin-top:12px"></audio>
+    </div>
+  </section>
 
-<section class="panel" id="visitors" style="text-align:center">
-<h2 class="section-title"><span>05.</span> Thanks for Visiting 🌟</h2>
-<p>Every visit is part of this journey. Glad you're here!</p>
-<div class="counter">
-<strong>Website visitors</strong>
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Friteshmahato01.github.io%2Fritesh-website%2F&count_bg=%237C3AED&title_bg=%230F172A&icon=github.svg&icon_color=%23E7E7E7&title=Visitors&edge_flat=false" alt="Visitor counter">
-<small style="color:#aab1ca">Counter provided by an external service</small>
-</div>
-</section>
-
-<section class="panel" id="connect" style="text-align:center">
-<h2 class="section-title"><span>06.</span> Let's Connect 📬</h2>
-<p>Want to say hello? Find me here.</p>
-<div class="social-links">
-<a class="btn" href="mailto:mbackbencher01@gmail.com">✉️ Email Me</a>
-<a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-<a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">💻 GitHub Profile</a>
-</div>
-</section>
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="panel">
+      <p>Want to connect or check out my work? Find me here.</p>
+      <div class="contact-links">
+        <a class="btn" href="mailto:mbackbencher01@gmail.com">[ Email ]</a>
+        <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">[ Instagram ]</a>
+        <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">[ GitHub Profile ]</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-Made with ❤️ by Ritesh Mahato<br>
-<a href="#top">Back to top ↑</a>
+  <p> &lt; Built with curiosity by Ritesh Mahato /&gt; </p>
+  <p>© <span id="year"></span> • SYSTEM ONLINE</p>
 </footer>
-<button id="topButton" aria-label="Back to top">↑</button>
-<div id="toast" role="status">Welcome to my website! ✨</div>
+
+<a href="#home" class="btn" id="topBtn" aria-label="Back to top">↑ TOP</a>
 
 <script>
-const musicFile=document.getElementById("musicFile");
-const musicPlayer=document.getElementById("musicPlayer");
-const playerStatus=document.getElementById("playerStatus");
-let localMusicURL=null;
-musicFile.addEventListener("change",function(){
- const file=musicFile.files&&musicFile.files[0];
- if(!file)return;
- if(localMusicURL)URL.revokeObjectURL(localMusicURL);
- localMusicURL=URL.createObjectURL(file);
- musicPlayer.src=localMusicURL;
- musicPlayer.style.display="block";
- musicPlayer.load();
- playerStatus.textContent="Selected: "+file.name;
- musicPlayer.play().catch(function(){playerStatus.textContent="Music ready! Press Play to start."});
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Animated hacker-style text
+const messages = [
+  "Exploring the digital world...",
+  "Learning something new every day...",
+  "Building my future, one line at a time...",
+  "Welcome to my digital space."
+];
+const typed = document.getElementById("typed");
+let messageIndex = 0, charIndex = 0, deleting = false;
+
+function typeEffect() {
+  const message = messages[messageIndex];
+  typed.textContent = message.substring(0, charIndex);
+
+  if (!deleting && charIndex < message.length) {
+    charIndex++;
+    setTimeout(typeEffect, 65);
+  } else if (!deleting) {
+    deleting = true;
+    setTimeout(typeEffect, 1300);
+  } else if (charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, 28);
+  } else {
+    deleting = false;
+    messageIndex = (messageIndex + 1) % messages.length;
+    setTimeout(typeEffect, 350);
+  }
+}
+typeEffect();
+
+// Matrix code rain, with mobile-friendly canvas sizing
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+const chars = "01アイウエオ<>/{}[]$#";
+let drops = [];
+let columns = 0;
+let frame = 0;
+
+function resizeMatrix() {
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.floor(window.innerWidth * ratio);
+  canvas.height = Math.floor(window.innerHeight * ratio);
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  columns = Math.ceil(window.innerWidth / 17);
+  drops = Array.from({ length: columns }, () =>
+    Math.random() * (window.innerHeight / 17)
+  );
+}
+function drawMatrix() {
+  // Reduce work on smaller screens while keeping the effect smooth.
+  frame++;
+  if (frame % 2 !== 0) {
+    requestAnimationFrame(drawMatrix);
+    return;
+  }
+  ctx.fillStyle = "rgba(5, 8, 7, 0.12)";
+  ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+  ctx.fillStyle = "#39ff88";
+  ctx.font = "14px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(char, i * 17, drops[i] * 17);
+    if (drops[i] * 17 > window.innerHeight && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i] += 0.55;
+  }
+  requestAnimationFrame(drawMatrix);
+}
+resizeMatrix();
+drawMatrix();
+window.addEventListener("resize", resizeMatrix);
+
+// Local audio file: nothing is uploaded to the website.
+const audioFile = document.getElementById("audioFile");
+const player = document.getElementById("player");
+const audioName = document.getElementById("audioName");
+let currentAudioUrl = null;
+
+audioFile.addEventListener("change", function () {
+  const file = this.files && this.files[0];
+  if (!file) return;
+
+  if (currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
+  currentAudioUrl = URL.createObjectURL(file);
+  player.src = currentAudioUrl;
+  audioName.textContent = "Selected: " + file.name;
+  player.load();
 });
-window.addEventListener("pagehide",function(){if(localMusicURL)URL.revokeObjectURL(localMusicURL)});
-const topButton=document.getElementById("topButton");
-window.addEventListener("scroll",function(){topButton.style.display=window.scrollY>350?"block":"none"});
-topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
-const toast=document.getElementById("toast");
-window.setTimeout(function(){toast.classList.add("show");window.setTimeout(function(){toast.classList.remove("show")},2800)},800);
-const phrases=["Learning. Creating. Growing.","Turning ideas into reality.","One step at a time. ✨"];
-let phraseIndex=0;
-window.setInterval(function(){phraseIndex=(phraseIndex+1)%phrases.length;document.getElementById("typing").textContent=phrases[phraseIndex]},2600);
+
+// Back-to-top button
+const topBtn = document.getElementById("topBtn");
+window.addEventListener("scroll", function () {
+  topBtn.style.display = window.scrollY > 350 ? "block" : "none";
+});
 </script>
 </body>
 </html>
