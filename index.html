@@ -373,4 +373,77 @@ function setTheme(t) {
   themeBtn.textContent = t === "light" ? "☀️" : "🌙";
   try { localStorage.setItem("theme", t); } catch (e) {}
 }
-le
+let saved = null;
+try { saved = localStorage.getItem("theme"); } catch (e) {}
+setTheme(saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+themeBtn.addEventListener("click", function () {
+  setTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+});
+
+// ---- Typing roles ----
+const roles = ["Student", "Learner", "Future Developer", "Creative Thinker"];
+const roleEl = document.getElementById("role");
+let ri = 0, ci = 0, del = false;
+(function type() {
+  const word = roles[ri];
+  roleEl.textContent = word.slice(0, ci);
+  if (!del && ci < word.length) { ci++; setTimeout(type, 90); }
+  else if (!del) { del = true; setTimeout(type, 1300); }
+  else if (ci > 0) { ci--; setTimeout(type, 45); }
+  else { del = false; ri = (ri + 1) % roles.length; setTimeout(type, 300); }
+})();
+
+// ---- Reveal on scroll + skill bars + counters ----
+function countUp(el) {
+  const target = +el.dataset.count, start = performance.now(), dur = 1200;
+  (function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round(target * p);
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
+}
+const io = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    e.target.querySelectorAll(".bar i").forEach(function (b) { b.style.width = b.dataset.w; });
+    e.target.querySelectorAll("[data-count]").forEach(countUp);
+    io.unobserve(e.target);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+
+// ---- Active nav link ----
+const navLinks = document.querySelectorAll(".links a");
+const nio = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) {
+      navLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id); });
+    }
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+["about", "projects", "skills", "contact"].forEach(function (id) { nio.observe(document.getElementById(id)); });
+
+// ---- Back to top ----
+const topBtn = document.getElementById("top");
+window.addEventListener("scroll", function () {
+  topBtn.style.display = window.scrollY > 450 ? "grid" : "none";
+}, { passive: true });
+
+// ---- Local audio player (nothing is uploaded) ----
+const audioFile = document.getElementById("audioFile");
+const player = document.getElementById("player");
+const audioName = document.getElementById("audioName");
+let audioUrl = null;
+audioFile.addEventListener("change", function () {
+  const f = this.files && this.files[0];
+  if (!f) return;
+  if (audioUrl) URL.revokeObjectURL(audioUrl);
+  audioUrl = URL.createObjectURL(f);
+  player.src = audioUrl;
+  audioName.textContent = "Selected: " + f.name;
+  player.load();
+});
+</script>
+</body>
+</html>
