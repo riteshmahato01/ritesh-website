@@ -230,7 +230,173 @@ development journey, and I'm excited to keep learning and creating.
 </div>
 </section>
 
-<!-- PART 2 CONTINUES BELOW -->
+
+<section id="projects">
+<div class="container">
+<div class="section-label">THINGS I'M BUILDING</div>
+<h2>My Projects 🚀</h2>
+<p class="section-desc">Every project is a new opportunity to learn.</p>
+<div class="card-grid">
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>My Personal Website</h3>
+<p>This portfolio website, published with GitHub Pages as part of my web development journey.</p>
+<div class="buttons">
+<a class="btn primary" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener">View Website ↗</a>
+</div>
+</div>
+<div class="card">
+<div class="card-icon">💡</div>
+<h3>Next Big Idea</h3>
+<p>More practice projects coming as I learn and improve my skills.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎯</div>
+<h3>My Goal</h3>
+<p>Keep learning, experiment with new ideas and build useful things.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<div class="section-label">WHAT I'M EXPLORING</div>
+<h2>Creative Playground ✨</h2>
+<p class="section-desc">The areas I'm exploring while learning web development.</p>
+<div class="card-grid">
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>Web Design</h3>
+<p>Practising attractive layouts, colours and clean interfaces.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Mobile-Friendly Design</h3>
+<p>Learning to make websites work on different screen sizes.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚡</div>
+<h3>New Experiments</h3>
+<p>Trying new ideas and improving my projects step by step.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact-card">
+<div class="section-label">LET'S TALK</div>
+<h2>Have a good idea? 👋</h2>
+<p class="section-desc">Drop by my profiles or send me an email. I'd love to connect!</p>
+<div class="buttons">
+<a class="btn primary" href="mailto:mbackbencher01@gmail.com">✉ Email Me</a>
+<a class="btn secondary" href="https://github.com/riteshmahato01" target="_blank" rel="noopener">GitHub ↗</a>
+<a class="btn secondary" href="https://www.instagram.com/6_nine_/" target="_blank" rel="noopener">Instagram ↗</a>
+</div>
+</div>
+</div>
+</section>
+
 </main>
+
+<footer>
+<div class="container">
+<p>Designed with ❤️ by Ritesh Mahato</p>
+<p>© <span id="year"></span> All rights reserved.</p>
+</div>
+</footer>
+
+<button id="topBtn" class="icon-btn"
+style="position:fixed;right:18px;bottom:18px;display:none;z-index:30"
+aria-label="Back to top">↑ Top</button>
+
+<style>
+.contact-card {
+  padding:32px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:radial-gradient(ellipse at top right,#7460ff20,transparent 55%),var(--card);
+}
+body.light {
+  --bg:#f5f7ff;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#59657b;
+  --border:#dce3f1;
+}
+body.light header {background:#f5f7ffee}
+body.light .card {
+  background:linear-gradient(145deg,#fff,#f0f3ff);
+}
+body.light .float-tag {background:#fff}
+@media(max-width:800px) {
+  #menuBtn {display:inline-block}
+  #mainNav {
+    display:none;
+    position:absolute;
+    top:72px;left:0;right:0;
+    padding:20px 5%;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:stretch;
+    gap:16px;
+  }
+  #mainNav.open {display:flex}
+  .hero-grid {grid-template-columns:1fr;text-align:center;gap:35px}
+  .hero-grid p {margin:auto}
+  .photo-wrap {grid-row:1}
+  .photo-card {width:min(280px,85%)}
+  .float-tag {left:-12px}
+  .buttons {justify-content:center}
+  .card-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px) {
+  .card-grid {grid-template-columns:1fr}
+  .contact-card {padding:23px}
+  h1 {letter-spacing:-1.5px}
+}
+</style>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mainNav = document.getElementById("mainNav");
+const themeBtn = document.getElementById("themeBtn");
+const topBtn = document.getElementById("topBtn");
+
+menuBtn.addEventListener("click", () => {
+  const opened = mainNav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(opened));
+  menuBtn.textContent = opened ? "✕" : "☰";
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const light = document.body.classList.contains("light");
+  themeBtn.textContent = light ? "🌙" : "☀️";
+  themeBtn.setAttribute("aria-label",
+    light ? "Switch to dark theme" : "Switch to light theme");
+});
+
+window.addEventListener("scroll", () => {
+  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
