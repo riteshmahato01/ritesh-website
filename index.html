@@ -1,168 +1,230 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<meta name="description" content="Ritesh Mahato creates modern, mobile-friendly websites for businesses and creators.">
-<title>Ritesh Mahato | Digital Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050510">
+<meta name="description" content="Ritesh Mahato — futuristic personal portfolio and web creator.">
+<title>Ritesh Mahato | Beyond the Ordinary</title>
 
 <style>
 :root{
-  --bg:#080b16;
-  --panel:#101629;
-  --text:#f4f7ff;
-  --muted:#a9b3ca;
-  --purple:#a855f7;
-  --cyan:#22d3ee;
-  --border:rgba(255,255,255,.12);
-}
-body.light{
-  --bg:#f4f6ff;
-  --panel:#fff;
-  --text:#17182a;
-  --muted:#535d73;
-  --border:rgba(20,20,50,.15);
+  --bg:#050510;
+  --panel:rgba(20,23,55,.68);
+  --text:#f7f5ff;
+  --muted:#b2b4d3;
+  --cyan:#62f5ff;
+  --purple:#a58bff;
+  --pink:#ff80df;
+  --border:rgba(164,170,255,.2);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
 body{
-  font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);color:var(--text);
-  line-height:1.65;transition:background .3s,color .3s;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.7;overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.container{width:min(1100px,92%);margin:auto}
+button,input,textarea,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+.container{width:min(1120px,90%);margin:auto}
+#stars{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:-3;pointer-events:none;
+}
+.space-glow{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 20%,#4932a42b,transparent 35%),
+    radial-gradient(ellipse at 85% 45%,#0c9eb52b,transparent 38%),
+    radial-gradient(ellipse at 50% 100%,#7a36a62b,transparent 40%);
+}
 header{
   position:sticky;top:0;z-index:100;
-  background:var(--bg);border-bottom:1px solid var(--border);
+  background:#050510d9;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
 }
 .nav{
   min-height:72px;display:flex;align-items:center;
   justify-content:space-between;gap:15px;
 }
-.logo{font-size:1.25rem;font-weight:800}
-.logo span{color:var(--cyan)}
-.nav-links{display:flex;align-items:center;gap:22px}
-.nav-links a{font-size:.93rem;color:var(--muted)}
+.logo{font-size:1.3rem;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--cyan);text-shadow:0 0 15px var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:.9rem;color:var(--muted);transition:.2s}
 .nav-links a:hover{color:var(--cyan)}
-.nav-actions{display:flex;gap:8px;align-items:center}
-.icon-btn,.menu-btn{
-  background:var(--panel);color:var(--text);
-  border:1px solid var(--border);border-radius:10px;
-  padding:9px 12px;
+.nav-actions{display:flex;gap:8px}
+.nav-btn{
+  background:#15152c;color:var(--text);
+  border:1px solid var(--border);border-radius:10px;padding:9px 12px;
 }
 .menu-btn{display:none}
 .hero{
-  min-height:78vh;display:grid;place-items:center;
-  text-align:center;padding:75px 0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(168,85,247,.19),transparent 60%);
+  min-height:88vh;display:flex;align-items:center;
+  text-align:center;position:relative;padding:65px 0 80px;
 }
-.pill{
-  display:inline-block;padding:6px 13px;border:1px solid var(--border);
-  border-radius:30px;color:var(--cyan);font-size:.85rem;margin-bottom:20px;
+.hero-inner{width:100%}
+.eyebrow{
+  display:inline-block;border:1px solid #62f5ff55;
+  color:var(--cyan);background:#62f5ff0b;
+  border-radius:40px;padding:6px 15px;font-size:.83rem;
+  letter-spacing:1px;margin-bottom:23px;
 }
-.hero h1{font-size:clamp(2.5rem,8vw,5rem);line-height:1.08;margin-bottom:20px}
+.hero h1{
+  font-size:clamp(2.6rem,8vw,6rem);
+  line-height:1.04;letter-spacing:-2px;margin-bottom:20px;
+}
 .gradient{
-  background:linear-gradient(90deg,var(--purple),var(--cyan));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+  background:linear-gradient(100deg,var(--cyan),var(--purple),var(--pink));
+  background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-.hero p{max-width:650px;margin:0 auto 26px;color:var(--muted)}
-.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero p{max-width:650px;margin:0 auto 27px;color:var(--muted)}
+.planet-wrap{
+  height:205px;display:grid;place-items:center;
+  perspective:800px;margin:0 auto 20px;
+}
+.planet{
+  width:145px;height:145px;border-radius:50%;
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(circle at 30% 25%,#fff 0%,#9bfaff 3%,transparent 14%),
+    radial-gradient(ellipse at 35% 30%,#4bffe6 0%,#4778f5 25%,#7637c7 52%,#180c44 76%);
+  box-shadow:inset -20px -18px 35px #050510,
+    0 0 35px #705dff88,0 0 85px #35ddff3c;
+  animation:float 5s ease-in-out infinite;
+}
+.planet:before{
+  content:"";position:absolute;inset:26px -35px;
+  border:3px solid #a8a1ffb8;border-radius:50%;
+  transform:rotate(-23deg) scaleY(.35);
+  box-shadow:0 0 15px #a58bff55;z-index:-1;
+}
+.planet:after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:linear-gradient(120deg,transparent 40%,#050510a8 90%);
+}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(4deg)}}
+.buttons{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border-radius:12px;padding:12px 19px;font-weight:700;
-  border:1px solid var(--border);transition:transform .2s,box-shadow .2s;
+  display:inline-flex;justify-content:center;align-items:center;
+  gap:8px;padding:12px 19px;border-radius:12px;
+  border:1px solid var(--border);font-weight:700;
+  transition:transform .25s,box-shadow .25s;
 }
-.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #0002}
-.btn-primary{background:linear-gradient(100deg,var(--purple),#6d5dfc);color:white;border:0}
-.btn-secondary{background:var(--panel)}
-section{padding:75px 0}
-.section-head{text-align:center;margin-bottom:35px}
-.section-head h2{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:8px}
-.section-head p,.muted{color:var(--muted)}
-.profile{
-  width:145px;height:145px;object-fit:cover;border-radius:50%;
-  border:4px solid var(--cyan);padding:4px;
-  background:var(--panel);margin:0 auto 20px;display:block;
-  box-shadow:0 0 35px #22d3ee33;
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 25px #62f5ff22}
+.btn-primary{
+  color:#070a19;background:linear-gradient(100deg,var(--cyan),#b5a5ff);
+  border:0;
 }
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.btn-secondary{background:#ffffff08;color:var(--text)}
+.scroll-note{color:#8589ad;font-size:.78rem;margin-top:35px;letter-spacing:2px}
+section{padding:80px 0}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:clamp(1.9rem,5vw,3rem);line-height:1.2;margin-bottom:12px}
+.section-title p{color:var(--muted)}
+.glass{
+  background:var(--panel);border:1px solid var(--border);
+  backdrop-filter:blur(15px);border-radius:20px;
+  box-shadow:0 12px 45px #0002;
+}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
 .card{
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:18px;padding:24px;transition:transform .25s,border-color .25s;
+  padding:25px;transition:transform .3s,border-color .3s,box-shadow .3s;
 }
-.card:hover{transform:translateY(-5px);border-color:var(--purple)}
-.card .emoji{font-size:2rem;margin-bottom:12px}
-.card h3{margin-bottom:9px}
-.card p{color:var(--muted);font-size:.95rem}
-.steps{counter-reset:step}
-.step h3:before{counter-increment:step;content:counter(step) ". ";color:var(--cyan)}
-.project-card{display:flex;flex-direction:column;gap:14px}
-.project-card .btn{align-self:flex-start;margin-top:auto}
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#62f5ff70;
+  box-shadow:0 0 30px #7e70ff12;
+}
+.card-icon{font-size:2rem;margin-bottom:14px}
+.card h3{font-size:1.15rem;margin-bottom:9px}
+.card p{color:var(--muted);font-size:.94rem}
 .tag{
-  display:inline-block;background:#a855f71a;color:var(--cyan);
-  border:1px solid var(--border);border-radius:30px;
-  padding:4px 10px;font-size:.78rem;margin:0 5px 5px 0;
+  display:inline-block;padding:4px 10px;border:1px solid var(--border);
+  border-radius:30px;color:var(--cyan);font-size:.75rem;margin-bottom:12px;
 }
-.about-box{
-  max-width:800px;margin:auto;text-align:center;
-  background:var(--panel);border:1px solid var(--border);
-  padding:30px;border-radius:20px;
+.project{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.project .btn{margin-top:auto}
+.project-orb{
+  width:100%;height:125px;border-radius:14px;display:grid;
+  place-items:center;font-size:3.2rem;
+  background:radial-gradient(circle at 50% 40%,#8d78ff55,transparent 65%),#080b20;
+  border:1px solid var(--border);
+}
+.about{
+  padding:32px;text-align:center;max-width:820px;margin:auto;
+}
+.about p{color:var(--muted)}
+.about .profile{
+  width:125px;height:125px;object-fit:cover;border-radius:50%;
+  padding:4px;border:2px solid var(--cyan);
+  box-shadow:0 0 25px #62f5ff44;margin:0 auto 18px;
 }
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.contact-info,.contact-form{
-  background:var(--panel);border:1px solid var(--border);
-  padding:25px;border-radius:18px;
-}
-.contact-info p{margin:12px 0;color:var(--muted);overflow-wrap:anywhere}
+.contact-info,.contact-form{padding:25px}
+.contact-info p{color:var(--muted);margin:12px 0;overflow-wrap:anywhere}
 .contact-info a{color:var(--cyan)}
 form{display:grid;gap:13px}
 input,select,textarea{
-  width:100%;padding:13px;border-radius:10px;
-  background:var(--bg);color:var(--text);
-  border:1px solid var(--border);font:inherit;
+  width:100%;padding:13px;border-radius:11px;
+  background:#070817;color:white;border:1px solid var(--border);
+  outline:none;
 }
-textarea{min-height:110px;resize:vertical}
-footer{border-top:1px solid var(--border);padding:25px 0;text-align:center;color:var(--muted)}
+input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+select option{background:#101629;color:white}
+textarea{min-height:115px;resize:vertical}
+form .btn{width:100%;cursor:pointer}
+footer{
+  text-align:center;padding:27px 0;border-top:1px solid var(--border);
+  color:#999cbd;font-size:.9rem;
+}
 footer a{color:var(--cyan)}
 #backTop{
   position:fixed;right:18px;bottom:18px;z-index:90;
-  width:45px;height:45px;border:0;border-radius:50%;
-  background:var(--purple);color:white;font-size:1.3rem;
-  display:none;box-shadow:0 5px 20px #0003;
+  width:45px;height:45px;border:1px solid var(--border);
+  border-radius:50%;background:#171632;color:var(--cyan);
+  font-size:1.4rem;display:none;cursor:pointer;
+  box-shadow:0 0 20px #62f5ff24;
 }
 #backTop.show{display:block}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s,transform .65s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @media(max-width:760px){
-  .menu-btn{display:inline-block}
   .nav{flex-wrap:wrap;padding:12px 0}
+  .menu-btn{display:block}
   .nav-links{
     display:none;flex-direction:column;align-items:stretch;
-    width:100%;padding:10px 0 15px;gap:0;
+    width:100%;gap:0;padding:10px 0;
   }
   .nav-links.open{display:flex}
   .nav-links a{padding:10px 5px}
-  .grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  section{padding:55px 0}
-  .hero{min-height:70vh}
+  .hero{min-height:80vh}
+  .hero h1{letter-spacing:-1px}
+  .planet-wrap{height:175px}
+  .planet{width:120px;height:120px}
+  section{padding:60px 0}
+  .grid,.contact-grid{grid-template-columns:1fr}
+  .card{padding:22px}
+  .about{padding:24px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{transition:none!important;animation:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 
 <body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="space-glow"></div>
+
 <header>
   <div class="container nav">
-    <a class="logo" href="#home">Ritesh<span>.</span></a>
-
+    <a href="#home" class="logo">RITESH<span>.</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
@@ -170,72 +232,49 @@ footer a{color:var(--cyan)}
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">☀️</button>
-      <button class="menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="nav-btn" id="themeToggle" type="button" aria-label="Toggle starfield">✨</button>
+      <button class="nav-btn menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-label="Open menu">☰</button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="hero" id="home">
-    <div class="container reveal">
-      <span class="pill">✨ Personal Portfolio · Web Creator</span>
-      <img class="profile" src="./ritesh.webp" alt="Ritesh Mahato" onerror="this.style.display='none'">
-      <h1>Hey, I'm <span class="gradient">Ritesh Mahato</span></h1>
-      <p>I create clean, modern and mobile-friendly websites that help people and small businesses build their online presence.</p>
+    <div class="container hero-inner reveal">
+      <span class="eyebrow">✦ WELCOME TO MY UNIVERSE ✦</span>
+      <div class="planet-wrap"><div class="planet" aria-label="Animated 3D-style planet"></div></div>
+      <h1>I'm <span class="gradient">Ritesh Mahato</span></h1>
+      <p>Exploring the digital universe, one website at a time. I build modern web experiences for people with big ideas.</p>
       <div class="buttons">
         <a class="btn btn-primary" href="#projects">🚀 Explore My Work</a>
-        <a class="btn btn-secondary" href="#contact">💬 Let's Talk</a>
+        <a class="btn btn-secondary" href="#contact">✉ Contact Me</a>
       </div>
+      <div class="scroll-note">SCROLL TO EXPLORE THE UNIVERSE ↓</div>
     </div>
   </section>
 
   <section id="services">
     <div class="container">
-      <div class="section-head reveal">
-        <h2>What I Can <span class="gradient">Build</span></h2>
-        <p>Simple digital solutions for your next idea.</p>
+      <div class="section-title reveal">
+        <h2>My Digital <span class="gradient">Universe</span></h2>
+        <p>Ideas transformed into online experiences.</p>
       </div>
       <div class="grid">
-        <article class="card reveal">
-          <div class="emoji">🌐</div>
+        <article class="glass card reveal">
+          <div class="card-icon">🌐</div>
           <h3>Business Websites</h3>
-          <p>Professional websites for shops, cafés, local businesses and services.</p>
+          <p>Modern websites for local businesses, shops, cafés and services.</p>
         </article>
-        <article class="card reveal">
-          <div class="emoji">📱</div>
-          <h3>Mobile-Friendly Design</h3>
-          <p>Responsive pages designed to work on phones, tablets and computers.</p>
+        <article class="glass card reveal">
+          <div class="card-icon">📱</div>
+          <h3>Mobile-First Design</h3>
+          <p>Responsive layouts that adapt to phones, tablets and desktop screens.</p>
         </article>
-        <article class="card reveal">
-          <div class="emoji">🎨</div>
+        <article class="glass card reveal">
+          <div class="card-icon">🎨</div>
           <h3>Personal Portfolios</h3>
-          <p>Showcase your skills, work and contact details in one modern website.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>How It <span class="gradient">Works</span></h2>
-        <p>Three simple steps to get started.</p>
-      </div>
-      <div class="grid steps">
-        <article class="card step reveal">
-          <h3>Tell me your idea</h3>
-          <p>Share your business type, goals and the features you need.</p>
-        </article>
-        <article class="card step reveal">
-          <h3>Review the design</h3>
-          <p>Discuss the layout and content before finalising the website.</p>
-        </article>
-        <article class="card step reveal">
-          <h3>Publish your site</h3>
-          <p>Once everything is ready, prepare the website for publishing.</p>
+          <p>Showcase your story, skills and projects with a unique online identity.</p>
         </article>
       </div>
     </div>
@@ -243,31 +282,28 @@ footer a{color:var(--cyan)}
 
   <section id="projects">
     <div class="container">
-      <div class="section-head reveal">
-        <h2>Featured <span class="gradient">Projects</span></h2>
-        <p>A look at my website-building practice.</p>
+      <div class="section-title reveal">
+        <h2>Mission <span class="gradient">Control</span></h2>
+        <p>Explore my website projects and experiments.</p>
       </div>
       <div class="grid">
-        <article class="card project-card reveal">
-          <div class="emoji">☕</div>
-          <span class="tag">Demo Website</span>
-          <h3>Restaurant & Café Website</h3>
-          <p>A sample café website concept for food businesses.</p>
-          <a class="btn btn-primary" href="https://riteshmahato01.github.io/restaurant-demo/" target="_blank" rel="noopener noreferrer">View Live Demo ↗</a>
+        <article class="glass card project reveal">
+          <div class="project-orb">☕</div>
+          <div><span class="tag">LIVE DEMO</span><h3>Restaurant & Café</h3></div>
+          <p>A sample website concept for restaurants and cafés.</p>
+          <a class="btn btn-primary" href="https://riteshmahato01.github.io/restaurant-demo/" target="_blank" rel="noopener noreferrer">Launch Demo ↗</a>
         </article>
-        <article class="card project-card reveal">
-          <div class="emoji">💻</div>
-          <span class="tag">Portfolio</span>
-          <h3>My Personal Website</h3>
-          <p>This portfolio shares my services, projects and contact details.</p>
-          <a class="btn btn-secondary" href="#home">You're Here ✓</a>
+        <article class="glass card project reveal">
+          <div class="project-orb">🌌</div>
+          <div><span class="tag">PERSONAL PROJECT</span><h3>My Portfolio</h3></div>
+          <p>This is my own digital space to showcase my journey and skills.</p>
+          <a class="btn btn-secondary" href="#home">Explore This Site ↑</a>
         </article>
-        <article class="card project-card reveal">
-          <div class="emoji">✨</div>
-          <span class="tag">Your Idea</span>
-          <h3>Your Business Could Be Next</h3>
-          <p>Have an idea for a website? Tell me what you need.</p>
-          <a class="btn btn-secondary" href="#contact">Discuss Your Idea →</a>
+        <article class="glass card project reveal">
+          <div class="project-orb">🪐</div>
+          <div><span class="tag">YOUR NEXT IDEA</span><h3>Your Website</h3></div>
+          <p>Your business could be the next project featured in this universe.</p>
+          <a class="btn btn-secondary" href="#contact">Start a Conversation →</a>
         </article>
       </div>
     </div>
@@ -275,42 +311,44 @@ footer a{color:var(--cyan)}
 
   <section id="about">
     <div class="container">
-      <div class="section-head reveal">
-        <h2>About <span class="gradient">Me</span> 👋</h2>
+      <div class="section-title reveal">
+        <h2>The Human Behind <span class="gradient">The Screen</span></h2>
       </div>
-      <div class="about-box reveal">
-        <p>Hi, I'm Ritesh Mahato. I'm learning and building websites with a focus on clean design, useful features and mobile-friendly experiences. I'm working on projects to grow my skills and help people bring their ideas online.</p>
+      <div class="glass about reveal">
+        <img class="profile" src="./ritesh.webp" alt="Ritesh Mahato" onerror="this.style.display='none'">
+        <h3>Hey, I'm Ritesh 👋</h3>
+        <p>I'm learning and building websites with a passion for creative design and useful digital experiences. Every project helps me learn something new and turn ideas into reality.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="container">
-      <div class="section-head reveal">
-        <h2>Let's Build Something <span class="gradient">Cool</span> 🚀</h2>
-        <p>Tell me about the website you have in mind.</p>
+      <div class="section-title reveal">
+        <h2>Ready for <span class="gradient">Launch?</span> 🚀</h2>
+        <p>Have a website idea? Send me the details.</p>
       </div>
       <div class="contact-grid">
-        <div class="contact-info reveal">
-          <h3>Get in Touch</h3>
+        <div class="glass contact-info reveal">
+          <h3>Connect With Me</h3>
           <p>📧 Email: <a href="mailto:mbackbencher01@gmail.com">mbackbencher01@gmail.com</a></p>
           <p>📸 Instagram: <a href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">@6__nine_</a></p>
-          <p>💬 WhatsApp: Send a project enquiry using the form.</p>
-          <p class="muted">Share your requirements to get started.</p>
+          <p>💬 WhatsApp: Use the enquiry form to send project details.</p>
+          <p>✨ Tell me what you want to build, and we can discuss your idea.</p>
         </div>
-        <div class="contact-form reveal">
+        <div class="glass contact-form reveal">
           <form id="enquiryForm">
-            <input id="clientName" name="name" type="text" placeholder="Your name" required>
-            <input id="clientBusiness" name="business" type="text" placeholder="Business name (optional)">
-            <select id="clientService" name="service" required>
-              <option value="">What kind of website do you need?</option>
+            <input id="clientName" type="text" placeholder="Your name" required>
+            <input id="clientBusiness" type="text" placeholder="Business name (optional)">
+            <select id="clientService" required>
+              <option value="">Choose a website type</option>
               <option>Business website</option>
               <option>Restaurant or café website</option>
               <option>Personal portfolio</option>
               <option>Other website idea</option>
             </select>
-            <textarea id="clientMessage" name="message" placeholder="Tell me about your idea..." required></textarea>
-            <button class="btn btn-primary" type="submit">Send Enquiry on WhatsApp ↗</button>
+            <textarea id="clientMessage" placeholder="Describe your idea..." required></textarea>
+            <button class="btn btn-primary" type="submit">Send on WhatsApp ↗</button>
           </form>
         </div>
       </div>
@@ -320,38 +358,74 @@ footer a{color:var(--cyan)}
 
 <footer>
   <div class="container">
-    <p>© <span id="year"></span> Ritesh Mahato · Built with 💜 and ambition.</p>
-    <p><a href="#home">Back to Home ↑</a></p>
+    <p>© <span id="year"></span> Ritesh Mahato · Exploring beyond the ordinary 🌌</p>
+    <p><a href="#home">Return to the stars ↑</a></p>
   </div>
 </footer>
 
 <button id="backTop" type="button" aria-label="Back to top">↑</button>
 
 <script>
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+let animationOn = true;
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.textContent = isOpen ? "✕" : "☰";
+function makeStars(){
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  stars = Array.from({length: Math.min(170, Math.floor(window.innerWidth / 5))}, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r: Math.random() * 1.5 + 0.2,
+    a: Math.random() * 0.75 + 0.2,
+    speed: Math.random() * 0.006 + 0.002
+  }));
+}
+function drawStars(){
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  stars.forEach(star => {
+    if(animationOn){
+      star.a += star.speed;
+      if(star.a > 1 || star.a < 0.15) star.speed *= -1;
+    }
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(180,220,255,${star.a})`;
+    ctx.fill();
+  });
+  if(animationOn) requestAnimationFrame(drawStars);
+}
+makeStars();
+drawStars();
+window.addEventListener("resize", () => {
+  makeStars();
+  if(animationOn) drawStars();
 });
 
+document.getElementById("themeToggle").addEventListener("click", function(){
+  animationOn = !animationOn;
+  this.textContent = animationOn ? "✨" : "⏸";
+  if(animationOn) drawStars();
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+menuToggle.addEventListener("click", () => {
+  const opened = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(opened));
+  menuToggle.textContent = opened ? "✕" : "☰";
+});
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.textContent = "☰";
   });
-});
-
-const themeToggle = document.getElementById("themeToggle");
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  const lightMode = document.body.classList.contains("light");
-  themeToggle.textContent = lightMode ? "🌙" : "☀️";
-  document.querySelector('meta[name="theme-color"]').content =
-    lightMode ? "#f4f6ff" : "#080b16";
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -368,7 +442,7 @@ const revealItems = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
@@ -379,26 +453,23 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach(item => item.classList.add("visible"));
 }
 
-document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+document.getElementById("enquiryForm").addEventListener("submit", function(e){
   e.preventDefault();
-
   const name = document.getElementById("clientName").value.trim();
   const business = document.getElementById("clientBusiness").value.trim();
   const service = document.getElementById("clientService").value;
   const message = document.getElementById("clientMessage").value.trim();
 
-  const whatsappMessage =
+  const enquiry =
     "Hello Ritesh!\n" +
     "Name: " + name + "\n" +
     "Business: " + (business || "Not provided") + "\n" +
-    "Service: " + service + "\n" +
-    "Project details: " + message;
+    "Website type: " + service + "\n" +
+    "Details: " + message;
 
-  const whatsappURL =
-    "https://wa.me/919142518477?text=" +
-    encodeURIComponent(whatsappMessage);
-
-  window.open(whatsappURL, "_blank", "noopener,noreferrer");
+  const url = "https://wa.me/919142518477?text=" +
+    encodeURIComponent(enquiry);
+  window.open(url, "_blank", "noopener,noreferrer");
 });
 </script>
 </body>
