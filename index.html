@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b16">
-<meta name="description" content="Ritesh Mahato - Personal websites, portfolio design and beginner-friendly digital services.">
-<title>Ritesh Mahato | Digital Services</title>
+<meta name="description" content="Ritesh Kumar - Personal websites, portfolio design and beginner-friendly digital services.">
+<title>Ritesh Kumar | Digital Services</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -253,7 +253,26 @@ footer p:first-child{margin-bottom:5px}
     transition:none!important;
   }
 }
+
+.github-card{text-align:center}
+.typing-line{
+  font-family:"Courier New",monospace;
+  font-size:clamp(17px,4.5vw,22px);
+  color:var(--cyan);
+  min-height:1.8em;
+  margin-top:14px;
+}
+.cursor{animation:blink 1s steps(1) infinite;color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.github-card .skills{justify-content:center}
 </style>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ritesh">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 
 <body>
@@ -274,10 +293,10 @@ footer p:first-child{margin-bottom:5px}
 <main>
   <section class="hero" id="home">
     <div class="container">
-      <img class="profile" src="./ritesh.webp" alt="Ritesh Mahato">
+      <img class="profile" src="./ritesh.webp" alt="Ritesh Kumar">
       <br>
       <span class="tag">WELCOME TO MY DIGITAL WORLD ✨</span>
-      <h1>Hi, I'm <span>Ritesh Mahato</span></h1>
+      <h1>Hi, I'm <span>Ritesh Kumar</span></h1>
       <p>
         Student, learner and aspiring digital creator.
         I build simple online experiences and help beginners
@@ -377,7 +396,7 @@ footer p:first-child{margin-bottom:5px}
           <div class="project-window"><span></span><span></span><span></span></div>
           <div class="project-preview">
             <div class="preview-icon">🌐</div>
-            <h3>Ritesh Mahato</h3>
+            <h3>Ritesh Kumar</h3>
             <p>Personal Website • Digital Portfolio</p>
           </div>
         </div>
@@ -400,12 +419,28 @@ footer p:first-child{margin-bottom:5px}
     </div>
   </section>
 
+  <section id="github">
+    <div class="container">
+      <div class="about github-card">
+        <h2>On GitHub 💻</h2>
+        <p class="typing-line"><span id="typing"></span><span class="cursor">|</span></p>
+        <p>I build and share my learning projects on GitHub.</p>
+        <div class="skills">
+          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+        </div>
+        <div class="buttons">
+          <a class="btn primary" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">View My GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="container">
       <div class="about">
         <h2>About Me 👋</h2>
         <p>
-          I'm Ritesh Mahato. I'm learning technology,
+          I'm Ritesh Kumar. I'm learning technology,
           improving my coding skills and building my
           own online projects step by step.
         </p>
@@ -437,13 +472,42 @@ footer p:first-child{margin-bottom:5px}
 
 <footer>
   <div class="container">
-    <p>© <span id="year"></span> Ritesh Mahato. Made with ❤️</p>
+    <p>© <span id="year"></span> Ritesh Kumar. Made with ❤️</p>
     <p>Learning • Creating • Growing 🚀</p>
   </div>
 </footer>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./sw.js").catch(function () {});
+  });
+}
+</script>
+<script>
+(function () {
+  var el = document.getElementById("typing");
+  if (!el) return;
+  var lines = ["Student • Learner", "Aspiring Digital Creator", "Learn. Build. Improve. Repeat."];
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    el.textContent = lines[0];
+    return;
+  }
+  var li = 0, ci = 0, del = false;
+  function tick() {
+    var t = lines[li];
+    el.textContent = t.slice(0, ci);
+    var wait = del ? 35 : 75;
+    if (!del && ci === t.length) { del = true; wait = 1400; }
+    else if (del && ci === 0) { del = false; li = (li + 1) % lines.length; wait = 400; }
+    else { ci += del ? -1 : 1; }
+    setTimeout(tick, wait);
+  }
+  tick();
+})();
 </script>
 </body>
 </html>
