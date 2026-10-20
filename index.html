@@ -4,133 +4,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1020">
-<title>Ritesh Mahato | Portfolio</title>
+<meta name="theme-color" content="#080b16">
+<title>Ritesh Mahato — Digital Portfolio</title>
 <style>
 :root {
-  --bg:#0b1020;
-  --card:#151e32;
+  --bg:#080b16;
+  --card:#11182a;
   --text:#f5f7ff;
-  --muted:#aab5cc;
-  --accent:#829cff;
+  --muted:#9ba9c2;
+  --blue:#8da5ff;
+  --purple:#a78bfa;
+  --border:#26324b;
 }
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
 body {
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
+  font-family:system-ui,-apple-system,Arial,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.7;
 }
-a { color:inherit; text-decoration:none; }
+a {text-decoration:none;color:inherit}
+button {font:inherit;cursor:pointer}
+.container {width:min(1100px,90%);margin:auto}
 header {
-  position:sticky; top:0; z-index:10;
-  background:var(--bg);
-  border-bottom:1px solid #29334a;
+  position:sticky;top:0;z-index:20;
+  background:#080b16ed;backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
 }
-.container { width:90%; max-width:1050px; margin:auto; }
 .navbar {
-  min-height:70px; display:flex;
-  align-items:center; justify-content:space-between;
-  gap:12px;
+  min-height:72px;display:flex;align-items:center;
+  justify-content:space-between;gap:15px;
 }
-.logo { font-size:24px; font-weight:bold; }
-.logo span,h1 span { color:var(--accent); }
-nav { display:flex; gap:15px; }
-nav a { color:var(--muted); font-size:14px; }
-button,.btn {
-  padding:10px 14px; border-radius:10px;
-  border:1px solid #34415c; cursor:pointer;
+.logo {font-size:23px;font-weight:850;letter-spacing:-1px}
+.logo span {color:var(--blue)}
+nav {display:flex;align-items:center;gap:20px}
+nav a {font-size:13px;color:var(--muted);transition:.2s}
+nav a:hover {color:var(--blue)}
+.nav-actions {display:flex;gap:8px}
+.icon-btn {
+  background:var(--card);color:var(--text);
+  border:1px solid var(--border);border-radius:10px;
+  padding:8px 11px;
 }
-button { background:var(--card); color:var(--text); }
-#menuBtn { display:none; }
-section { padding:65px 0; scroll-margin-top:70px; }
+#menuBtn {display:none}
 .hero {
-  min-height:75vh; display:flex; align-items:center;
-  background:radial-gradient(ellipse at 80% 20%,#5544a533,transparent 50%);
+  min-height:calc(90vh - 72px);
+  display:flex;align-items:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 80% 30%,#6651d72c,transparent 42%),
+             radial-gradient(ellipse at 5% 80%,#315dd51c,transparent 40%);
 }
 .hero-grid {
-  display:grid; grid-template-columns:1.3fr 1fr;
-  align-items:center; gap:35px;
+  display:grid;grid-template-columns:1.15fr .85fr;
+  align-items:center;gap:55px;padding-top:55px;padding-bottom:55px;
 }
-h1 { font-size:clamp(36px,7vw,65px); line-height:1.15; margin:15px 0; }
-p { color:var(--muted); }
-.eyebrow { color:var(--accent); font-weight:bold; }
-.photo { text-align:center; }
-.photo img {
-  width:250px; height:250px; max-width:80%;
-  object-fit:cover; border-radius:30px;
-  border:4px solid var(--accent);
+.eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 13px;border:1px solid #8da5ff45;
+  border-radius:30px;color:var(--blue);
+  background:#8da5ff0c;font-size:12px;font-weight:750;
+  letter-spacing:1px;
 }
-.buttons { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
-.btn { display:inline-block; font-weight:bold; }
-.primary { background:var(--accent); color:#10162a; }
-.secondary { background:var(--card); }
-h2 { font-size:30px; margin-bottom:12px; }
-.sub { margin-bottom:25px; }
-.grid {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:18px; margin-top:25px;
+h1 {
+  font-size:clamp(42px,6.5vw,76px);
+  line-height:1.08;letter-spacing:-3px;margin:24px 0;
+}
+.gradient {
+  background:linear-gradient(100deg,#91a8ff,#c0a4ff,#78d9ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p {font-size:16px;max-width:520px;color:var(--muted)}
+.buttons {display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn {
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 19px;border-radius:12px;font-weight:750;font-size:14px;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn:hover {transform:translateY(-3px)}
+.primary {
+  color:#080b16;background:linear-gradient(110deg,#9bb0ff,#b7a1ff);
+  box-shadow:0 8px 30px #829cff25;
+}
+.secondary {background:var(--card);border:1px solid var(--border)}
+.photo-wrap {display:flex;justify-content:center}
+.photo-card {
+  position:relative;width:min(330px,100%);padding:10px;
+  border-radius:35px;background:linear-gradient(140deg,#91a8ff,#9b70e8,#65d9e8);
+  box-shadow:0 25px 90px #6c62ff25;transform:rotate(2deg);
+}
+.photo-card img {
+  display:block;width:100%;aspect-ratio:4/5;object-fit:cover;
+  border-radius:27px;background:#11182a;
+}
+.photo-fallback {
+  display:none;aspect-ratio:4/5;border-radius:27px;
+  background:linear-gradient(145deg,#182341,#252044);
+  align-items:center;justify-content:center;flex-direction:column;
+  gap:10px;text-align:center;
+}
+.photo-fallback strong {font-size:70px;color:var(--blue)}
+.photo-fallback span {color:var(--muted);font-size:13px}
+.float-tag {
+  position:absolute;bottom:25px;left:-30px;
+  background:#151d30;border:1px solid #36425e;
+  border-radius:14px;padding:12px 16px;font-size:12px;
+  box-shadow:0 10px 30px #0005;transform:rotate(-2deg);
+}
+.float-tag b {display:block;font-size:14px}
+section {padding:80px 0}
+.section-label {
+  color:var(--blue);font-weight:800;letter-spacing:2px;
+  font-size:11px;text-transform:uppercase;margin-bottom:8px;
+}
+h2 {font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-1px}
+.section-desc {color:var(--muted);margin-top:12px;max-width:620px}
+.card-grid {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;margin-top:30px;
 }
 .card {
-  background:var(--card); padding:22px;
-  border:1px solid #293650; border-radius:16px;
+  padding:25px;border-radius:19px;
+  background:linear-gradient(145deg,#141c30,#0f1525);
+  border:1px solid var(--border);transition:.25s;
 }
-.card h3 { margin:8px 0; }
-.card p { font-size:15px; }
-.tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-.tag { background:var(--card); padding:7px 13px; border-radius:20px; }
-.contact {
-  background:var(--card); padding:25px; border-radius:16px;
+.card:hover {transform:translateY(-6px);border-color:#758dff88}
+.card-icon {
+  width:48px;height:48px;display:grid;place-items:center;
+  border-radius:14px;background:#8da5ff17;font-size:23px;
 }
-footer {
-  text-align:center; padding:25px 0;
-  border-top:1px solid #29334a; color:var(--muted);
-}
-#topBtn {
-  display:none; position:fixed; bottom:18px; right:18px;
-  background:var(--accent); color:#10162a;
-}
-body.light {
-  --bg:#f4f7ff; --card:#fff;
-  --text:#172033; --muted:#59657b; --accent:#365fe8;
-}
-@media(max-width:800px) {
-  #menuBtn { display:inline-block; }
-  nav {
-    display:none; position:absolute; top:70px;
-    left:0; right:0; padding:20px 5%;
-    background:var(--bg); flex-direction:column;
-  }
-  nav.open { display:flex; }
-  .hero-grid { grid-template-columns:1fr; text-align:center; }
-  .photo { grid-row:1; }
-  .buttons { justify-content:center; }
-  .grid { grid-template-columns:repeat(2,1fr); }
-}
-@media(max-width:520px) {
-  .grid { grid-template-columns:1fr; }
-  section { padding:48px 0; }
-}
+.card h3 {font-size:17px;margin:16px 0 8px}
+.card p {color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 
 <header>
 <div class="container navbar">
-<a class="logo" href="#home">Ritesh<span>.</span></a>
-<nav id="nav">
+<a href="#home" class="logo">Ritesh<span>.</span></a>
+<nav id="mainNav" aria-label="Main navigation">
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#education">Education</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#services">Services</a>
 <a href="#contact">Contact</a>
 </nav>
-<div>
-<button id="themeBtn" aria-label="Change theme">☀️</button>
-<button id="menuBtn" aria-expanded="false">☰</button>
+<div class="nav-actions">
+<button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+<button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
 </div>
 </div>
 </header>
@@ -139,35 +158,60 @@ body.light {
 <section class="hero" id="home">
 <div class="container hero-grid">
 <div>
-<span class="eyebrow">👋 WELCOME TO MY WEBSITE</span>
-<h1>Hi, I'm <span>Ritesh Mahato</span></h1>
-<p>A curious learner exploring web development, technology and creative ideas. Welcome to my little corner of the internet!</p>
+<span class="eyebrow">✦ MY PERSONAL PORTFOLIO</span>
+<h1>Hey, I'm<br><span class="gradient">Ritesh Mahato.</span></h1>
+<p>
+A curious mind exploring web development, technology and creative ideas.
+I'm learning, building and improving one step at a time.
+Welcome to my digital space.
+</p>
 <div class="buttons">
 <a class="btn primary" href="#projects">Explore My Work ↗</a>
-<a class="btn secondary" href="#contact">Contact Me</a>
+<a class="btn secondary" href="#contact">Let's Connect →</a>
 </div>
 </div>
-<div class="photo">
+
+<div class="photo-wrap">
+<div class="photo-card">
 <img src="ritesh.webp" alt="Ritesh Mahato"
-onerror="this.style.display='none'">
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="photo-fallback">
+<strong>RM</strong>
+<span>Ritesh Mahato</span>
+</div>
+</div>
+<div class="float-tag">💻 <b>Always Learning</b>Building new skills</div>
 </div>
 </div>
 </section>
 
 <section id="about">
 <div class="container">
-<h2>About Me 👋</h2>
-<p>I'm Ritesh Mahato. I enjoy learning new things, exploring technology and turning ideas into something useful. I'm at the beginning of my web development journey, and this website is one of my learning projects.</p>
+<div class="section-label">A LITTLE ABOUT ME</div>
+<h2>Ideas today.<br><span class="gradient">Better things tomorrow.</span></h2>
+<p class="section-desc">
+I'm Ritesh Mahato. I enjoy discovering new things, exploring technology
+and turning ideas into useful projects. I'm at the beginning of my web
+development journey, and I'm excited to keep learning and creating.
+</p>
 </div>
 </section>
 
 <section id="education">
 <div class="container">
+<div class="section-label">MY JOURNEY</div>
 <h2>Education 🎓</h2>
-<div class="grid">
+<p class="section-desc">Building knowledge, one step at a time.</p>
+<div class="card-grid">
 <div class="card">
+<div class="card-icon">📚</div>
 <h3>Class 12 Completed</h3>
-<p>Continuing to learn and explore new opportunities for my future.</p>
+<p>Continuing to learn and explore opportunities for my future.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌱</div>
+<h3>Self Learning</h3>
+<p>Exploring web design and practising with my own website.</p>
 </div>
 </div>
 </div>
@@ -175,124 +219,18 @@ onerror="this.style.display='none'">
 
 <section id="skills">
 <div class="container">
+<div class="section-label">WHAT I'M LEARNING</div>
 <h2>My Skills 💻</h2>
-<p>Things I'm learning and practising.</p>
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">Responsive Design</span>
-<span class="tag">GitHub Pages</span>
-<span class="tag">Problem Solving</span>
+<p class="section-desc">The tools and skills I'm practising as I grow.</p>
+<div class="card-grid">
+<div class="card"><div class="card-icon">🌐</div><h3>HTML</h3><p>Learning to structure web pages.</p></div>
+<div class="card"><div class="card-icon">🎨</div><h3>CSS</h3><p>Practising layouts, colours and responsive design.</p></div>
+<div class="card"><div class="card-icon">🚀</div><h3>GitHub Pages</h3><p>Learning to publish websites online.</p></div>
 </div>
 </div>
 </section>
 
-<section id="projects">
-<div class="container">
-<h2>My Projects 🚀</h2>
-<p class="sub">My learning journey, one project at a time.</p>
-<div class="grid">
-<div class="card">
-<div>🌐</div>
-<h3>Personal Portfolio</h3>
-<p>My personal website built with HTML and CSS and published using GitHub Pages.</p>
-<div class="buttons">
-<a class="btn primary" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener">Visit Website ↗</a>
-</div>
-</div>
-<div class="card">
-<div>💡</div>
-<h3>Next Project</h3>
-<p>A future project where I'll practise new web development skills. Coming soon!</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="services">
-<div class="container">
-<h2>What I'm Exploring 🛠️</h2>
-<div class="grid">
-<div class="card">
-<div>🎨</div>
-<h3>Web Design</h3>
-<p>Learning to create clean and user-friendly website layouts.</p>
-</div>
-<div class="card">
-<div>📱</div>
-<h3>Mobile-Friendly Pages</h3>
-<p>Practising layouts that work on phones, tablets and computers.</p>
-</div>
-<div class="card">
-<div>🚀</div>
-<h3>New Projects</h3>
-<p>Building practice projects to improve my skills step by step.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="contact">
-<div class="container">
-<div class="contact">
-<h2>Let's Connect 🤝</h2>
-<p>Want to say hello or check out my work? Find me here.</p>
-<div class="buttons">
-<a class="btn primary" href="mailto:mbackbencher01@gmail.com">Email Me ✉️</a>
-<a class="btn secondary" href="https://github.com/riteshmahato01" target="_blank" rel="noopener">GitHub ↗</a>
-<a class="btn secondary" href="https://www.instagram.com/6_nine_/" target="_blank" rel="noopener">Instagram ↗</a>
-</div>
-</div>
-</div>
-</section>
+<!-- PART 2 CONTINUES BELOW -->
 </main>
-
-<footer>
-<div class="container">
-<p>Made with ❤️ by Ritesh Mahato</p>
-<p>© <span id="year"></span> All rights reserved.</p>
-</div>
-</footer>
-
-<button id="topBtn" aria-label="Back to top">↑ Top</button>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-const themeBtn = document.getElementById("themeBtn");
-const topBtn = document.getElementById("topBtn");
-
-menuBtn.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", open);
-  menuBtn.textContent = open ? "✕" : "☰";
-});
-
-nav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.textContent = "☰";
-  });
-});
-
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  const light = document.body.classList.contains("light");
-  themeBtn.textContent = light ? "🌙" : "☀️";
-  themeBtn.setAttribute("aria-label",
-    light ? "Switch to dark theme" : "Switch to light theme");
-});
-
-window.addEventListener("scroll", () => {
-  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-
-topBtn.addEventListener("click", () => {
-  window.scrollTo({top: 0, behavior: "smooth"});
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
