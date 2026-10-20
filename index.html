@@ -1,153 +1,87 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b16">
-<meta name="description" content="Ritesh Mahato - Personal websites, portfolio design and beginner-friendly digital services.">
+<meta name="description" content="Ritesh Mahato offers personal websites, portfolio design, responsive pages and beginner-friendly digital services.">
 <title>Ritesh Mahato | Digital Services</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080b16;
-  --card:#11182b;
-  --text:#f4f7ff;
-  --muted:#aab4cc;
-  --accent:#7c83ff;
-  --cyan:#54e4d5;
+  --bg:#080b16;--card:#11182b;--text:#f4f7ff;
+  --muted:#aab4cc;--accent:#7c83ff;--cyan:#54e4d5;
 }
 html{scroll-behavior:smooth;scroll-padding-top:85px}
 body{
-  font-family:Arial,sans-serif;
-  background:
-    radial-gradient(ellipse at 10% 20%,#25265a22,transparent 40%),
-    radial-gradient(ellipse at 90% 70%,#54e4d511,transparent 35%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.7;
+  font-family:Arial,sans-serif;color:var(--text);line-height:1.7;
+  background:radial-gradient(ellipse at 10% 20%,#25265a22,transparent 40%),
+  radial-gradient(ellipse at 90% 70%,#54e4d511,transparent 35%),var(--bg);
 }
 a{color:inherit;text-decoration:none}
 .container{width:min(1080px,90%);margin:auto}
-
 header{
-  position:sticky;top:0;z-index:10;
-  background:rgba(8,11,22,.94);
-  border-bottom:1px solid #252c43;
-  backdrop-filter:blur(14px);
+  position:sticky;top:0;z-index:10;background:rgba(8,11,22,.94);
+  border-bottom:1px solid #252c43;backdrop-filter:blur(14px);
   box-shadow:0 5px 25px #00000022;
 }
-nav{
-  display:flex;justify-content:space-between;
-  align-items:center;gap:15px;padding:15px 0;
-}
+nav{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 0}
 .logo{font-size:21px;font-weight:800}
 .logo span{color:var(--cyan)}
 .navlinks{display:flex;gap:18px;flex-wrap:wrap}
-.navlinks a{
-  font-size:13px;color:var(--muted);
-  transition:.25s;
-}
-.navlinks a:hover{
-  color:var(--cyan);
-  text-shadow:0 0 12px #54e4d599;
-}
-
+.navlinks a{font-size:13px;color:var(--muted);transition:.25s}
+.navlinks a:hover{color:var(--cyan);text-shadow:0 0 12px #54e4d599}
 .hero{
-  padding:75px 0 65px;
-  text-align:center;
+  padding:75px 0 65px;text-align:center;
   background:radial-gradient(ellipse at top,#25265a 0%,transparent 65%);
   animation:reveal .8s ease both;
 }
-@keyframes reveal{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 .profile{
-  width:150px;height:150px;object-fit:cover;
-  border-radius:50%;border:3px solid var(--accent);
-  margin-bottom:20px;
-  animation:glow 3s ease-in-out infinite alternate;
-  transition:transform .3s;
+  width:150px;height:150px;object-fit:cover;border-radius:50%;
+  border:3px solid var(--accent);margin-bottom:20px;
+  animation:glow 3s ease-in-out infinite alternate;transition:transform .3s;
 }
 .profile:hover{transform:scale(1.05)}
-@keyframes glow{
-  from{box-shadow:0 0 12px #7c83ff66}
-  to{box-shadow:0 0 25px #7c83ff,0 0 42px #54e4d555}
-}
+@keyframes glow{from{box-shadow:0 0 12px #7c83ff66}to{box-shadow:0 0 25px #7c83ff,0 0 42px #54e4d555}}
 .tag{
-  display:inline-block;padding:5px 14px;
-  border:1px solid #454b85;border-radius:30px;
-  color:var(--cyan);font-size:13px;
+  display:inline-block;padding:5px 14px;border:1px solid #454b85;
+  border-radius:30px;color:var(--cyan);font-size:13px;
   animation:pulse 3s ease-in-out infinite;
 }
-@keyframes pulse{
-  50%{box-shadow:0 0 20px #54e4d533}
-}
-h1{
-  font-size:clamp(36px,8vw,65px);
-  line-height:1.15;margin:20px 0;
-  letter-spacing:-1.5px;
-}
+@keyframes pulse{50%{box-shadow:0 0 20px #54e4d533}}
+h1{font-size:clamp(36px,8vw,65px);line-height:1.15;margin:20px 0;letter-spacing:-1.5px}
 h1 span{
   background:linear-gradient(90deg,#a8adff,#54e4d5,#a8adff);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  background-clip:text;color:transparent;
-  animation:shine 4s linear infinite;
+  background-size:200% auto;-webkit-background-clip:text;
+  background-clip:text;color:transparent;animation:shine 4s linear infinite;
 }
 @keyframes shine{to{background-position:200% center}}
-.hero p,.section-intro{
-  color:var(--muted);max-width:650px;
-  margin:0 auto 25px;
-}
-.buttons{
-  display:flex;gap:12px;justify-content:center;
-  flex-wrap:wrap;margin-top:24px;
-}
+.hero p,.section-intro{color:var(--muted);max-width:650px;margin:0 auto 25px}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
 .btn{
-  display:inline-block;padding:12px 20px;
-  border-radius:12px;font-weight:bold;
-  border:1px solid #343d5c;
-  transition:transform .25s,box-shadow .25s;
-  text-align:center;
+  display:inline-block;padding:12px 20px;border-radius:12px;font-weight:bold;
+  border:1px solid #343d5c;transition:transform .25s,box-shadow .25s;text-align:center;
 }
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 20px #7c83ff55;
-}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 20px #7c83ff55}
 .primary{background:var(--accent);color:white;border-color:var(--accent)}
 .primary:hover{background:#9298ff}
 .secondary{background:#141a2b}
-
 section{padding:60px 0;scroll-margin-top:75px}
 .section-title{text-align:center;font-size:30px;margin-bottom:10px}
 .section-intro{text-align:center;margin-bottom:30px}
-.grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .card{
-  padding:24px;background:var(--card);
-  border:1px solid #252e47;border-radius:18px;
-  transition:transform .3s,border-color .3s,box-shadow .3s;
-  animation:reveal .6s ease both;
+  padding:24px;background:var(--card);border:1px solid #252e47;border-radius:18px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;animation:reveal .6s ease both;
 }
-.card:hover{
-  transform:translateY(-7px);
-  border-color:var(--accent);
-  box-shadow:0 0 18px #7c83ff25,0 12px 30px #00000044;
-}
+.card:hover{transform:translateY(-7px);border-color:var(--accent);box-shadow:0 0 18px #7c83ff25,0 12px 30px #00000044}
 .service-icon{font-size:30px;margin-bottom:12px}
 .card h3{font-size:19px;margin-bottom:8px}
 .card p{color:var(--muted);font-size:14px}
-.small-link{
-  display:inline-block;margin-top:16px;
-  color:var(--cyan);font-size:14px;font-weight:bold;
-}
+.small-link{display:inline-block;margin-top:16px;color:var(--cyan);font-size:14px;font-weight:bold}
 .small-link:hover{text-shadow:0 0 12px var(--cyan)}
-
 .about{
   background:linear-gradient(120deg,#10162a,#0c1020);
   border:1px solid #252e47;border-radius:22px;padding:30px;
@@ -156,82 +90,52 @@ section{padding:60px 0;scroll-margin-top:75px}
 .about:hover{border-color:#7c83ff88;box-shadow:0 0 25px #7c83ff12}
 .about p{color:var(--muted);margin-top:10px}
 .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.skills span{
-  padding:7px 12px;border-radius:9px;
-  background:#202844;color:#dce1ff;font-size:13px;
+.skills span,.project-tags span{
+  padding:7px 12px;border-radius:9px;background:#202844;color:#dce1ff;font-size:13px;
 }
 .contact-card{text-align:center}
 .contact-card .buttons{margin-bottom:10px}
 .contact-card .btn{min-width:135px}
 
-/* NEW: My Project section */
-.project-card{
-  max-width:760px;
-  margin:auto;
-  overflow:hidden;
-  padding:0;
+/* Client enquiry form */
+.enquiry{
+  max-width:760px;margin:auto;background:var(--card);
+  border:1px solid #30395b;border-radius:20px;padding:26px;
 }
-.project-top{
-  padding:28px;
-  background:linear-gradient(135deg,#202650,#11182b);
-  border-bottom:1px solid #30395b;
+.enquiry label{display:block;font-size:14px;font-weight:bold;margin:15px 0 6px}
+.enquiry input,.enquiry select,.enquiry textarea{
+  display:block;width:100%;padding:13px;border-radius:10px;
+  border:1px solid #343d5c;background:#080b16;color:var(--text);
+  font:inherit;outline:none;
 }
-.project-window{
-  display:flex;
-  gap:7px;
-  margin-bottom:20px;
-}
-.project-window span{
-  width:10px;height:10px;border-radius:50%;
-  background:#7c83ff;
-}
+.enquiry input:focus,.enquiry select:focus,.enquiry textarea:focus{border-color:var(--cyan)}
+.enquiry textarea{min-height:110px;resize:vertical}
+.enquiry .btn{width:100%;margin-top:20px;cursor:pointer;font-size:15px}
+.form-note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+
+/* Project showcase */
+.project-card{max-width:760px;margin:auto;overflow:hidden;padding:0}
+.project-top{padding:28px;background:linear-gradient(135deg,#202650,#11182b);border-bottom:1px solid #30395b}
+.project-window{display:flex;gap:7px;margin-bottom:20px}
+.project-window span{width:10px;height:10px;border-radius:50%;background:#7c83ff}
 .project-window span:nth-child(2){background:#54e4d5}
 .project-window span:nth-child(3){background:#f4c76b}
-.project-preview{
-  border:1px solid #424b78;
-  border-radius:14px;
-  padding:24px 16px;
-  text-align:center;
-  background:#080b16;
-}
-.project-preview .preview-icon{
-  font-size:38px;
-  margin-bottom:8px;
-}
-.project-preview h3{
-  font-size:23px;
-  margin-bottom:5px;
-}
-.project-preview p{
-  font-size:13px;
-  color:var(--muted);
-}
+.project-preview{border:1px solid #424b78;border-radius:14px;padding:24px 16px;text-align:center;background:#080b16}
+.project-preview .preview-icon{font-size:38px;margin-bottom:8px}
+.project-preview h3{font-size:23px;margin-bottom:5px}
+.project-preview p{font-size:13px;color:var(--muted)}
 .project-details{padding:25px}
-.project-details p{
-  color:var(--muted);
-  font-size:14px;
-  margin-top:8px;
-}
-.project-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
-.project-tags span{
-  padding:5px 10px;
-  border-radius:8px;
-  background:#202844;
-  color:#dce1ff;
-  font-size:12px;
-}
+.project-details p{color:var(--muted);font-size:14px;margin-top:8px}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.project-tags span{padding:5px 10px;font-size:12px}
 .project-details .buttons{justify-content:flex-start}
 
-footer{
-  border-top:1px solid #252c43;
-  padding:25px 0;text-align:center;
-  color:var(--muted);font-size:13px;
+/* Clear expectations */
+.notice{
+  max-width:760px;margin:20px auto 0;padding:16px 18px;
+  border:1px solid #343d5c;border-radius:14px;color:var(--muted);font-size:13px;
 }
+footer{border-top:1px solid #252c43;padding:25px 0;text-align:center;color:var(--muted);font-size:13px}
 footer p:first-child{margin-bottom:5px}
 ::selection{background:var(--accent);color:white}
 
@@ -246,13 +150,10 @@ footer p:first-child{margin-bottom:5px}
   .section-title{font-size:27px}
   .project-top{padding:18px}
   .project-details{padding:20px}
+  .enquiry{padding:19px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation:none!important;
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
 }
 </style>
 </head>
@@ -267,6 +168,7 @@ footer p:first-child{margin-bottom:5px}
       <a href="#process">How It Works</a>
       <a href="#my-project">My Project</a>
       <a href="#about">About</a>
+      <a href="#enquiry">Hire Me</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -276,77 +178,56 @@ footer p:first-child{margin-bottom:5px}
   <section class="hero" id="home">
     <div class="container">
       <img class="profile" src="./ritesh.webp" alt="Ritesh Mahato">
-
       <br>
-      <span class="tag">WELCOME TO MY DIGITAL WORLD ✨</span>
+      <span class="tag">DIGITAL SERVICES • LET'S BUILD SOMETHING ✨</span>
       <h1>Hi, I'm <span>Ritesh Mahato</span></h1>
       <p>
         Student, learner and aspiring digital creator.
-        I build simple online experiences and help beginners
-        explore their digital ideas.
+        I help people get started with simple websites, online portfolios
+        and beginner-friendly digital projects.
       </p>
       <div class="buttons">
-        <a class="btn primary" href="#services">Explore Services ↗</a>
-        <a class="btn secondary" href="#contact">Let's Connect</a>
+        <a class="btn primary" href="#enquiry">Discuss Your Project ↗</a>
+        <a class="btn secondary" href="#services">Explore Services</a>
       </div>
+      <p style="font-size:12px;margin-top:18px">Clear communication • Scope discussed first • No pressure to proceed</p>
     </div>
   </section>
 
   <section id="services">
     <div class="container">
       <h2 class="section-title">My Services 🛠️</h2>
-      <p class="section-intro">
-        Need a simple website or an online profile?
-        Explore the options and message me to discuss your idea.
-      </p>
-
+      <p class="section-intro">Choose a service and send your idea. We'll discuss the requirements before starting.</p>
       <div class="grid">
         <article class="card">
-          <div class="service-icon">🌐</div>
-          <h3>Personal Websites</h3>
+          <div class="service-icon">🌐</div><h3>Personal Websites</h3>
           <p>A website to introduce yourself, share your interests and showcase your work.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20a%20personal%20website.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="Personal website">Enquire about this ↗</a>
         </article>
-
         <article class="card">
-          <div class="service-icon">🎨</div>
-          <h3>Portfolio Design</h3>
+          <div class="service-icon">🎨</div><h3>Portfolio Design</h3>
           <p>A clean portfolio to present your skills, projects and experience.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20portfolio%20design.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="Portfolio design">Enquire about this ↗</a>
         </article>
-
         <article class="card">
-          <div class="service-icon">📱</div>
-          <h3>Mobile-Friendly Pages</h3>
+          <div class="service-icon">📱</div><h3>Mobile-Friendly Pages</h3>
           <p>Responsive page layouts designed for phones, tablets and computers.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20a%20mobile-friendly%20page.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="Mobile-friendly page">Enquire about this ↗</a>
         </article>
-
         <article class="card">
-          <div class="service-icon">⚙️</div>
-          <h3>Basic Website Updates</h3>
+          <div class="service-icon">⚙️</div><h3>Basic Website Updates</h3>
           <p>Simple text, color, link and HTML/CSS changes to existing pages.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20help%20with%20a%20website%20update.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="Website updates">Enquire about this ↗</a>
         </article>
-
         <article class="card">
-          <div class="service-icon">📄</div>
-          <h3>Online Profile Setup</h3>
+          <div class="service-icon">📄</div><h3>Online Profile Setup</h3>
           <p>Bring your introduction, contact details and social links together on one page.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20an%20online%20profile.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="Online profile setup">Enquire about this ↗</a>
         </article>
-
         <article class="card">
-          <div class="service-icon">💡</div>
-          <h3>Beginner Coding Guidance</h3>
+          <div class="service-icon">💡</div><h3>Basic HTML/CSS Guidance</h3>
           <p>Beginner-friendly guidance with HTML, CSS and GitHub Pages basics.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20ask%20about%20beginner%20HTML%20and%20CSS%20guidance.">Enquire on WhatsApp ↗</a>
+          <a class="small-link" href="#enquiry" data-service="HTML/CSS guidance">Enquire about this ↗</a>
         </article>
       </div>
     </div>
@@ -355,80 +236,99 @@ footer p:first-child{margin-bottom:5px}
   <section id="process">
     <div class="container">
       <h2 class="section-title">How It Works 🤝</h2>
-      <p class="section-intro">A simple, clear process from first message to finished page.</p>
-
+      <p class="section-intro">A simple process with expectations discussed before work begins.</p>
       <div class="grid">
         <article class="card">
-          <div class="service-icon">💬</div>
-          <h3>1. Share Your Idea</h3>
+          <div class="service-icon">💬</div><h3>1. Share Your Idea</h3>
           <p>Tell me what you need, your main goal and any examples you like.</p>
         </article>
         <article class="card">
-          <div class="service-icon">🧭</div>
-          <h3>2. Discuss the Plan</h3>
-          <p>We discuss the scope, timeline and any costs before work begins.</p>
+          <div class="service-icon">🧭</div><h3>2. Agree on the Plan</h3>
+          <p>Discuss the scope, price and timeline. Work begins only after we agree.</p>
         </article>
         <article class="card">
-          <div class="service-icon">🚀</div>
-          <h3>3. Review the Result</h3>
-          <p>Review the draft, discuss agreed changes and get guidance on basic updates.</p>
+          <div class="service-icon">🚀</div><h3>3. Review the Result</h3>
+          <p>Review the draft and discuss changes that were agreed in advance.</p>
         </article>
-      </div>
-
-      <div class="buttons">
-        <a class="btn primary" target="_blank" rel="noopener noreferrer"
-        href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%20have%20a%20project%20idea%20to%20discuss.">Discuss Your Project ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- NEW PROJECT SECTION -->
+  <section id="enquiry">
+    <div class="container">
+      <h2 class="section-title">Tell Me About Your Project 📩</h2>
+      <p class="section-intro">Fill in a few details. WhatsApp will open with your message ready to send.</p>
+
+      <form class="enquiry" id="enquiryForm">
+        <label for="clientName">Your name *</label>
+        <input id="clientName" name="clientName" type="text" placeholder="Enter your name" required maxlength="80">
+
+        <label for="service">Which service do you need? *</label>
+        <select id="service" name="service" required>
+          <option value="">Choose a service</option>
+          <option>Personal website</option>
+          <option>Portfolio design</option>
+          <option>Mobile-friendly page</option>
+          <option>Website updates</option>
+          <option>Online profile setup</option>
+          <option>HTML/CSS guidance</option>
+          <option>Other digital service</option>
+        </select>
+
+        <label for="budget">Your approximate budget</label>
+        <select id="budget" name="budget">
+          <option value="Need to discuss">I'd like to discuss first</option>
+          <option>Under ₹500</option>
+          <option>₹500–₹1,000</option>
+          <option>₹1,000–₹3,000</option>
+          <option>₹3,000+</option>
+        </select>
+
+        <label for="timeline">When do you need it?</label>
+        <select id="timeline" name="timeline">
+          <option>Flexible</option>
+          <option>Within a few days</option>
+          <option>Within 1–2 weeks</option>
+          <option>Specific deadline to discuss</option>
+        </select>
+
+        <label for="details">Describe your idea *</label>
+        <textarea id="details" name="details" placeholder="What do you want made or changed?" required maxlength="1200"></textarea>
+
+        <button class="btn primary" type="submit">Continue on WhatsApp ↗</button>
+        <p class="form-note">This form doesn't store your details. It prepares a WhatsApp message for you to review and send.</p>
+      </form>
+
+      <div class="notice">
+        <strong style="color:var(--text)">Before we start:</strong>
+        Requirements, final price, timeline and included changes will be discussed and agreed first.
+        Sending an enquiry does not commit you to a purchase.
+      </div>
+    </div>
+  </section>
+
   <section id="my-project">
     <div class="container">
       <h2 class="section-title">My First Project 🚀</h2>
-      <p class="section-intro">
-        My first personal website, built while learning web design
-        and GitHub Pages step by step.
-      </p>
-
+      <p class="section-intro">My first personal website, built while learning web design and GitHub Pages step by step.</p>
       <article class="about project-card">
         <div class="project-top">
-          <div class="project-window">
-            <span></span><span></span><span></span>
-          </div>
+          <div class="project-window"><span></span><span></span><span></span></div>
           <div class="project-preview">
             <div class="preview-icon">🌐</div>
             <h3>Ritesh Mahato</h3>
             <p>Personal Website • Digital Portfolio</p>
           </div>
         </div>
-
         <div class="project-details">
           <h3>My Digital Portfolio</h3>
-          <p>
-            This is my first live project. It introduces me,
-            showcases my digital services and makes it easy
-            for visitors to contact me.
-          </p>
-
+          <p>This is my first live project. It introduces me, showcases my digital services and makes it easy for visitors to contact me.</p>
           <div class="project-tags">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Responsive Design</span>
-            <span>GitHub Pages</span>
+            <span>HTML</span><span>CSS</span><span>Responsive Design</span><span>GitHub Pages</span>
           </div>
-
           <div class="buttons">
-            <a class="btn primary"
-               href="https://riteshmahato01.github.io/ritesh-website/"
-               target="_blank" rel="noopener noreferrer">
-              View Live Website ↗
-            </a>
-            <a class="btn secondary"
-               href="https://github.com/riteshmahato01/ritesh-website"
-               target="_blank" rel="noopener noreferrer">
-              View Source Code ↗
-            </a>
+            <a class="btn primary" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener noreferrer">View Live Website ↗</a>
+            <a class="btn secondary" href="https://github.com/riteshmahato01/ritesh-website" target="_blank" rel="noopener noreferrer">View Source Code ↗</a>
           </div>
         </div>
       </article>
@@ -440,16 +340,13 @@ footer p:first-child{margin-bottom:5px}
       <div class="about">
         <h2>About Me 👋</h2>
         <p>
-          I'm Ritesh Mahato. I'm learning technology,
-          improving my coding skills and building my
-          own online projects step by step.
+          I'm Ritesh Mahato. I'm learning technology, improving my coding skills
+          and building my own online projects step by step.
+          I aim to communicate clearly and agree on project details before starting.
         </p>
         <div class="skills">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>GitHub Pages</span>
-          <span>Web Design</span>
-          <span>Continuous Learning</span>
+          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+          <span>Web Design</span><span>Continuous Learning</span>
         </div>
       </div>
     </div>
@@ -459,16 +356,11 @@ footer p:first-child{margin-bottom:5px}
     <div class="container">
       <div class="about contact-card">
         <h2>Let's Connect 🤝</h2>
-        <p>
-          Have a project idea? Send a message and discuss
-          the requirements, timeline and cost before starting.
-        </p>
+        <p>Have a project idea? Contact me to discuss the requirements, timeline and cost.</p>
         <div class="buttons">
           <a class="btn primary" href="mailto:mbackbencher01@gmail.com">📧 Email Me</a>
-          <a class="btn secondary" target="_blank" rel="noopener noreferrer"
-          href="https://www.instagram.com/6__nine_/">📸 Instagram</a>
-          <a class="btn secondary" target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/919142518477">💬 WhatsApp</a>
+          <a class="btn secondary" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+          <a class="btn secondary" href="https://wa.me/919142518477" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
         </div>
       </div>
     </div>
@@ -484,6 +376,39 @@ footer p:first-child{margin-bottom:5px}
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const serviceSelect = document.getElementById("service");
+document.querySelectorAll("[data-service]").forEach(function(link){
+  link.addEventListener("click",function(){
+    serviceSelect.value = this.dataset.service;
+  });
+});
+
+document.getElementById("enquiryForm").addEventListener("submit",function(event){
+  event.preventDefault();
+
+  const name = document.getElementById("clientName").value.trim();
+  const service = serviceSelect.value;
+  const budget = document.getElementById("budget").value;
+  const timeline = document.getElementById("timeline").value;
+  const details = document.getElementById("details").value.trim();
+
+  if(!name || !service || !details){
+    alert("Please fill in your name, service and project details.");
+    return;
+  }
+
+  const message =
+    "Hi Ritesh! I'd like to discuss a project.\n\n" +
+    "Name: " + name + "\n" +
+    "Service: " + service + "\n" +
+    "Budget: " + budget + "\n" +
+    "Timeline: " + timeline + "\n" +
+    "Project details: " + details;
+
+  const whatsappURL = "https://wa.me/919142518477?text=" + encodeURIComponent(message);
+  window.open(whatsappURL,"_blank","noopener,noreferrer");
+});
 </script>
 </body>
 </html>
