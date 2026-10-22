@@ -1,526 +1,681 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<meta name="description" content="Ritesh Kumar - Website design, video editing, social media design and digital services.">
-<title>Ritesh Kumar | Digital Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+  <meta name="google-site-verification" content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE">
+  <meta name="description" content="Ritesh Kumar — personal portfolio, website design and digital creativity.">
+  <title>Ritesh Kumar | Digital Portfolio</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#080b16;
-  --card:#11182b;
-  --text:#f4f7ff;
-  --muted:#aab4cc;
-  --accent:#7c83ff;
-  --cyan:#54e4d5;
-}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  font-family:Arial,sans-serif;
-  background:
-    radial-gradient(ellipse at 10% 20%,#25265a22,transparent 40%),
-    radial-gradient(ellipse at 90% 70%,#54e4d511,transparent 35%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.7;
-}
-a{color:inherit;text-decoration:none}
-.container{width:min(1080px,90%);margin:auto}
+  <style>
+    :root {
+      --bg: #080b16;
+      --card: #11182b;
+      --text: #f4f7ff;
+      --muted: #aab4cc;
+      --accent: #7c83ff;
+      --cyan: #54e4d5;
+      --border: rgba(255,255,255,.10);
+    }
 
-header{
-  position:sticky;top:0;z-index:10;
-  background:rgba(8,11,22,.94);
-  border-bottom:1px solid #252c43;
-  backdrop-filter:blur(14px);
-  box-shadow:0 5px 25px #00000022;
-}
-nav{
-  display:flex;justify-content:space-between;
-  align-items:center;gap:15px;padding:15px 0;
-}
-.logo{font-size:21px;font-weight:800}
-.logo span{color:var(--cyan)}
-.navlinks{display:flex;gap:18px;flex-wrap:wrap}
-.navlinks a{
-  font-size:13px;color:var(--muted);
-  transition:.25s;
-}
-.navlinks a:hover{
-  color:var(--cyan);
-  text-shadow:0 0 12px #54e4d599;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.hero{
-  padding:75px 0 65px;
-  text-align:center;
-  background:radial-gradient(ellipse at top,#25265a 0%,transparent 65%);
-  animation:reveal .8s ease both;
-}
-@keyframes reveal{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.profile{
-  width:150px;height:150px;object-fit:cover;
-  border-radius:50%;border:3px solid var(--accent);
-  margin-bottom:20px;
-  animation:glow 3s ease-in-out infinite alternate;
-  transition:transform .3s;
-}
-.profile:hover{transform:scale(1.05)}
-@keyframes glow{
-  from{box-shadow:0 0 12px #7c83ff66}
-  to{box-shadow:0 0 25px #7c83ff,0 0 42px #54e4d555}
-}
-.tag{
-  display:inline-block;padding:5px 14px;
-  border:1px solid #454b85;border-radius:30px;
-  color:var(--cyan);font-size:13px;
-  animation:pulse 3s ease-in-out infinite;
-}
-@keyframes pulse{
-  50%{box-shadow:0 0 20px #54e4d533}
-}
-h1{
-  font-size:clamp(36px,8vw,65px);
-  line-height:1.15;margin:20px 0;
-  letter-spacing:-1.5px;
-}
-h1 span{
-  background:linear-gradient(90deg,#a8adff,#54e4d5,#a8adff);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  background-clip:text;color:transparent;
-  animation:shine 4s linear infinite;
-}
-@keyframes shine{to{background-position:200% center}}
-.hero p,.section-intro{
-  color:var(--muted);max-width:650px;
-  margin:0 auto 25px;
-}
-.buttons{
-  display:flex;gap:12px;justify-content:center;
-  flex-wrap:wrap;margin-top:24px;
-}
-.btn{
-  display:inline-block;padding:12px 20px;
-  border-radius:12px;font-weight:bold;
-  border:1px solid #343d5c;
-  transition:transform .25s,box-shadow .25s;
-  text-align:center;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 20px #7c83ff55;
-}
-.primary{background:var(--accent);color:white;border-color:var(--accent)}
-.primary:hover{background:#9298ff}
-.secondary{background:#141a2b}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-section{padding:60px 0;scroll-margin-top:75px}
-.section-title{text-align:center;font-size:30px;margin-bottom:10px}
-.section-intro{text-align:center;margin-bottom:30px}
-.grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-.card{
-  padding:24px;background:var(--card);
-  border:1px solid #252e47;border-radius:18px;
-  transition:transform .3s,border-color .3s,box-shadow .3s;
-  animation:reveal .6s ease both;
-}
-.card:hover{
-  transform:translateY(-7px);
-  border-color:var(--accent);
-  box-shadow:0 0 18px #7c83ff25,0 12px 30px #00000044;
-}
-.service-icon{font-size:30px;margin-bottom:12px}
-.card h3{font-size:19px;margin-bottom:8px}
-.card p{color:var(--muted);font-size:14px}
-.small-link{
-  display:inline-block;margin-top:16px;
-  color:var(--cyan);font-size:14px;font-weight:bold;
-}
-.small-link:hover{text-shadow:0 0 12px var(--cyan)}
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-.about{
-  background:linear-gradient(120deg,#10162a,#0c1020);
-  border:1px solid #252e47;border-radius:22px;padding:30px;
-  transition:border-color .3s,box-shadow .3s;
-}
-.about:hover{border-color:#7c83ff88;box-shadow:0 0 25px #7c83ff12}
-.about p{color:var(--muted);margin-top:10px}
-.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.skills span{
-  padding:7px 12px;border-radius:9px;
-  background:#202844;color:#dce1ff;font-size:13px;
-}
-.contact-card{text-align:center}
-.contact-card .buttons{margin-bottom:10px}
-.contact-card .btn{min-width:135px}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.project-card{
-  max-width:760px;
-  margin:auto;
-  overflow:hidden;
-  padding:0;
-}
-.project-top{
-  padding:28px;
-  background:linear-gradient(135deg,#202650,#11182b);
-  border-bottom:1px solid #30395b;
-}
-.project-window{
-  display:flex;
-  gap:7px;
-  margin-bottom:20px;
-}
-.project-window span{
-  width:10px;height:10px;border-radius:50%;
-  background:#7c83ff;
-}
-.project-window span:nth-child(2){background:#54e4d5}
-.project-window span:nth-child(3){background:#f4c76b}
-.project-preview{
-  border:1px solid #424b78;
-  border-radius:14px;
-  padding:24px 16px;
-  text-align:center;
-  background:#080b16;
-}
-.project-preview .preview-icon{
-  font-size:38px;
-  margin-bottom:8px;
-}
-.project-preview h3{
-  font-size:23px;
-  margin-bottom:5px;
-}
-.project-preview p{
-  font-size:13px;
-  color:var(--muted);
-}
-.project-details{padding:25px}
-.project-details p{
-  color:var(--muted);
-  font-size:14px;
-  margin-top:8px;
-}
-.project-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
-.project-tags span{
-  padding:5px 10px;
-  border-radius:8px;
-  background:#202844;
-  color:#dce1ff;
-  font-size:12px;
-}
-.project-details .buttons{justify-content:flex-start}
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-footer{
-  border-top:1px solid #252c43;
-  padding:25px 0;text-align:center;
-  color:var(--muted);font-size:13px;
-}
-footer p:first-child{margin-bottom:5px}
-::selection{background:var(--accent);color:white}
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
 
-@media(max-width:700px){
-  .grid{grid-template-columns:1fr}
-  nav{align-items:flex-start;flex-direction:column}
-  .navlinks{gap:12px}
-  .navlinks a{font-size:12px}
-  .hero{padding:55px 0 45px}
-  section{padding:45px 0}
-  .about{padding:22px}
-  .section-title{font-size:27px}
-  .project-top{padding:18px}
-  .project-details{padding:20px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation:none!important;
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
-}
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+    }
 
-.github-card{text-align:center}
-.typing-line{
-  font-family:"Courier New",monospace;
-  font-size:clamp(17px,4.5vw,22px);
-  color:var(--cyan);
-  min-height:1.8em;
-  margin-top:14px;
-}
-.cursor{animation:blink 1s steps(1) infinite;color:var(--accent)}
-@keyframes blink{50%{opacity:0}}
-.github-card .skills{justify-content:center}
-</style>
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,11,22,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ritesh">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .navlinks a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: color .2s;
+    }
+
+    .navlinks a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 50px;
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--cyan);
+      border: 1px solid rgba(84,228,213,.3);
+      background: rgba(84,228,213,.07);
+      padding: 6px 13px;
+      border-radius: 50px;
+      font-size: .85rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p, .section-intro {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .typing-line {
+      color: var(--cyan);
+      font-weight: 700;
+      min-height: 30px;
+      margin: 12px 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 19px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(124,131,255,.15);
+    }
+
+    .btn-primary {
+      color: #080b16;
+      background: linear-gradient(110deg, var(--accent), var(--cyan));
+      border: none;
+    }
+
+    .profile-card {
+      position: relative;
+      max-width: 330px;
+      width: 100%;
+      margin: auto;
+      padding: 15px;
+      border: 1px solid rgba(124,131,255,.35);
+      border-radius: 28px;
+      background: linear-gradient(145deg, #18213a, #0c1020);
+      box-shadow: 0 25px 80px rgba(0,0,0,.3);
+    }
+
+    .profile {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      display: block;
+      object-fit: cover;
+      border-radius: 20px;
+      background: var(--card);
+    }
+
+    .profile-caption {
+      padding: 15px 5px 4px;
+      text-align: center;
+    }
+
+    .profile-caption small {
+      color: var(--muted);
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      margin-bottom: 30px;
+    }
+
+    .accent {
+      color: var(--cyan);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(84,228,213,.45);
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(124,131,255,.12);
+      color: #b9bdff;
+      font-size: .78rem;
+    }
+
+    .about-box {
+      padding: 30px;
+      background: linear-gradient(135deg, #141d35, #0e1425);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .steps {
+      counter-reset: steps;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 60px;
+    }
+
+    .step::before {
+      counter-increment: steps;
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: rgba(124,131,255,.18);
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 42px 25px;
+      background: radial-gradient(ellipse at top, #20284b, #11182b 70%);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px auto 20px;
+      max-width: 600px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    #back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      width: 46px;
+      height: 46px;
+      border: 1px solid #5b65a0;
+      border-radius: 14px;
+      background: #11182b;
+      color: var(--text);
+      font-size: 22px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: .25s;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 13px 0;
+      }
+
+      .navlinks {
+        gap: 13px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 35px;
+        padding-top: 55px;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-copy p {
+        margin-inline: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .profile-card {
+        max-width: 280px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <nav class="container">
-    <a class="logo" href="#home">Ritesh<span>.</span></a>
-    <div class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#process">How It Works</a>
-      <a href="#my-project">My Project</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
 
-<main>
-  <section class="hero" id="home">
-    <div class="container">
-      <img class="profile" src="./ritesh.webp" alt="Ritesh Kumar">
-      <br>
-      <span class="tag">WELCOME TO MY DIGITAL WORLD ✨</span>
-      <h1>Hi, I'm <span>Ritesh Kumar</span></h1>
-      <p>
-        Student, learner and aspiring digital creator.
-        I build simple online experiences and help beginners
-        explore their digital ideas.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="#services">Explore Services ↗</a>
-        <a class="btn secondary" href="#contact">Let's Connect</a>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">RITESH<span>.</span></a>
+      <div class="navlinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">My Services 🛠️</h2>
-      <p class="section-intro">
-        Need a website, an edited video, social media designs
-        or help with a digital task? Explore my services and
-        message me on Instagram to discuss your idea.
-      </p>
-
-      <div class="grid">
-        <article class="card">
-          <div class="service-icon">🌐</div>
-          <h3>Website Design</h3>
-          <p>Personal websites and portfolios to introduce you, showcase your work and help people find you online.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Enquire on Instagram ↗</a>
-        </article>
-
-        <article class="card">
-          <div class="service-icon">🎬</div>
-          <h3>Video Editing</h3>
-          <p>Basic video edits for reels, short videos and social media content, based on the project requirements.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Enquire on Instagram ↗</a>
-        </article>
-
-        <article class="card">
-          <div class="service-icon">🎨</div>
-          <h3>Social Media Designing</h3>
-          <p>Simple creative designs for posts, stories, thumbnails and personal or small-business profiles.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Enquire on Instagram ↗</a>
-        </article>
-
-        <article class="card">
-          <div class="service-icon">💡</div>
-          <h3>Digital Help</h3>
-          <p>Beginner-friendly help with online profiles, website updates, links and basic HTML/CSS tasks.</p>
-          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Enquire on Instagram ↗</a>
-        </article>
-      </div>
-
-      <div class="about" style="margin-top:22px;text-align:center">
-        <h2>💰 Turn Digital Skills Into Services</h2>
+  <main>
+    <section class="container hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">✨ Welcome to my digital space</span>
+        <h1>Hi, I'm <span class="gradient-text">Ritesh Kumar</span></h1>
+        <div class="typing-line" id="typing">Student • Learner</div>
         <p>
-          I’m building my skills and offering digital services
-          through practical projects. If you have an idea,
-          message me to discuss what you need.
+          I'm building my skills in the digital world, exploring website design,
+          creative ideas and technology one step at a time.
         </p>
-        <p>
-          The work, delivery time and price will be agreed
-          together before a project starts. Pricing depends
-          on the task and its complexity.
-        </p>
-        <div class="buttons">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Discuss a Project ↗</a>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
+          <a class="btn" href="#contact">Contact Me</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="process">
-    <div class="container">
-      <h2 class="section-title">How It Works 🤝</h2>
-      <p class="section-intro">A simple, clear process from first message to finished project.</p>
-      <div class="grid">
-        <article class="card">
-          <div class="service-icon">💬</div>
-          <h3>1. Share Your Idea</h3>
-          <p>Tell me what you need, your main goal and any examples you like.</p>
-        </article>
-        <article class="card">
-          <div class="service-icon">🧭</div>
-          <h3>2. Discuss the Plan</h3>
-          <p>We discuss the scope, timeline and any costs before work begins.</p>
-        </article>
-        <article class="card">
-          <div class="service-icon">🚀</div>
-          <h3>3. Review the Result</h3>
-          <p>Review the draft, discuss agreed changes and get guidance on basic updates.</p>
-        </article>
-      </div>
-      <div class="buttons">
-        <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">Discuss Your Project ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="my-project">
-    <div class="container">
-      <h2 class="section-title">My First Project 🚀</h2>
-      <p class="section-intro">
-        My first personal website, built while learning web design
-        and GitHub Pages step by step.
-      </p>
-      <article class="about project-card">
-        <div class="project-top">
-          <div class="project-window"><span></span><span></span><span></span></div>
-          <div class="project-preview">
-            <div class="preview-icon">🌐</div>
-            <h3>Ritesh Kumar</h3>
-            <p>Personal Website • Digital Portfolio</p>
-          </div>
+      <div class="profile-card">
+        <img class="profile" src="./ritesh.webp" alt="Ritesh Kumar"
+             onerror="this.style.display='none'">
+        <div class="profile-caption">
+          <h3>Ritesh Kumar 🚀</h3>
+          <small>Learning • Creating • Growing</small>
         </div>
-        <div class="project-details">
-          <h3>My Digital Portfolio</h3>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-heading">What I'm <span class="gradient-text">Exploring</span></h2>
+        <p class="section-intro">My digital interests and the skills I'm developing.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">🌐</div>
+            <h3>Website Design</h3>
+            <p>Creating responsive websites with clean layouts, modern styles and useful features.</p>
+            <span class="tag">Web Development</span>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Creative Design</h3>
+            <p>Exploring visual ideas, colour combinations, layouts and digital presentation.</p>
+            <span class="tag">Creativity</span>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📱</div>
+            <h3>Digital Projects</h3>
+            <p>Learning to turn ideas into practical online projects using available tools.</p>
+            <span class="tag">Learning by Doing</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-heading">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-intro">A growing collection of my work and experiments.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>Personal Portfolio</h3>
+            <p>This website is my first step toward building a personal online presence.</p>
+            <span class="tag">HTML • CSS • JavaScript</span>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Next Project</h3>
+            <p>I'm exploring ideas for new projects and improving my skills as I go.</p>
+            <span class="tag">Coming Soon</span>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📚</div>
+            <h3>Learning Journey</h3>
+            <p>Every project gives me a chance to practise, experiment and improve.</p>
+            <span class="tag">In Progress</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <h2 class="section-heading">How I <span class="gradient-text">Work</span></h2>
+        <p class="section-intro">A simple approach to making progress.</p>
+
+        <div class="grid steps">
+          <article class="card step">
+            <h3>Explore</h3>
+            <p>Start with an idea and understand what it needs.</p>
+          </article>
+
+          <article class="card step">
+            <h3>Create</h3>
+            <p>Build a first version and test how it works.</p>
+          </article>
+
+          <article class="card step">
+            <h3>Improve</h3>
+            <p>Learn from mistakes and make the project better.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-box">
+          <h2 class="section-heading">About <span class="gradient-text">Me 👋</span></h2>
           <p>
-            This is my first live project. It introduces me,
-            showcases my digital services and makes it easy
-            for visitors to contact me.
+            Hi, I'm Ritesh Kumar. I'm interested in technology, website design
+            and learning new digital skills. This portfolio is where I share
+            my progress, experiment with ideas and build projects step by step.
           </p>
-          <div class="project-tags">
-            <span>HTML</span><span>CSS</span><span>Responsive Design</span><span>GitHub Pages</span>
+          <p>
+            My goal is to keep learning, stay curious and turn ideas into
+            something useful. This page will grow as I gain experience.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Let's Connect ↗</a>
+            <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">My GitHub</a>
           </div>
-          <div class="buttons">
-            <a class="btn primary" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener noreferrer">View Live Website ↗</a>
-            <a class="btn secondary" href="https://github.com/riteshmahato01/ritesh-website" target="_blank" rel="noopener noreferrer">View Source Code ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="eyebrow">💬 Get in touch</span>
+          <h2 class="section-heading">Let's <span class="gradient-text">Connect</span></h2>
+          <p>
+            Have an idea or want to connect? Send me an email or visit my
+            social profile.
+          </p>
+
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="mailto:mbackbencher01@gmail.com">✉️ Email Me</a>
+          </div>
+
+          <div class="socials">
+            <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
           </div>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="github">
-    <div class="container">
-      <div class="about github-card">
-        <h2>On GitHub 💻</h2>
-        <p class="typing-line"><span id="typing"></span><span class="cursor">|</span></p>
-        <p>I build and share my learning projects on GitHub.</p>
-        <div class="skills">
-          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
-        </div>
-        <div class="buttons">
-          <a class="btn primary" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">View My GitHub ↗</a>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section id="about">
+  <footer>
     <div class="container">
-      <div class="about">
-        <h2>About Me 👋</h2>
-        <p>
-          I'm Ritesh Kumar. I'm learning technology,
-          improving my coding skills and building my
-          own online projects step by step.
-        </p>
-        <div class="skills">
-          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
-          <span>Web Design</span><span>Continuous Learning</span>
-        </div>
-      </div>
+      <p>© <span id="year"></span> Ritesh Kumar. Made with ❤️</p>
+      <p>Learning • Creating • Growing 🚀</p>
     </div>
-  </section>
+  </footer>
 
-  <section id="contact">
-    <div class="container">
-      <div class="about contact-card">
-        <h2>Let's Connect 🤝</h2>
-        <p>
-          Have a project idea? Send a message and discuss
-          the requirements, timeline and cost before starting.
-        </p>
-        <div class="buttons">
-          <a class="btn primary" href="mailto:mbackbencher01@gmail.com">📧 Email Me</a>
-          <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">📸 Instagram</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<footer>
-  <div class="container">
-    <p>© <span id="year"></span> Ritesh Kumar. Made with ❤️</p>
-    <p>Learning • Creating • Growing 🚀</p>
-  </div>
-</footer>
+    // Scroll progress and back-to-top button
+    (function () {
+      const progress = document.getElementById("scroll-progress");
+      const topButton = document.getElementById("back-to-top");
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      function updateScrollUI() {
+        const doc = document.documentElement;
+        const maxScroll = doc.scrollHeight - window.innerHeight;
+        const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+        progress.style.width = percent + "%";
+        topButton.classList.toggle("visible", window.scrollY > 350);
+      }
 
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js").catch(function () {});
-  });
-}
-</script>
+      window.addEventListener("scroll", updateScrollUI, { passive: true });
+      window.addEventListener("resize", updateScrollUI);
 
-<script>
-(function () {
-  var el = document.getElementById("typing");
-  if (!el) return;
-  var lines = ["Student • Learner", "Aspiring Digital Creator", "Learn. Build. Improve. Repeat."];
-  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    el.textContent = lines[0];
-    return;
-  }
-  var li = 0, ci = 0, del = false;
-  function tick() {
-    var t = lines[li];
-    el.textContent = t.slice(0, ci);
-    var wait = del ? 35 : 75;
-    if (!del && ci === t.length) { del = true; wait = 1400; }
-    else if (del && ci === 0) { del = false; li = (li + 1) % lines.length; wait = 400; }
-    else { ci += del ? -1 : 1; }
-    setTimeout(tick, wait);
-  }
-  tick();
-})();
-</script>
+      topButton.addEventListener("click", function () {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      });
 
+      updateScrollUI();
+    })();
+
+    // Animated introduction text
+    (function () {
+      const el = document.getElementById("typing");
+      if (!el) return;
+
+      const lines = [
+        "Student • Learner",
+        "Aspiring Digital Creator",
+        "Learning Website Design",
+        "Learn. Build. Improve. Repeat."
+      ];
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.textContent = lines[0];
+        return;
+      }
+
+      let lineIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const current = lines[lineIndex];
+        el.textContent = current.slice(0, charIndex);
+
+        let delay = deleting ? 35 : 75;
+
+        if (!deleting && charIndex === current.length) {
+          deleting = true;
+          delay = 1300;
+        } else if (deleting && charIndex === 0) {
+          deleting = false;
+          lineIndex = (lineIndex + 1) % lines.length;
+          delay = 350;
+        } else {
+          charIndex += deleting ? -1 : 1;
+        }
+
+        window.setTimeout(tick, delay);
+      }
+
+      tick();
+    })();
+  </script>
 </body>
 </html>
