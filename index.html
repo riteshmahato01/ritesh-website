@@ -1,345 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080711">
   <meta name="google-site-verification" content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE">
-  <meta name="description" content="Ritesh Kumar — personal portfolio, website design and digital creativity.">
+  <meta name="description" content="Ritesh Kumar's digital portfolio — website design, creative projects and digital services.">
+  <meta name="author" content="Ritesh Kumar">
+  <meta property="og:title" content="Ritesh Kumar | Digital Portfolio">
+  <meta property="og:description" content="Explore my digital portfolio, projects and website design services.">
+  <meta property="og:type" content="website">
   <title>Ritesh Kumar | Digital Portfolio</title>
 
   <style>
     :root {
-      --bg: #080b16;
-      --card: #11182b;
-      --text: #f4f7ff;
-      --muted: #aab4cc;
-      --accent: #7c83ff;
-      --cyan: #54e4d5;
-      --border: rgba(255,255,255,.10);
+      --bg: #080711;
+      --surface: #111020;
+      --surface-2: #17152a;
+      --text: #f7f5ff;
+      --muted: #aaa7c2;
+      --purple: #a78bfa;
+      --purple-dark: #7c3aed;
+      --cyan: #5eead4;
+      --border: rgba(195, 174, 255, .16);
+      --gradient: linear-gradient(115deg, #a78bfa, #5eead4);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .25);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 85px;
+      scroll-padding-top: 95px;
     }
 
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(ellipse at 12% 5%, rgba(124, 58, 237, .13), transparent 35%),
+        radial-gradient(ellipse at 90% 40%, rgba(94, 234, 212, .06), transparent 32%),
+        var(--bg);
       color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
+    .container { width: min(1120px, 90%); margin-inline: auto; }
 
     #scroll-progress {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
+      inset: 0 auto auto 0;
       width: 0;
-      z-index: 999;
-      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      height: 3px;
+      background: var(--gradient);
+      z-index: 1000;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8,11,22,.88);
-      backdrop-filter: blur(16px);
+      background: rgba(8, 7, 17, .88);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
     nav {
-      min-height: 70px;
+      min-height: 76px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: .5px;
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      white-space: nowrap;
     }
 
-    .logo span {
-      color: var(--cyan);
-    }
+    .logo span { color: var(--cyan); }
 
     .navlinks {
       display: flex;
       align-items: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 22px;
     }
 
     .navlinks a {
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .91rem;
       transition: color .2s;
     }
 
-    .navlinks a:hover {
-      color: var(--cyan);
+    .navlinks a:hover { color: var(--cyan); }
+
+    .navlinks .nav-cta {
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
     }
+
+    section { padding: 88px 0; }
 
     .hero {
       min-height: 82vh;
       display: grid;
-      grid-template-columns: 1.3fr .7fr;
+      grid-template-columns: 1.2fr .8fr;
       align-items: center;
-      gap: 50px;
+      gap: 65px;
       padding-top: 65px;
-      padding-bottom: 65px;
+      padding-bottom: 75px;
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 30px;
+      border: 1px solid rgba(167, 139, 250, .32);
+      background: rgba(167, 139, 250, .08);
       color: var(--cyan);
-      border: 1px solid rgba(84,228,213,.3);
-      background: rgba(84,228,213,.07);
-      padding: 6px 13px;
-      border-radius: 50px;
-      font-size: .85rem;
-      margin-bottom: 20px;
+      font-size: .83rem;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-size: clamp(2.65rem, 6.5vw, 5.2rem);
       line-height: 1.08;
       letter-spacing: -2px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      background: var(--gradient);
       color: transparent;
-      background-clip: text;
       -webkit-background-clip: text;
+      background-clip: text;
     }
 
-    .hero p, .section-intro {
+    .hero-description, .section-intro {
       color: var(--muted);
-      max-width: 620px;
+      max-width: 640px;
     }
+
+    .hero-description { font-size: 1.06rem; }
 
     .typing-line {
+      min-height: 32px;
       color: var(--cyan);
-      font-weight: 700;
-      min-height: 30px;
-      margin: 12px 0;
+      font-weight: 750;
+      margin: 14px 0;
     }
 
     .actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      gap: 13px;
+      margin-top: 29px;
     }
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 46px;
       padding: 11px 19px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      font-weight: 700;
-      transition: transform .2s, box-shadow .2s;
+      background: rgba(255, 255, 255, .025);
+      color: var(--text);
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(124,131,255,.15);
+      border-color: rgba(94, 234, 212, .5);
+      box-shadow: 0 10px 28px rgba(124, 58, 237, .15);
     }
 
     .btn-primary {
-      color: #080b16;
-      background: linear-gradient(110deg, var(--accent), var(--cyan));
-      border: none;
+      color: #090817;
+      background: var(--gradient);
+      border: 0;
     }
 
     .profile-card {
-      position: relative;
-      max-width: 330px;
       width: 100%;
+      max-width: 350px;
       margin: auto;
-      padding: 15px;
-      border: 1px solid rgba(124,131,255,.35);
+      padding: 14px;
       border-radius: 28px;
-      background: linear-gradient(145deg, #18213a, #0c1020);
-      box-shadow: 0 25px 80px rgba(0,0,0,.3);
+      border: 1px solid rgba(167, 139, 250, .4);
+      background: linear-gradient(145deg, #1b1830, #0d0c19);
+      box-shadow: 0 0 65px rgba(124, 58, 237, .14), var(--shadow);
+      position: relative;
     }
 
     .profile {
+      display: block;
       width: 100%;
       aspect-ratio: 4 / 5;
-      display: block;
       object-fit: cover;
-      border-radius: 20px;
-      background: var(--card);
+      object-position: center;
+      border-radius: 19px;
+      background: var(--surface);
     }
 
-    .profile-caption {
-      padding: 15px 5px 4px;
-      text-align: center;
-    }
-
-    .profile-caption small {
-      color: var(--muted);
-    }
-
-    section {
-      padding: 78px 0;
-    }
+    .profile-caption { padding: 17px 5px 6px; text-align: center; }
+    .profile-caption small { color: var(--muted); }
 
     .section-heading {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
       line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 13px;
+      letter-spacing: -.7px;
     }
 
-    .section-intro {
-      margin-bottom: 30px;
-    }
-
-    .accent {
-      color: var(--cyan);
-    }
+    .section-intro { margin-bottom: 32px; }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 19px;
     }
 
     .card {
-      background: var(--card);
+      padding: 25px;
+      border-radius: 21px;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      transition: transform .2s, border-color .2s;
+      background: linear-gradient(145deg, rgba(23, 21, 42, .96), rgba(13, 12, 25, .96));
+      transition: transform .22s, border-color .22s;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      border-color: rgba(84,228,213,.45);
+      border-color: rgba(94, 234, 212, .4);
     }
 
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: .95rem;
-    }
+    .card-icon { font-size: 1.9rem; margin-bottom: 14px; }
+    .card h3 { margin-bottom: 9px; font-size: 1.12rem; }
+    .card p { color: var(--muted); font-size: .95rem; }
 
     .tag {
       display: inline-block;
+      margin-top: 17px;
+      padding: 5px 10px;
+      border-radius: 30px;
+      background: rgba(167, 139, 250, .1);
+      color: #c9b8ff;
+      font-size: .77rem;
+    }
+
+    .project-link {
+      display: inline-block;
       margin-top: 16px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: rgba(124,131,255,.12);
-      color: #b9bdff;
-      font-size: .78rem;
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .steps { counter-reset: step; }
+
+    .step { position: relative; padding-top: 77px; }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      font-size: 1.7rem;
+      line-height: 1.3;
+      font-weight: 900;
+      color: var(--cyan);
     }
 
     .about-box {
-      padding: 30px;
-      background: linear-gradient(135deg, #141d35, #0e1425);
+      padding: clamp(25px, 5vw, 48px);
+      border-radius: 25px;
       border: 1px solid var(--border);
-      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at top right, rgba(124, 58, 237, .15), transparent 45%),
+        var(--surface);
     }
 
-    .about-box p {
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .steps {
-      counter-reset: steps;
-    }
-
-    .step {
-      position: relative;
-      padding-left: 60px;
-    }
-
-    .step::before {
-      counter-increment: steps;
-      content: counter(steps);
-      position: absolute;
-      left: 0;
-      top: 0;
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: rgba(124,131,255,.18);
-      color: var(--cyan);
-      font-weight: 800;
-    }
+    .about-box p { color: var(--muted); margin-top: 14px; }
 
     .contact-box {
+      padding: clamp(25px, 5vw, 48px);
       text-align: center;
-      padding: 42px 25px;
-      background: radial-gradient(ellipse at top, #20284b, #11182b 70%);
+      border-radius: 26px;
       border: 1px solid var(--border);
-      border-radius: 25px;
+      background:
+        radial-gradient(ellipse at top, rgba(124, 58, 237, .18), transparent 65%),
+        var(--surface);
     }
 
-    .contact-box p {
+    .contact-box > p {
       color: var(--muted);
-      margin: 12px auto 20px;
-      max-width: 600px;
+      max-width: 650px;
+      margin: 12px auto 22px;
+    }
+
+    .enquiry-form {
+      max-width: 650px;
+      margin: 30px auto 0;
+      display: grid;
+      gap: 17px;
+      text-align: left;
+    }
+
+    .form-field label {
+      display: block;
+      color: var(--text);
+      font-size: .92rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .enquiry-form input,
+    .enquiry-form select,
+    .enquiry-form textarea {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border: 1px solid rgba(195, 174, 255, .2);
+      border-radius: 12px;
+      color: var(--text);
+      background: #090815;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .enquiry-form select option { background: #111020; color: var(--text); }
+    .enquiry-form textarea { min-height: 135px; resize: vertical; }
+
+    .enquiry-form input:focus,
+    .enquiry-form select:focus,
+    .enquiry-form textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(94, 234, 212, .09);
+    }
+
+    .enquiry-form .btn { width: 100%; margin-top: 3px; }
+
+    .form-note {
+      font-size: .8rem;
+      color: var(--muted);
+      text-align: left;
+      margin-top: 0 !important;
     }
 
     .socials {
       display: flex;
       justify-content: center;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 18px;
+      gap: 12px;
+      margin-top: 22px;
     }
 
     footer {
-      padding: 25px 0;
+      padding: 28px 0;
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--muted);
       font-size: .9rem;
     }
+
+    footer p + p { margin-top: 4px; }
 
     #back-to-top {
       position: fixed;
@@ -348,9 +391,9 @@
       z-index: 90;
       width: 46px;
       height: 46px;
-      border: 1px solid #5b65a0;
+      border: 1px solid var(--border);
       border-radius: 14px;
-      background: #11182b;
+      background: var(--surface-2);
       color: var(--text);
       font-size: 22px;
       cursor: pointer;
@@ -371,58 +414,38 @@
       outline-offset: 4px;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 800px) {
       nav {
         align-items: flex-start;
         flex-direction: column;
         padding: 13px 0;
+        gap: 10px;
       }
 
-      .navlinks {
-        gap: 13px;
-      }
+      .navlinks { gap: 10px 16px; }
+      .navlinks a { font-size: .87rem; }
 
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
-        gap: 35px;
-        padding-top: 55px;
+        gap: 38px;
+        padding-top: 56px;
       }
 
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero-copy p {
-        margin-inline: auto;
-      }
-
-      .actions {
-        justify-content: center;
-      }
-
-      .profile-card {
-        max-width: 280px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
+      .hero-copy { text-align: center; }
+      .hero-description { margin-inline: auto; }
+      .hero .actions { justify-content: center; }
+      .profile-card { max-width: 290px; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 60px 0; }
+      h1 { letter-spacing: -1px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
         animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -433,14 +456,14 @@
   <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
 
   <header>
-    <nav class="container">
+    <nav class="container" aria-label="Main navigation">
       <a class="logo" href="#home">RITESH<span>.</span></a>
       <div class="navlinks">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Let's Talk ↗</a>
       </div>
     </nav>
   </header>
@@ -448,16 +471,16 @@
   <main>
     <section class="container hero" id="home">
       <div class="hero-copy">
-        <span class="eyebrow">✨ Welcome to my digital space</span>
-        <h1>Hi, I'm <span class="gradient-text">Ritesh Kumar</span></h1>
-        <div class="typing-line" id="typing">Student • Learner</div>
-        <p>
-          I'm building my skills in the digital world, exploring website design,
-          creative ideas and technology one step at a time.
+        <span class="eyebrow">✦ Welcome to my digital space</span>
+        <h1>Ideas into <span class="gradient-text">Digital Experiences.</span></h1>
+        <div class="typing-line" id="typing">Website Design • Digital Creativity</div>
+        <p class="hero-description">
+          Hi, I'm Ritesh Kumar. I'm building my skills in website design and digital creativity,
+          one project at a time. Explore my work or get in touch about your next idea.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
-          <a class="btn" href="#contact">Contact Me</a>
+          <a class="btn btn-primary" href="#contact">Discuss Your Idea ↗</a>
+          <a class="btn" href="#projects">Explore My Work ↓</a>
         </div>
       </div>
 
@@ -465,8 +488,8 @@
         <img class="profile" src="./ritesh.webp" alt="Ritesh Kumar"
              onerror="this.style.display='none'">
         <div class="profile-caption">
-          <h3>Ritesh Kumar 🚀</h3>
-          <small>Learning • Creating • Growing</small>
+          <h3>Ritesh Kumar ✨</h3>
+          <small>Learning · Creating · Growing</small>
         </div>
       </div>
     </section>
@@ -474,28 +497,28 @@
     <section id="services">
       <div class="container">
         <h2 class="section-heading">What I'm <span class="gradient-text">Exploring</span></h2>
-        <p class="section-intro">My digital interests and the skills I'm developing.</p>
+        <p class="section-intro">Digital skills and creative services I'm developing through practical projects.</p>
 
         <div class="grid">
           <article class="card">
             <div class="card-icon">🌐</div>
             <h3>Website Design</h3>
-            <p>Creating responsive websites with clean layouts, modern styles and useful features.</p>
-            <span class="tag">Web Development</span>
+            <p>Modern, responsive layouts designed to make information clear and easy to navigate.</p>
+            <span class="tag">Web Design</span>
           </article>
 
           <article class="card">
             <div class="card-icon">🎨</div>
             <h3>Creative Design</h3>
-            <p>Exploring visual ideas, colour combinations, layouts and digital presentation.</p>
-            <span class="tag">Creativity</span>
+            <p>Exploring visual styles, colour palettes and layouts for an engaging digital presence.</p>
+            <span class="tag">Visual Creativity</span>
           </article>
 
           <article class="card">
             <div class="card-icon">📱</div>
-            <h3>Digital Projects</h3>
-            <p>Learning to turn ideas into practical online projects using available tools.</p>
-            <span class="tag">Learning by Doing</span>
+            <h3>Portfolio Websites</h3>
+            <p>Building personal pages that present a person's work, interests and contact information.</p>
+            <span class="tag">Personal Websites</span>
           </article>
         </div>
       </div>
@@ -503,29 +526,30 @@
 
     <section id="projects">
       <div class="container">
-        <h2 class="section-heading">My <span class="gradient-text">Projects</span></h2>
-        <p class="section-intro">A growing collection of my work and experiments.</p>
+        <h2 class="section-heading">Selected <span class="gradient-text">Projects</span></h2>
+        <p class="section-intro">A look at my digital journey and the projects I'm developing.</p>
 
         <div class="grid">
           <article class="card">
             <div class="card-icon">💻</div>
             <h3>Personal Portfolio</h3>
-            <p>This website is my first step toward building a personal online presence.</p>
-            <span class="tag">HTML • CSS • JavaScript</span>
+            <p>This website introduces me, showcases my interests and gives visitors a way to contact me.</p>
+            <span class="tag">HTML · CSS · JavaScript</span>
+            <a class="project-link" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener noreferrer">View Live Website ↗</a>
           </article>
 
           <article class="card">
             <div class="card-icon">⚡</div>
-            <h3>Next Project</h3>
-            <p>I'm exploring ideas for new projects and improving my skills as I go.</p>
-            <span class="tag">Coming Soon</span>
+            <h3>Future Projects</h3>
+            <p>I'm exploring new ideas and practising ways to turn them into useful online experiences.</p>
+            <span class="tag">In Development</span>
           </article>
 
           <article class="card">
             <div class="card-icon">📚</div>
             <h3>Learning Journey</h3>
-            <p>Every project gives me a chance to practise, experiment and improve.</p>
-            <span class="tag">In Progress</span>
+            <p>Every experiment helps me understand web design better and improve my practical skills.</p>
+            <span class="tag">Continuous Learning</span>
           </article>
         </div>
       </div>
@@ -533,23 +557,23 @@
 
     <section id="how-it-works">
       <div class="container">
-        <h2 class="section-heading">How I <span class="gradient-text">Work</span></h2>
-        <p class="section-intro">A simple approach to making progress.</p>
+        <h2 class="section-heading">From Idea to <span class="gradient-text">Creation</span></h2>
+        <p class="section-intro">My simple approach to developing a digital project.</p>
 
         <div class="grid steps">
           <article class="card step">
-            <h3>Explore</h3>
-            <p>Start with an idea and understand what it needs.</p>
+            <h3>Understand</h3>
+            <p>Start by understanding the idea, purpose and requirements of the project.</p>
           </article>
 
           <article class="card step">
-            <h3>Create</h3>
-            <p>Build a first version and test how it works.</p>
+            <h3>Build</h3>
+            <p>Create a first version with a clear layout and a focus on usability.</p>
           </article>
 
           <article class="card step">
             <h3>Improve</h3>
-            <p>Learn from mistakes and make the project better.</p>
+            <p>Test the result, learn from feedback and refine the experience.</p>
           </article>
         </div>
       </div>
@@ -558,19 +582,21 @@
     <section id="about">
       <div class="container">
         <div class="about-box">
-          <h2 class="section-heading">About <span class="gradient-text">Me 👋</span></h2>
+          <span class="eyebrow">A little about me</span>
+          <h2 class="section-heading">Meet <span class="gradient-text">Ritesh Kumar 👋</span></h2>
           <p>
-            Hi, I'm Ritesh Kumar. I'm interested in technology, website design
-            and learning new digital skills. This portfolio is where I share
-            my progress, experiment with ideas and build projects step by step.
+            I'm interested in technology, website design and digital creativity.
+            This portfolio is where I share my progress, experiment with ideas
+            and develop practical skills step by step.
           </p>
           <p>
-            My goal is to keep learning, stay curious and turn ideas into
-            something useful. This page will grow as I gain experience.
+            My goal is to keep learning, create useful digital experiences and
+            build a stronger portfolio through real projects. I'm at the beginning
+            of the journey and focused on improving with every step.
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="#contact">Let's Connect ↗</a>
-            <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">My GitHub</a>
+            <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">My GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -579,103 +605,59 @@
     <section id="contact">
       <div class="container">
         <div class="contact-box">
-          <span class="eyebrow">💬 Get in touch</span>
-          <h2 class="section-heading">Let's <span class="gradient-text">Connect</span></h2>
+          <span class="eyebrow">✦ Have an idea?</span>
+          <h2 class="section-heading">Let's Build Something <span class="gradient-text">Great.</span></h2>
           <p>
-            Have an idea or want to connect? Send me an email or visit my
-            social profile.
+            Share a little about your project or enquiry using the form below.
+            I'll be glad to hear from you.
           </p>
 
-          <div class="actions" style="justify-content:center">
-            <a class="btn btn-primary" href="mailto:mbackbencher01@gmail.com">✉️ Email Me</a>
-          </div>
+          <form class="enquiry-form"
+                action="https://formsubmit.co/mbackbencher01@gmail.com"
+                method="POST">
+            <input type="hidden" name="_subject" value="New website enquiry — Ritesh Kumar">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+
+            <div class="form-field">
+              <label for="client-name">Your name</label>
+              <input id="client-name" type="text" name="name"
+                     placeholder="Enter your name" autocomplete="name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="client-email">Your email address</label>
+              <input id="client-email" type="email" name="email"
+                     placeholder="you@example.com" autocomplete="email" required>
+            </div>
+
+            <div class="form-field">
+              <label for="client-service">What can I help with?</label>
+              <select id="client-service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="Website Design">Website Design</option>
+                <option value="Portfolio Website">Portfolio Website</option>
+                <option value="Creative Design">Creative Design</option>
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="client-message">Project details or message</label>
+              <textarea id="client-message" name="message"
+                        placeholder="Tell me about your idea, goals or questions..."
+                        required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send Enquiry ↗</button>
+            <p class="form-note">
+              Your details will be submitted to the form-processing service so your enquiry can be emailed to me.
+            </p>
+          </form>
 
           <div class="socials">
+            <a class="btn" href="mailto:mbackbencher01@gmail.com">✉️ Email Me</a>
             <a class="btn" href="https://github.com/riteshmahato01" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a class="btn" href="https://www.instagram.com/6__nine_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Ritesh Kumar. Made with ❤️</p>
-      <p>Learning • Creating • Growing 🚀</p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Scroll progress and back-to-top button
-    (function () {
-      const progress = document.getElementById("scroll-progress");
-      const topButton = document.getElementById("back-to-top");
-
-      function updateScrollUI() {
-        const doc = document.documentElement;
-        const maxScroll = doc.scrollHeight - window.innerHeight;
-        const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
-        progress.style.width = percent + "%";
-        topButton.classList.toggle("visible", window.scrollY > 350);
-      }
-
-      window.addEventListener("scroll", updateScrollUI, { passive: true });
-      window.addEventListener("resize", updateScrollUI);
-
-      topButton.addEventListener("click", function () {
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-      });
-
-      updateScrollUI();
-    })();
-
-    // Animated introduction text
-    (function () {
-      const el = document.getElementById("typing");
-      if (!el) return;
-
-      const lines = [
-        "Student • Learner",
-        "Aspiring Digital Creator",
-        "Learning Website Design",
-        "Learn. Build. Improve. Repeat."
-      ];
-
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        el.textContent = lines[0];
-        return;
-      }
-
-      let lineIndex = 0;
-      let charIndex = 0;
-      let deleting = false;
-
-      function tick() {
-        const current = lines[lineIndex];
-        el.textContent = current.slice(0, charIndex);
-
-        let delay = deleting ? 35 : 75;
-
-        if (!deleting && charIndex === current.length) {
-          deleting = true;
-          delay = 1300;
-        } else if (deleting && charIndex === 0) {
-          deleting = false;
-          lineIndex = (lineIndex + 1) % lines.length;
-          delay = 350;
-        } else {
-          charIndex += deleting ? -1 : 1;
-        }
-
-        window.setTimeout(tick, delay);
-      }
-
-      tick();
-    })();
-  </script>
-</body>
-</html>
+   
