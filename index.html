@@ -1,217 +1,152 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#082d20">
-<title>NeonPlay | Gaming Zone</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08291d">
+<title>NeonPlay Gaming</title>
 <style>
-:root{--bg:#071c16;--panel:#103a2b;--panel2:#174a35;--gold:#ffd778;--gold2:#e6ad38;--text:#fff8e8;--muted:#b8c9bc;--green:#39d98a;--red:#ff6377}
+:root{--bg:#071a12;--panel:#103624;--gold:#ffdc83;--muted:#b9cbbb;--green:#43e59a}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top,#164d35,#061610 60%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;padding-bottom:82px}
+body{margin:0;background:var(--bg);color:#fff8e8;font:15px system-ui,Arial,sans-serif;padding-bottom:78px}
 button,input{font:inherit}
-button{cursor:pointer;border:0}
-.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;background:#08271ddd;backdrop-filter:blur(14px);border-bottom:1px solid #d8ad4933}
-.brand{font-weight:1000;font-size:20px;color:var(--gold);letter-spacing:.5px}
-.brand span{color:white}
-.wallet{background:#183d2d;border:1px solid #d6b44e77;padding:8px 12px;border-radius:22px;color:var(--gold);font-weight:800;white-space:nowrap}
-.wrap{max-width:850px;margin:auto;padding:14px}
-.hero{border:1px solid #ffdb7c88;border-radius:20px;padding:19px;background:linear-gradient(120deg,#285e3e,#102e25 60%,#5b4217);position:relative;overflow:hidden}
-.hero:after{content:"✦";position:absolute;font-size:100px;right:15px;top:0;color:#ffe3a322}
-.kicker{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:2px}
-h1{font-size:28px;line-height:1.15;margin:8px 0}
-p{color:var(--muted);margin:7px 0}
-.btn{padding:11px 15px;border-radius:12px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#34230b}
-.btn.secondary{background:#204e39;color:white;border:1px solid #4c8a65}
-.btn.danger{background:#842b3b;color:white}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 11px}
-.section-title h2{font-size:18px;margin:0}
-.small{font-size:12px;color:var(--muted)}
-.categories{display:flex;gap:8px;overflow-x:auto;padding:2px 0 9px}
-.cat{white-space:nowrap;background:#123c2c;border:1px solid #ffffff18;color:white;border-radius:22px;padding:9px 13px}
-.cat.active{background:var(--gold);color:#30200b;font-weight:900}
-.feature{margin-top:10px;padding:15px;border-radius:18px;background:linear-gradient(115deg,#163e2e,#7b3c27);border:1px solid #f0c65b66;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.feature h2{margin:5px 0;color:#fff2c2}
-.plane{font-size:55px;filter:drop-shadow(0 0 10px #ffb15a)}
-.search{width:100%;padding:12px 14px;border-radius:12px;background:#0d3023;border:1px solid #4e8064;color:white;outline:none}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.game{min-width:0;background:linear-gradient(145deg,#194c36,#0e2d22);border:1px solid #ffffff16;border-radius:15px;padding:12px 7px;text-align:center;color:white;min-height:115px;transition:transform .15s}
+button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;font-weight:800}
+header{position:sticky;top:0;z-index:5;background:#0a2c1f;padding:13px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #947642}
+.logo{font-size:21px;font-weight:1000;color:var(--gold)}
+.coins,.secondary{background:#204a32;color:white;border:1px solid #547b59}
+.primary{background:linear-gradient(120deg,#ffe6a0,#d9a735);color:#30230b}
+.danger{background:#a23242;color:white}
+main{max-width:800px;margin:auto;padding:14px}
+.view{display:none}.view.active{display:block}
+.hero{padding:21px;border-radius:18px;background:linear-gradient(125deg,#22623e,#142b20 65%,#634819);border:1px solid #d5b65a}
+.hero h1{font-size:29px;margin:9px 0}
+p{color:var(--muted);line-height:1.5}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.section{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}
+.section h2{font-size:19px;margin:0}
+.feature{margin-top:12px;padding:15px;border-radius:17px;background:linear-gradient(120deg,#173f2b,#713b29);display:flex;justify-content:space-between;align-items:center}
+.feature h2{color:var(--gold)}
+.categories{display:flex;gap:8px;overflow:auto;margin:12px 0}
+.categories button{white-space:nowrap;background:#19432d;color:white}
+.categories button.selected{background:var(--gold);color:#30230b}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.game{background:linear-gradient(145deg,#194b34,#102b20);color:white;border:1px solid #345d40;min-height:112px;padding:10px 4px;overflow-wrap:anywhere}
 .game:active{transform:scale(.97)}
-.game .emoji{font-size:29px;display:block;margin-bottom:5px}
-.game strong{display:block;font-size:12px;overflow-wrap:anywhere}
-.game small{display:block;color:#c6d9c9;font-size:10px;margin-top:5px}
-.panel{background:#0d3023;border:1px solid #ffffff17;border-radius:17px;padding:16px;margin-top:14px}
-.view{display:none}
-.view.active{display:block}
-.center{text-align:center}
-.big{font-size:38px;font-weight:1000;color:var(--gold);margin:12px 0}
-.stat{background:#17432f;padding:10px;border-radius:12px;flex:1;text-align:center;min-width:90px}
-.stat strong{display:block;color:var(--gold);font-size:19px}
-input{width:100%;padding:12px;border-radius:10px;background:#061d15;border:1px solid #54846b;color:white;margin:7px 0}
-.game-area{min-height:220px;background:radial-gradient(ellipse at bottom,#1d6843,#071b15 70%);border-radius:15px;border:1px solid #ffffff19;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px;text-align:center;overflow:hidden}
-.flight{font-size:45px;transition:transform .2s}
-.multiplier{font-size:40px;font-weight:1000;color:var(--green)}
-.nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:#08271df5;backdrop-filter:blur(12px);border-top:1px solid #d5b04b44;display:flex;justify-content:space-around;padding:9px 4px max(9px,env(safe-area-inset-bottom))}
-.nav button{color:#d7e4d8;background:transparent;font-size:11px;display:flex;flex-direction:column;gap:4px;align-items:center;min-width:54px}
-.nav button span{font-size:20px}
-.nav button.active{color:var(--gold);font-weight:900}
-.toast{position:fixed;top:75px;left:50%;transform:translateX(-50%);z-index:50;background:#ffe09a;color:#2b200c;padding:11px 16px;border-radius:12px;font-weight:800;display:none;max-width:90%;text-align:center}
-.hidden{display:none!important}
-hr{border:0;border-top:1px solid #ffffff19;margin:15px 0}
-@media(min-width:600px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.wrap{padding:20px}.hero{padding:26px}}
+.emoji{font-size:28px;display:block;margin-bottom:6px}
+.game strong{font-size:12px;display:block}
+.game small{font-size:10px;color:#c0d3c2;display:block;margin-top:6px}
+.panel{background:#0e3021;border:1px solid #2d5438;border-radius:16px;padding:15px;margin-top:14px}
+input{width:100%;padding:12px;background:#061b12;color:white;border:1px solid #52765b;border-radius:10px;margin:7px 0}
+.gamearea{min-height:205px;background:radial-gradient(ellipse at bottom,#1a6841,#071b13 75%);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow-wrap:anywhere}
+.big{font-size:38px;font-weight:900;color:var(--gold);margin:12px 0}
+.mult{font-size:42px;font-weight:1000;color:var(--green)}
+.small{font-size:12px;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:13px}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#09271c;border-top:1px solid #947642;padding:8px 3px max(8px,env(safe-area-inset-bottom))}
+.nav button{background:transparent;color:#d6e4d7;padding:5px;font-size:11px}
+.nav button span{display:block;font-size:20px}
+.nav button.selected{color:var(--gold)}
+#toast{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:20;background:#ffe29b;color:#2b210d;border-radius:12px;padding:12px;font-weight:800;max-width:90%}
+@media(min-width:550px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-
-<header class="top">
-  <div class="brand">♛ NEON<span>PLAY</span></div>
-  <button class="wallet" onclick="showView('wallet')">🪙 <span id="coinTop">1000</span></button>
+<header>
+ <div class="logo">♛ NEONPLAY</div>
+ <button class="coins" onclick="go('wallet')">🪙 <span id="topCoins">1000</span></button>
 </header>
 
-<main class="wrap">
-  <section id="homeView" class="view active">
-    <div class="hero">
-      <div class="kicker">YOUR DAILY GAME ZONE</div>
-      <h1>Play. Explore.<br>Enjoy the game.</h1>
-      <p>Discover arcade challenges and collect virtual points.</p>
-      <div class="row" style="margin-top:15px">
-        <button class="btn" onclick="dailyReward()">🎁 Daily reward</button>
-        <button class="btn secondary" onclick="showView('games')">Explore games →</button>
-      </div>
-    </div>
+<main>
+<section class="view active" id="home">
+ <div class="hero">
+  <div style="color:#ffdc83;font-weight:900;font-size:12px">YOUR DAILY GAME ZONE</div>
+  <h1>Play. Explore. Enjoy. 🎮</h1>
+  <p>Discover arcade games and collect virtual points.</p>
+  <div class="row">
+   <button class="primary" onclick="daily()">🎁 Daily reward</button>
+   <button class="secondary" onclick="go('games')">Explore games →</button>
+  </div>
+ </div>
+ <div class="feature">
+  <div><div class="small">FEATURED GAME</div><h2>✈️ Sky Multiplier</h2><p>Collect before the flight ends.</p><button class="primary" onclick="play('aviator')">PLAY NOW</button></div>
+  <div style="font-size:47px">✈️</div>
+ </div>
+ <div class="section"><h2>Popular games</h2><button class="secondary" onclick="go('games')">View all</button></div>
+ <div class="grid" id="popularGrid"></div>
+ <div class="panel"><h3>🏆 Your progress</h3><p>Coins: <b id="homeCoins">1000</b></p><p>Games played: <b id="homePlays">0</b></p></div>
+</section>
 
-    <div class="feature">
-      <div>
-        <div class="kicker">FEATURED ARCADE</div>
-        <h2>✈️ Sky Multiplier</h2>
-        <p>Watch the flight. Collect before it ends.</p>
-        <button class="btn" onclick="openGame('aviator')">Play now</button>
-      </div>
-      <div class="plane">✈️</div>
-    </div>
+<section class="view" id="games">
+ <div class="section"><h2>🎮 Game library</h2><span id="count" class="small"></span></div>
+ <input id="search" placeholder="Search games..." oninput="renderGames()">
+ <div class="categories" id="categories"></div>
+ <div class="grid" id="library"></div>
+</section>
 
-    <div class="section-title"><h2>Choose your mood</h2></div>
-    <div class="categories" id="homeCats"></div>
+<section class="view" id="game">
+ <button class="secondary" onclick="go('games')">← Back to games</button>
+ <div class="panel">
+  <div class="small" id="gameType">ARCADE</div>
+  <h2 id="gameTitle">Game</h2>
+  <p id="gameDesc"></p>
+  <div class="gamearea" id="arena"></div>
+  <div class="controls" id="controls"></div>
+  <p class="small" style="text-align:center">Virtual points only. No real-money deposits or withdrawals.</p>
+ </div>
+</section>
 
-    <div class="section-title"><h2>Popular games</h2><button class="btn secondary" onclick="showView('games')">View all</button></div>
-    <div class="grid" id="popularGrid"></div>
+<section class="view" id="wallet">
+ <div class="section"><h2>🪙 Virtual wallet</h2></div>
+ <div class="panel" style="text-align:center">
+  <p>Available virtual coins</p><div class="big" id="walletCoins">1000</div>
+  <button class="primary" onclick="daily()">🎁 Claim daily reward</button>
+  <p class="small">Coins have no cash value.</p>
+ </div>
+</section>
 
-    <div class="panel">
-      <div class="section-title" style="margin-top:0"><h2>🏆 Your progress</h2></div>
-      <div class="row">
-        <div class="stat"><strong id="statCoins">1000</strong><span class="small">Virtual coins</span></div>
-        <div class="stat"><strong id="statPlays">0</strong><span class="small">Games played</span></div>
-        <div class="stat"><strong id="statWins">0</strong><span class="small">Wins</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gamesView" class="view">
-    <div class="section-title"><h2>🎮 Game library</h2><span class="small" id="gameCount"></span></div>
-    <input id="search" class="search" placeholder="Search games..." oninput="renderLibrary()">
-    <div class="categories" id="gameCats"></div>
-    <div class="grid" id="libraryGrid"></div>
-    <p class="small" style="margin-top:14px">Game catalogue includes playable mini-games and quick arcade challenges.</p>
-  </section>
-
-  <section id="playView" class="view">
-    <div class="row" style="justify-content:space-between">
-      <button class="btn secondary" onclick="closeGame()">← Back</button>
-      <span class="wallet">🪙 <span id="coinPlay">1000</span></span>
-    </div>
-    <div class="panel">
-      <div class="center">
-        <div class="kicker" id="gameCategory">ARCADE GAME</div>
-        <h2 id="playTitle">Game</h2>
-        <p id="playDescription">Play for fun with virtual coins.</p>
-      </div>
-      <div id="gameArea" class="game-area"></div>
-      <div id="gameControls" class="row" style="justify-content:center;margin-top:14px"></div>
-      <p class="small center" style="margin-top:14px">Virtual coins only. No real-money betting or cash-out.</p>
-    </div>
-  </section>
-
-  <section id="walletView" class="view">
-    <div class="section-title"><h2>🪙 Virtual wallet</h2></div>
-    <div class="panel center">
-      <p>Your available points</p>
-      <div class="big" id="walletCoins">1000</div>
-      <p>Coins are stored locally in this browser for this demo.</p>
-      <hr>
-      <button class="btn" onclick="dailyReward()">🎁 Claim daily bonus</button>
-      <button class="btn secondary" onclick="showView('games')">Play games</button>
-    </div>
-    <div class="panel">
-      <h3>How coins work</h3>
-      <p>Games use pretend points for entertainment. They have no cash value and cannot be deposited or withdrawn.</p>
-      <p class="small">Your progress may reset if browser storage is cleared.</p>
-    </div>
-  </section>
-
-  <section id="profileView" class="view">
-    <div class="section-title"><h2>👤 Player profile</h2></div>
-    <div class="panel">
-      <div class="center" style="font-size:50px">🧑‍🚀</div>
-      <h2 class="center" id="playerName">Guest Player</h2>
-      <p class="center" id="playerPhone">Demo account</p>
-      <hr>
-      <div class="row">
-        <div class="stat"><strong id="profileCoins">1000</strong><span class="small">Coins</span></div>
-        <div class="stat"><strong id="profilePlays">0</strong><span class="small">Plays</span></div>
-      </div>
-      <button class="btn secondary" style="width:100%;margin-top:15px" onclick="showView('login')">Login / change profile</button>
-    </div>
-    <div class="panel">
-      <h3>⚙️ Settings</h3>
-      <button class="btn secondary" onclick="resetProgress()">Reset demo progress</button>
-      <p class="small">This clears saved demo coins and statistics from this browser.</p>
-    </div>
-  </section>
-
-  <section id="loginView" class="view">
-    <div class="section-title"><h2>🔐 Demo login</h2></div>
-    <div class="panel">
-      <p>Enter a name and phone number to set your local demo profile.</p>
-      <input id="loginName" placeholder="Your display name" maxlength="28">
-      <input id="loginPhone" placeholder="Phone number" inputmode="tel" maxlength="15">
-      <button class="btn" style="width:100%" onclick="sendDemoOTP()">Get demo OTP</button>
-      <div id="otpBox" class="hidden">
-        <p class="small">Demo only: use OTP <b>123456</b>. No SMS is sent.</p>
-        <input id="loginOTP" placeholder="Enter demo OTP" inputmode="numeric" maxlength="6">
-        <button class="btn" style="width:100%" onclick="verifyDemoOTP()">Verify demo OTP</button>
-      </div>
-    </div>
-  </section>
+<section class="view" id="profile">
+ <div class="section"><h2>👤 Player profile</h2></div>
+ <div class="panel">
+  <div class="big" style="text-align:center">🧑‍🚀</div>
+  <input id="nameInput" maxlength="30" placeholder="Your display name">
+  <button class="primary" onclick="saveName()">Save name</button>
+  <p>Player: <b id="playerName">Guest Player</b></p>
+  <p>Games played: <b id="profilePlays">0</b></p>
+  <button class="secondary" onclick="resetProgress()">Reset demo progress</button>
+ </div>
+ <div class="panel"><h3>About NeonPlay</h3><p>Mobile-friendly gaming demo. Progress is saved in this browser.</p></div>
+</section>
 </main>
 
 <nav class="nav">
-  <button class="active" data-view="home" onclick="showView('home')"><span>⌂</span>Home</button>
-  <button data-view="games" onclick="showView('games')"><span>🎮</span>Games</button>
-  <button data-view="wallet" onclick="showView('wallet')"><span>🪙</span>Wallet</button>
-  <button data-view="profile" onclick="showView('profile')"><span>👤</span>Profile</button>
+ <button class="selected" data-page="home" onclick="go('home')"><span>⌂</span>Home</button>
+ <button data-page="games" onclick="go('games')"><span>🎮</span>Games</button>
+ <button data-page="wallet" onclick="go('wallet')"><span>🪙</span>Wallet</button>
+ <button data-page="profile" onclick="go('profile')"><span>👤</span>Profile</button>
 </nav>
-<div id="toast" class="toast" role="status"></div>
+<div id="toast"></div>
 
 <script>
-const $ = id => document.getElementById(id);
-const categories = ["All","Arcade","Puzzle","Quiz","Classic","Casual"];
-const baseGames = [
- {id:"aviator",name:"Sky Multiplier",icon:"✈️",cat:"Arcade",desc:"Collect your multiplier before the flight ends."},
- {id:"slots",name:"Lucky Slots",icon:"🎰",cat:"Arcade",desc:"Spin the reels for virtual points."},
- {id:"wheel",name:"Lucky Wheel",icon:"🎡",cat:"Arcade",desc:"Spin the wheel and see what you land on."},
- {id:"dice",name:"Dice Roll",icon:"🎲",cat:"Classic",desc:"Guess the dice roll."},
- {id:"highlow",name:"High or Low",icon:"🃏",cat:"Classic",desc:"Guess whether the next number is higher or lower."},
- {id:"rps",name:"Rock Paper Scissors",icon:"✊",cat:"Classic",desc:"Challenge the computer."},
- {id:"quiz",name:"Quick Quiz",icon:"🧠",cat:"Quiz",desc:"Answer a general knowledge question."},
- {id:"reaction",name:"Reaction Tap",icon:"⚡",cat:"Arcade",desc:"Tap when the signal turns green."},
- {id:"ttt",name:"Tic Tac Toe",icon:"⭕",cat:"Puzzle",desc:"Play a round against a simple computer opponent."},
- {id:"memory",name:"Memory Match",icon:"🧩",cat:"Puzzle",desc:"Remember the sequence and repeat it."},
- {id:"number",name:"Number Guess",icon:"🔢",cat:"Puzzle",desc:"Guess the secret number."},
- {id:"tap",name:"Tap Challenge",icon:"👆",cat:"Casual",desc:"Tap as many times as you can."}
+"use strict";
+const $=id=>document.getElementById(id);
+
+const games=[
+{id:"aviator",name:"Sky Multiplier",icon:"✈️",cat:"Arcade"},
+{id:"slots",name:"Lucky Slots",icon:"🎰",cat:"Arcade"},
+{id:"wheel",name:"Lucky Wheel",icon:"🎡",cat:"Arcade"},
+{id:"dice",name:"Dice Roll",icon:"🎲",cat:"Classic"},
+{id:"highlow",name:"High or Low",icon:"🃏",cat:"Classic"},
+{id:"rps",name:"Rock Paper Scissors",icon:"✊",cat:"Classic"},
+{id:"quiz",name:"Quick Quiz",icon:"🧠",cat:"Quiz"},
+{id:"reaction",name:"Reaction Tap",icon:"⚡",cat:"Arcade"},
+{id:"ttt",name:"Tic Tac Toe",icon:"⭕",cat:"Puzzle"},
+{id:"memory",name:"Memory Match",icon:"🧩",cat:"Puzzle"},
+{id:"number",name:"Number Guess",icon:"🔢",cat:"Puzzle"},
+{id:"tap",name:"Tap Challenge",icon:"👆",cat:"Casual"}
 ];
-const extraNames = [
+
+const extraNames=[
 "Jungle Dash","Candy Match","Bubble Pop","Star Catcher","Space Runner","Rocket Rush","Fruit Slice","Color Switch","Maze Quest","Word Wizard",
 "Brain Booster","Math Sprint","Flag Quiz","Science Quiz","Animal Quiz","History Quiz","Memory Cards","Pattern Master","Tile Flip","Shape Sort",
 "Coin Catch","Treasure Hunt","Gem Blast","Gold Miner","Forest Jump","Ocean Quest","Sky Runner","Pixel Pilot","Neon Drift","Turbo Racer",
@@ -223,90 +158,259 @@ const extraNames = [
 "Snowboard Mini","Skate Rush","Bike Stunt","Car Parking","Drift King","Speed Track","Air Hockey","Soccer Stars","Cricket Shot","Baseball Hit",
 "Volleyball Pop","Target Toss","Ring Toss","Cup Stack","Bottle Flip","Paper Plane","Bubble Shooter","Color Connect","Line Puzzle","Light Up"
 ];
-const icons=["🎯","🍬","🫧","⭐","🚀","🍉","🌈","🌀","🗺️","🔤","🧠","➕","🌍","🔬","🐯","📚","🃏","🔷","🀄","🔺","🪙","💎","🏆","⛏️","🌳","🌊","☁️","👾","🏎️","⚽","🏀","⛳","🏓","🎱","🎳","🎣","🌱","🌻","🏰","🐉","🤖","🥷","🌑","🗝️","🎁","🍀","🔮","🧊","🔥","🗼"];
-const games=[...baseGames];
-extraNames.forEach((name,i)=>games.push({id:"extra"+i,name,icon:icons[i%icons.length],cat:["Arcade","Puzzle","Quiz","Classic","Casual"][i%5],desc:"A quick arcade challenge. Try your best score!"}));
-let state={coins:1000,plays:0,wins:0,name:"Guest Player",phone:"",lastReward:"",};
-try{const saved=JSON.parse(localStorage.getItem("neonplay-v1")||"null");if(saved)state={...state,...saved}}catch(e){}
-let currentGame=null,gameTimer=null,flightTimer=null,flight={running:false,cashed:false,bet:20,mult:1,crash:2};
-let reactionReady=false,reactionStart=0,secretNumber=0,quizIndex=0,tttBoard=["","","","","","","","",""],memorySeq=[],memoryInput=[],memoryStep=0,tapCount=0;
-const quizQuestions=[
- {q:"Which planet is known as the Red Planet?",a:["Venus","Mars","Jupiter","Mercury"],correct:1},
- {q:"How many sides does a hexagon have?",a:["Five","Six","Seven","Eight"],correct:1},
- {q:"Which gas do plants absorb?",a:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],correct:2},
- {q:"What is 9 × 7?",a:["56","63","72","49"],correct:1},
- {q:"Which is the largest ocean?",a:["Atlantic","Indian","Arctic","Pacific"],correct:3}
-];
-function save(){try{localStorage.setItem("neonplay-v1",JSON.stringify(state))}catch(e){}updateUI()}
-function updateUI(){
- ["coinTop","coinPlay","walletCoins","statCoins","profileCoins"].forEach(id=>{if($(id))$(id).textContent=state.coins.toLocaleString()});
- $("statPlays").textContent=state.plays;$("statWins").textContent=state.wins;$("profilePlays").textContent=state.plays;
- $("playerName").textContent=state.name||"Guest Player";$("playerPhone").textContent=state.phone||"Demo account";
+const icons=["🎯","🍬","🫧","⭐","🚀","🍉","🌈","🌀","🗺️","🔤","🧠","➕","🌍","🔬","🐯","📚","🃏","🔷","🀄","🔺","🪙","💎","🏆","⛏️","🌳","🌊","☁️","👾","🏎️","⚽"];
+extraNames.forEach((name,i)=>games.push({id:"extra"+i,name,icon:icons[i%icons.length],cat:["Arcade","Puzzle","Quiz","Classic","Casual"][i%5]}));
+
+let data={coins:1000,plays:0,name:"Guest Player",lastReward:""};
+try{data={...data,...JSON.parse(localStorage.getItem("neonplay-final")||"{}")}}catch(e){}
+let category="All",timer=null,activeGame=null;
+
+function save(){
+ try{localStorage.setItem("neonplay-final",JSON.stringify(data))}catch(e){}
+ updateUI();
 }
-let toastTimer;
-function toast(message){const t=$("toast");t.textContent=message;t.style.display="block";clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.style.display="none",2300)}
-function showView(name){
+function updateUI(){
+ $("topCoins").textContent=data.coins;
+ $("homeCoins").textContent=data.coins;
+ $("walletCoins").textContent=data.coins;
+ $("homePlays").textContent=data.plays;
+ $("profilePlays").textContent=data.plays;
+ $("playerName").textContent=data.name;
+}
+function toast(message){
+ const t=$("toast");t.textContent=message;t.style.display="block";
+ clearTimeout(toast.timeout);
+ toast.timeout=setTimeout(()=>t.style.display="none",2200);
+}
+function stopTimers(){
+ if(timer!==null){clearInterval(timer);clearTimeout(timer);timer=null}
+}
+function go(page){
  stopTimers();
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
- const target=$(name+"View");if(target)target.classList.add("active");
- document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
- if(name==="games")renderLibrary();
- if(name==="home")renderPopular();
- if(name==="wallet"||name==="profile")updateUI();
- window.scrollTo({top:0,behavior:"smooth"});
+ $(page).classList.add("active");
+ document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("selected",b.dataset.page===page));
+ if(page==="games")renderGames();
+ updateUI();
+ window.scrollTo(0,0);
 }
-function stopTimers(){if(gameTimer){clearInterval(gameTimer);gameTimer=null}if(flightTimer){clearInterval(flightTimer);flightTimer=null}}
-function dailyReward(){
- const today=new Date().toISOString().slice(0,10);
- if(state.lastReward===today){toast("Daily reward already claimed. Come back tomorrow!");return}
- state.coins+=100;state.lastReward=today;save();toast("🎁 +100 virtual coins added!");
+function daily(){
+ const today=new Date().toDateString();
+ if(data.lastReward===today){toast("Daily reward already claimed.");return}
+ data.lastReward=today;data.coins+=100;save();toast("+100 virtual coins 🎁");
 }
-function makeCats(target){
- $(target).innerHTML="";
- categories.forEach(cat=>{const b=document.createElement("button");b.className="cat"+((window.activeCat||"All")===cat?" active":"");b.textContent=cat;b.onclick=()=>{window.activeCat=cat;makeCats(target);if(target==="gameCats")renderLibrary();else renderPopular()};$(target).appendChild(b)})
-}
-function gameCard(g){
+function makeCard(g){
  const b=document.createElement("button");b.className="game";
- b.innerHTML=`<span class="emoji">${g.icon}</span><strong>${g.name}</strong><small>${g.cat} · Play</small>`;
- b.onclick=()=>openGame(g.id);return b
+ const emoji=document.createElement("span");emoji.className="emoji";emoji.textContent=g.icon;
+ const title=document.createElement("strong");title.textContent=g.name;
+ const sub=document.createElement("small");sub.textContent=g.cat+" · PLAY";
+ b.append(emoji,title,sub);
+ b.addEventListener("click",()=>play(g.id));
+ return b;
 }
 function renderPopular(){
- makeCats("homeCats");const box=$("popularGrid");box.innerHTML="";
- const cat=window.activeCat||"All";
- games.filter(g=>(cat==="All"||g.cat===cat)).slice(0,6).forEach(g=>box.appendChild(gameCard(g)))
+ const box=$("popularGrid");box.replaceChildren();
+ games.slice(0,6).forEach(g=>box.appendChild(makeCard(g)));
 }
-function renderLibrary(){
- makeCats("gameCats");const box=$("libraryGrid");box.innerHTML="";
- const term=($("search").value||"").trim().toLowerCase(),cat=window.activeCat||"All";
- const filtered=games.filter(g=>(cat==="All"||g.cat===cat)&&g.name.toLowerCase().includes(term));
- $("gameCount").textContent=filtered.length+" games";
- filtered.forEach(g=>box.appendChild(gameCard(g)));
+function renderGames(){
+ const box=$("library");box.replaceChildren();
+ const term=$("search").value.trim().toLowerCase();
+ const list=games.filter(g=>(category==="All"||g.cat===category)&&g.name.toLowerCase().includes(term));
+ $("count").textContent=list.length+" games";
+ list.forEach(g=>box.appendChild(makeCard(g)));
+ const cats=$("categories");cats.replaceChildren();
+ ["All","Arcade","Puzzle","Quiz","Classic","Casual"].forEach(cat=>{
+  const b=document.createElement("button");b.textContent=cat;
+  b.className=category===cat?"selected":"";
+  b.addEventListener("click",()=>{category=cat;renderGames()});
+  cats.appendChild(b);
+ });
 }
-function openGame(id){
- currentGame=games.find(g=>g.id===id)||baseGames[0];
- showView("play");$("playTitle").textContent=currentGame.name;$("gameCategory").textContent=currentGame.cat.toUpperCase();
- $("playDescription").textContent=currentGame.desc;$("gameArea").innerHTML="";$("gameControls").innerHTML="";
- if(id==="aviator")renderAviator();
- else if(id==="slots")renderSlots();
- else if(id==="wheel")renderWheel();
- else if(id==="dice")renderDice();
- else if(id==="highlow")renderHighLow();
- else if(id==="rps")renderRPS();
- else if(id==="quiz")renderQuiz();
- else if(id==="reaction")renderReaction();
- else if(id==="ttt")renderTTT();
- else if(id==="memory")renderMemory();
- else if(id==="number")renderNumber();
- else renderQuickChallenge();
+function play(id){
+ const g=games.find(x=>x.id===id);
+ if(!g){toast("Game not found");return}
+ activeGame=g;
+ $("gameTitle").textContent=g.name;
+ $("gameType").textContent=g.cat.toUpperCase();
+ $("gameDesc").textContent="Play for fun using virtual coins.";
+ $("arena").replaceChildren();$("controls").replaceChildren();
+ go("game");
+ if(id==="aviator")aviator();
+ else if(id==="slots")slots();
+ else if(id==="wheel")wheel();
+ else if(id==="dice")dice();
+ else if(id==="highlow")highlow();
+ else if(id==="rps")rps();
+ else if(id==="quiz")quiz();
+ else if(id==="reaction")reaction();
+ else if(id==="ttt")ticTacToe();
+ else if(id==="memory")memory();
+ else if(id==="number")numberGame();
+ else quickGame();
 }
-function closeGame(){stopTimers();currentGame=null;showView("games")}
-function controls(html){$("gameControls").innerHTML=html}
-function area(html){$("gameArea").innerHTML=html}
-function button(label,fn,cls="btn"){const b=document.createElement("button");b.className=cls;b.textContent=label;b.onclick=fn;$("gameControls").appendChild(b);return b}
-function spend(amount){if(state.coins<amount){toast("Not enough virtual coins.");return false}state.coins-=amount;save();return true}
-function award(amount){state.coins+=amount;state.wins++;save();toast("Nice! +"+amount+" virtual coins")}
-function played(){state.plays++;save()}
-function renderAviator(){
- flight={running:false,cashed:false,bet:20,mult:1,crash:1.5};
- area(`<div class="kicker">SKY MULTIPLIER</div><div id="plane" class="flight">✈️</div><div id="mult" class="multiplier">1.00×</div><p id="flightMsg">Choose a virtual coin stake and start the flight.</p>`);
- controls(`<button class="btn secondary" onclick="setBet(10)">Bet 10</button><button class="btn secondary" onclick="setBet(20)">Bet 20</button><button class="btn secondary" onclick="setBet(50)">Bet 50</button><button class="btn" id="flightStart" onclick="startFlight()">Start flight</button><button class="
+function textElement(tag,text,cls){
+ const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;
+}
+function showText(text,cls="big"){
+ const e=textElement("div",text,cls);$("arena").appendChild(e);return e;
+}
+function para(text){$("arena").appendChild(textElement("p",text))}
+function button(text,fn,cls="primary"){
+ const b=textElement("button",text,cls);
+ b.addEventListener("click",fn);$("controls").appendChild(b);return b;
+}
+function spend(n){
+ if(data.coins<n){toast("Not enough coins!");return false}
+ data.coins-=n;save();return true;
+}
+function played(){data.plays++;save()}
+function award(n){data.coins+=n;save();toast("You won "+n+" virtual coins!")}
+function slots(){
+ const r=showText("🍒 | ⭐ | 🍋");
+ para("Match all three symbols to win 50 coins.");
+ button("Spin · 10 coins",()=>{
+  if(!spend(10))return;played();
+  const s=["🍒","⭐","🍋","💎","7️⃣","🍀"];
+  const a=[0,1,2].map(()=>s[Math.floor(Math.random()*s.length)]);
+  r.textContent=a.join(" | ");
+  if(a.every(x=>x===a[0]))award(50);else toast("Try again!");
+ });
+}
+function wheel(){
+ const r=showText("🎡");para("Spin for a virtual prize.");
+ button("Spin · 10 coins",()=>{
+  if(!spend(10))return;played();
+  const n=[0,5,10,15,25,40,60][Math.floor(Math.random()*7)];
+  r.textContent="🎡 "+n+" coins";if(n)award(n);else toast("No prize this time.");
+ });
+}
+function dice(){
+ const r=showText("🎲 ?");para("Guess the dice number. Correct guess wins 25 coins.");
+ for(let i=1;i<=6;i++)button("Guess "+i,()=>{
+  if(!spend(5))return;played();const n=1+Math.floor(Math.random()*6);
+  r.textContent="🎲 "+n;if(i===n)award(25);else toast("The dice rolled "+n);
+ },"secondary");
+}
+function highlow(){
+ const r=showText("?");para("Higher means 8–13; lower means 1–6.");
+ ["Higher","Lower"].forEach(c=>button(c,()=>{
+  if(!spend(5))return;played();const n=1+Math.floor(Math.random()*13);
+  r.textContent=String(n);
+  if((c==="Higher"&&n>=8)||(c==="Lower"&&n<=6))award(15);else toast("Not this time.");
+ },"secondary"));
+}
+function rps(){
+ const r=showText("✊ ✋ ✌️");para("Choose your move.");
+ ["Rock","Paper","Scissors"].forEach((p,i)=>button(["✊ Rock","✋ Paper","✌️ Scissors"][i],()=>{
+  if(!spend(5))return;played();const a=["Rock","Paper","Scissors"],c=a[Math.floor(Math.random()*3)];
+  r.textContent=p+" vs "+c;
+  if(p===c)toast("Draw!");
+  else if((p==="Rock"&&c==="Scissors")||(p==="Paper"&&c==="Rock")||(p==="Scissors"&&c==="Paper"))award(15);
+  else toast("Computer wins.");
+ },"secondary"));
+}
+function quiz(){
+ const qs=[
+ ["Which planet is called the Red Planet?",["Venus","Mars","Jupiter"],1],
+ ["How many sides does a hexagon have?",["Five","Six","Eight"],1],
+ ["Which gas do plants absorb?",["Oxygen","Carbon dioxide","Helium"],1],
+ ["What is 9 × 7?",["56","63","72"],1],
+ ["Which is the largest ocean?",["Atlantic","Indian","Pacific"],2]
+ ];
+ const q=qs[Math.floor(Math.random()*qs.length)];
+ showText(q[0],"");const result=showText("Choose an answer.","small");
+ q[1].forEach((a,i)=>button(a,()=>{
+  if(!spend(2))return;played();
+  $("controls").querySelectorAll("button").forEach(b=>b.disabled=true);
+  if(i===q[2]){result.textContent="Correct!";award(10)}
+  else{result.textContent="Correct answer: "+q[1][q[2]];toast("Good try!")}
+ },"secondary"));
+}
+function numberGame(){
+ const secret=1+Math.floor(Math.random()*10);
+ para("Guess the secret number from 1 to 10.");
+ const input=document.createElement("input");input.type="number";input.min=1;input.max=10;input.placeholder="Your guess";$("arena").appendChild(input);
+ const result=showText("","small");
+ button("Guess",()=>{
+  const n=Number(input.value);if(n<1||n>10){toast("Enter a number from 1 to 10.");return}
+  if(!spend(2))return;played();
+  if(n===secret){result.textContent="Correct!";award(15)}
+  else result.textContent=n<secret?"Too low! Secret was "+secret:"Too high! Secret was "+secret;
+ });
+}
+function reaction(){
+ const r=showText("Ready?");para("Press Start, then tap the green area as soon as it appears.");
+ button("Start",()=>{
+  stopTimers();r.textContent="Wait...";
+  $("arena").style.background="#85333b";
+  const wait=1000+Math.random()*2500;
+  timer=setTimeout(()=>{
+   timer=null;const start=Date.now();r.textContent="TAP NOW!";
+   $("arena").style.background="#176a3a";
+   $("arena").onclick=()=>{
+    $("arena").onclick=null;const ms=Date.now()-start;
+    r.textContent=ms+" ms";$("arena").style.background="";
+    played();if(ms<500)award(15);else toast("Try to get under 500 ms!");
+   };
+  },wait);
+  $("arena").onclick=()=>{
+   if(timer!==null){stopTimers();$("arena").onclick=null;r.textContent="Too early!";$("arena").style.background="";toast("Wait for the signal.")}
+  };
+ });
+}
+function ticTacToe(){
+ let board=Array(9).fill("");
+ const r=document.createElement("div");r.style.cssText="display:grid;grid-template-columns:repeat(3,68px);gap:5px";$("arena").appendChild(r);
+ const msg=showText("You are X. Tap a square.","small");
+ const lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+ function winner(mark){return lines.some(line=>line.every(i=>board[i]===mark))}
+ function draw(){
+  r.replaceChildren();
+  board.forEach((v,i)=>{
+   const b=textElement("button",v||"·","secondary");b.style.cssText="width:68px;height:60px;font-size:24px;padding:0";
+   b.onclick=()=>{
+    if(board[i]||winner("X")||winner("O")||board.every(Boolean))return;
+    board[i]="X";
+    if(winner("X")){msg.textContent="You win!";played();award(20);draw();return}
+    if(board.every(Boolean)){msg.textContent="Draw!";played();draw();return}
+    const empty=board.map((v,j)=>v?null:j).filter(v=>v!==null);
+    board[empty[Math.floor(Math.random()*empty.length)]]="O";
+    if(winner("O"))msg.textContent="Computer wins!";else if(board.every(Boolean))msg.textContent="Draw!";else msg.textContent="Your turn.";
+    played();draw();
+   };r.appendChild(b);
+  });
+ }
+ draw();
+}
+function memory(){
+ const seq=Array.from({length:4},()=>Math.floor(Math.random()*4));
+ const colors=["🟦","🟨","🟥","🟩"];
+ const r=showText(colors.join(" "));
+ const msg=showText("Memorize the sequence.","small");
+ button("Start",()=>{
+  r.textContent=seq.map(n=>colors[n]).join(" ");msg.textContent="Memorize!";
+  $("controls").querySelectorAll("button").forEach(b=>b.disabled=true);
+  timer=setTimeout(()=>{
+   timer=null;r.textContent="❔ ❔ ❔ ❔";msg.textContent="Repeat the sequence.";
+   let index=0,done=false;
+   colors.forEach((c,n)=>button(c,()=>{
+    if(done)return;
+    if(seq[index]!==n){done=true;msg.textContent="Incorrect sequence. Try a new round.";return}
+    index++;
+    if(index===seq.length){done=true;msg.textContent="Perfect memory!";played();award(20)}
+   },"secondary"));
+  },1500);
+ });
+}
+function aviator(){
+ let running=false,value=1,crash=2,bet=20;
+ const plane=showText("✈️");
+ const mult=showText("1.00×","mult");
+ const msg=showText("Choose a stake, then start the flight.","small");
+ button("Stake 10",()=>{if(!running){bet=10;toast("Stake: 10")}});
+ button("Stake 20",()=>{if(!running){bet=20;toast("Stake: 20")}});
+ button("Stake 50",()=>{if(!running){bet=50;toast("Stake: 50")}});
+ const start=button("Start flight",()=>{
+  if(running)return;if(!spend(bet))return;
+  running=true;value=1;crash=+(1.1+Math.random()*3.9).toFixed(2);played();
+  start.disabl
