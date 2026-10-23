@@ -2,441 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100d09">
-<title>NeonPlay Gold | Arcade</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090914">
+<title>NeonPlay | Gaming Zone</title>
 <style>
-:root {
-  --bg:#100d09;
-  --panel:#1c1710;
-  --panel2:#251d12;
-  --gold:#f6c453;
-  --gold2:#ffe6a0;
-  --text:#fff8e8;
-  --muted:#b9ad98;
-  --border:#49391d;
-  --green:#8ee6a0;
-  --red:#ff8b8b;
-}
+:root{--bg:#090914;--card:#15152a;--purple:#a855f7;--cyan:#22e6dc;--text:#f8f7ff;--muted:#aaa8c5}
 *{box-sizing:border-box}
-body{
-  margin:0;background:
-  radial-gradient(ellipse at top,#33230e 0%,var(--bg) 48%);
-  color:var(--text);font-family:system-ui,-apple-system,sans-serif;
-  min-height:100vh;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-button:disabled{opacity:.5;cursor:not-allowed}
-header{
-  position:sticky;top:0;z-index:10;
-  background:#100d09ed;backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:12px 16px;display:flex;align-items:center;
-  justify-content:space-between;gap:12px;
-}
-.brand{font-weight:900;font-size:22px;letter-spacing:-.7px}
-.brand span{color:var(--gold)}
-.coins{color:var(--gold2);font-weight:800;white-space:nowrap}
-main{max-width:1000px;margin:auto;padding:20px 15px 100px}
-.hero{
-  border:1px solid #71521f;border-radius:22px;padding:25px 20px;
-  background:linear-gradient(135deg,#3a2810,#20170d 65%,#17120c);
-  box-shadow:0 12px 35px #0004;
-}
-.eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:2px}
-h1{font-size:clamp(28px,7vw,45px);line-height:1.1;margin:10px 0}
-p{line-height:1.55}
-.muted{color:var(--muted)}
-.hero p{max-width:560px;color:#d6c7ab}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{
-  border:1px solid #8d6a2a;border-radius:12px;padding:11px 15px;
-  color:#1c1408;background:linear-gradient(135deg,var(--gold2),var(--gold));
-  font-weight:800;
-}
-.btn.secondary{background:#241c12;color:var(--gold2);border-color:var(--border)}
-.btn.ghost{background:transparent;color:var(--text);border-color:var(--border)}
-.btn.small{padding:8px 11px;font-size:13px}
-.section-title{font-size:21px;margin:27px 0 13px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.card{
-  background:linear-gradient(145deg,var(--panel2),var(--panel));
-  border:1px solid var(--border);border-radius:17px;padding:16px;
-  min-width:0;
-}
-.game-card{cursor:pointer;transition:transform .15s,border-color .15s}
-.game-card:hover{transform:translateY(-2px);border-color:var(--gold)}
-.game-icon{font-size:34px;margin-bottom:8px}
-.game-card h3{margin:4px 0 6px;font-size:16px}
-.game-card p{font-size:13px;color:var(--muted);margin:0}
-.game-area{margin-top:20px;scroll-margin-top:90px}
-.game-head{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.game-head h2{margin:0;font-size:23px}
-.hidden{display:none!important}
-.center{text-align:center}
-.big-number{font-size:45px;font-weight:900;color:var(--gold2);margin:14px 0}
-.reels{display:flex;justify-content:center;gap:9px;margin:20px 0}
-.reel{
-  background:#090806;border:2px solid #8a6427;border-radius:14px;
-  width:82px;height:88px;display:grid;place-items:center;font-size:42px;
-  box-shadow:inset 0 0 18px #f6c45315;
-}
-.wheel{
-  width:min(260px,75vw);aspect-ratio:1;border-radius:50%;margin:20px auto;
-  border:7px solid #d7a63e;
-  background:conic-gradient(#563b12 0deg 45deg,#c58b27 45deg 90deg,
-  #30220f 90deg 135deg,#f2c35b 135deg 180deg,#563b12 180deg 225deg,
-  #c58b27 225deg 270deg,#30220f 270deg 315deg,#f2c35b 315deg 360deg);
-  display:grid;place-items:center;position:relative;
-  box-shadow:0 0 25px #d5a33b25;
-}
-.wheel:before{content:"▼";position:absolute;top:-18px;color:var(--gold2);font-size:25px}
-.wheel span{
-  background:#161007;border:2px solid var(--gold);border-radius:50%;
-  width:82px;height:82px;display:grid;place-items:center;font-weight:900;
-}
-.result{min-height:25px;color:var(--gold2);font-weight:700;margin:12px 0}
-.playing-card{
-  background:#fff7e6;color:#24190b;border-radius:13px;
-  display:inline-grid;place-items:center;width:90px;height:125px;
-  font-size:36px;font-weight:900;border:3px solid #e3bd6c;
-  box-shadow:0 7px 18px #0005;
-}
-.playing-card small{font-size:14px}
-.choice-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}
-.stat{background:#110e09;border:1px solid var(--border);border-radius:12px;padding:12px}
-.stat strong{display:block;color:var(--gold2);font-size:19px}
-.stat span{font-size:12px;color:var(--muted)}
-input{
-  width:100%;background:#100d09;color:var(--text);
-  border:1px solid var(--border);border-radius:10px;padding:12px;
-}
-.field{margin:12px 0}
-.field label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
-.tic{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-width:300px;margin:15px auto}
-.tic button{
-  aspect-ratio:1;border:1px solid var(--border);border-radius:12px;
-  background:#110e09;color:var(--gold2);font-size:32px;font-weight:900;
-}
-.tic button:disabled{opacity:1}
-.scoreboard{width:100%;border-collapse:collapse}
-.scoreboard td,.scoreboard th{padding:11px 7px;border-bottom:1px solid var(--border);text-align:left}
-.scoreboard th{color:var(--gold);font-size:12px}
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;z-index:20;
-  display:flex;justify-content:space-around;gap:4px;
-  padding:8px 5px max(8px,env(safe-area-inset-bottom));
-  background:#100d09f5;border-top:1px solid var(--border);
-  backdrop-filter:blur(12px);
-}
-.bottom-nav button{
-  background:transparent;color:var(--muted);border:0;border-radius:10px;
-  padding:8px 10px;font-size:12px;min-width:0;
-}
-.bottom-nav button.active{color:var(--gold2);background:#3b2a12}
-.notice{font-size:12px;color:var(--muted);margin-top:20px;text-align:center}
-#toast{
-  position:fixed;left:50%;bottom:85px;transform:translateX(-50%);
-  z-index:30;background:#f5ca65;color:#1b1306;padding:11px 16px;
-  border-radius:12px;font-weight:800;box-shadow:0 5px 20px #0006;
-  max-width:90%;text-align:center;
-}
-@media(max-width:650px){
-  main{padding:14px 12px 100px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-  .card{padding:13px}
-  .hero{padding:21px 16px}
-  .reel{width:72px;height:78px;font-size:36px}
-  .game-head h2{font-size:20px}
-  .bottom-nav button{font-size:11px;padding:9px 7px}
-}
-@media(max-width:360px){.grid{grid-template-columns:1fr}}
+body{margin:0;background:radial-gradient(ellipse at top,#241542,var(--bg) 55%);color:var(--text);font-family:system-ui,Arial,sans-serif}
+header{padding:16px;position:sticky;top:0;background:#0b0b18ed;border-bottom:1px solid #302749;z-index:5}
+nav,main{max-width:1050px;margin:auto}
+nav{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.logo{font-size:23px;font-weight:900}.logo span{color:var(--cyan)}
+.wallet{padding:9px 13px;border:1px solid #63458b;border-radius:30px;color:#ffe58b;background:#201632;font-weight:800}
+main{padding:20px 14px 50px}
+.hero{padding:30px 23px;border:1px solid #49366d;border-radius:23px;background:linear-gradient(120deg,#32194e,#111a30)}
+.tag{color:var(--cyan);font-weight:800;letter-spacing:2px;font-size:12px}
+h1{font-size:clamp(34px,8vw,55px);line-height:1.05;margin:14px 0}
+h1 span{color:var(--cyan)}
+p{color:var(--muted);line-height:1.6}
+button{cursor:pointer;font:inherit}
+.primary{background:linear-gradient(100deg,var(--purple),#6346ff);color:white;border:0;border-radius:11px;padding:12px 16px;font-weight:800}
+.section{margin-top:27px}
+.section h2{font-size:21px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter,.secondary{background:#1b1a31;color:white;border:1px solid #393452;border-radius:20px;padding:9px 13px}
+.filter.active{border-color:var(--cyan);color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:15px}
+.game{padding:14px;border:1px solid #2e2b49;border-radius:17px;background:linear-gradient(145deg,#1b1a32,#10101e)}
+.emoji{display:grid;place-items:center;height:75px;border-radius:12px;background:#292044;font-size:40px}
+.game h3{margin:12px 0 5px;font-size:16px}
+.game p{font-size:12px;min-height:36px;margin:0 0 12px}
+.game button{width:100%;padding:10px;background:#292044;border:1px solid #57437c;color:white;border-radius:10px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.stat,.panel{background:var(--card);border:1px solid #302b4b;border-radius:15px;padding:14px}
+.stat strong{display:block;font-size:21px}.stat small{color:var(--muted)}
+.panel{margin-top:24px}
+#gameArea{text-align:center}
+.big{font-size:55px;margin:16px 0}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:14px 0}
+.controls button{padding:10px 15px;border-radius:10px;border:1px solid #5b4382;background:#26203c;color:white}
+.result{color:var(--cyan);font-weight:800;min-height:26px;margin:12px 0}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-width:270px;margin:15px auto}
+.cell{aspect-ratio:1;background:#292443;border:1px solid #54466d;border-radius:10px;color:white;font-size:30px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-width:300px;margin:14px auto}
+.tile{aspect-ratio:1;display:grid;place-items:center;border-radius:7px;background:#282441;font-weight:900;font-size:20px}
+.tile.filled{background:#7145a6}
+#snakeCanvas{width:min(300px,100%);background:#080812;border:1px solid #393452;border-radius:10px;touch-action:manipulation}
+footer{text-align:center;padding:25px 12px;color:var(--muted);border-top:1px solid #29253e;font-size:12px}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.game{padding:10px}.emoji{height:70px}main{padding-left:11px;padding-right:11px}}
+@media(max-width:340px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-<header>
-  <div class="brand">NEON<span>PLAY</span> <small style="font-size:10px;color:#c6a45b">GOLD</small></div>
-  <div class="coins">🪙 <span id="coinTop">100</span></div>
-</header>
-
+<header><nav><div class="logo">NEON<span>PLAY</span> ⚡</div><div class="wallet">🪙 <span id="coins">1000</span></div></nav></header>
 <main>
-  <section id="homePage">
-    <div class="hero">
-      <div class="eyebrow">YOUR ARCADE • YOUR RULES</div>
-      <h1>Play for fun.<br><span style="color:var(--gold)">Shine in gold.</span></h1>
-      <p>Explore mini-games, earn virtual points and beat your personal best. No deposits, no withdrawals—just arcade fun.</p>
-      <div class="row">
-        <button class="btn" onclick="openGame('slots')">🎰 Play Slots</button>
-        <button class="btn secondary" onclick="dailyBonus()">🎁 Daily bonus</button>
-      </div>
-      <div class="stat-row">
-        <div class="stat"><strong id="homeCoins">100</strong><span>Virtual points</span></div>
-        <div class="stat"><strong id="plays">0</strong><span>Games played</span></div>
-        <div class="stat"><strong id="best">0</strong><span>Best score</span></div>
-      </div>
-    </div>
-
-    <h2 class="section-title">🔥 Featured Games</h2>
-    <div class="grid">
-      <div class="card game-card" onclick="openGame('slots')"><div class="game-icon">🎰</div><h3>Gold Slots</h3><p>Spin the reels and match symbols.</p></div>
-      <div class="card game-card" onclick="openGame('spin')"><div class="game-icon">🎡</div><h3>Lucky Spin</h3><p>Spin for a virtual point bonus.</p></div>
-      <div class="card game-card" onclick="openGame('cards')"><div class="game-icon">🃏</div><h3>High / Low</h3><p>Guess whether the next card is higher.</p></div>
-      <div class="card game-card" onclick="openGame('dice')"><div class="game-icon">🎲</div><h3>Dice Guess</h3><p>Guess odd or even.</p></div>
-      <div class="card game-card" onclick="openGame('arcade')"><div class="game-icon">🕹️</div><h3>Arcade Zone</h3><p>Play Tic-Tac-Toe and reaction test.</p></div>
-      <div class="card game-card" onclick="showPage('leaderboard')"><div class="game-icon">🏆</div><h3>Leaderboard</h3><p>Check the demo rankings.</p></div>
-    </div>
-  </section>
-
-  <section id="gamePage" class="hidden game-area">
-    <div class="game-head">
-      <h2 id="gameTitle">Game</h2>
-      <button class="btn ghost small" onclick="showPage('home')">← Home</button>
-    </div>
-
-    <div id="slotsGame" class="card center game-area hidden">
-      <div class="muted">Match symbols to earn virtual points</div>
-      <div class="reels"><div class="reel" id="r1">🍒</div><div class="reel" id="r2">⭐</div><div class="reel" id="r3">💎</div></div>
-      <button class="btn" onclick="playSlots()">SPIN REELS 🎰</button>
-      <div id="slotResult" class="result" aria-live="polite">Every spin is free.</div>
-      <p class="muted">Three matching symbols: +30 points · Two matching: +8 points</p>
-    </div>
-
-    <div id="spinGame" class="card center game-area hidden">
-      <div class="muted">A free spin for a virtual bonus</div>
-      <div class="wheel" id="wheel"><span>SPIN</span></div>
-      <button class="btn" onclick="playWheel()">SPIN THE WHEEL 🎡</button>
-      <div id="wheelResult" class="result" aria-live="polite">Good luck!</div>
-      <p class="muted">Each spin is free. Points have no cash value.</p>
-    </div>
-
-    <div id="cardsGame" class="card center game-area hidden">
-      <p class="muted">Will the next card be higher or lower?</p>
-      <div id="currentCard" class="playing-card">A<small>♥</small></div>
-      <div id="cardResult" class="result" aria-live="polite">Start a round!</div>
-      <div class="choice-row">
-        <button class="btn" onclick="guessCard('higher')">⬆ Higher</button>
-        <button class="btn secondary" onclick="guessCard('lower')">⬇ Lower</button>
-        <button class="btn ghost" onclick="newCardRound()">New round</button>
-      </div>
-      <p class="muted">Correct guess: +10 points. No points are staked.</p>
-    </div>
-
-    <div id="diceGame" class="card center game-area hidden">
-      <div class="big-number" id="diceFace">🎲</div>
-      <p>Guess the result of a virtual six-sided die.</p>
-      <div class="choice-row">
-        <button class="btn" onclick="rollDice('even')">EVEN</button>
-        <button class="btn secondary" onclick="rollDice('odd')">ODD</button>
-      </div>
-      <div id="diceResult" class="result" aria-live="polite">Correct guess earns +8 points.</div>
-    </div>
-
-    <div id="arcadeGame" class="card center game-area hidden">
-      <h3>⭕ Tic-Tac-Toe</h3>
-      <p class="muted">Play against the computer. Win to earn +15 points.</p>
-      <div class="tic" id="ticBoard"></div>
-      <div id="ticResult" class="result" aria-live="polite">You are X. Computer is O.</div>
-      <button class="btn secondary" onclick="resetTic()">Restart Tic-Tac-Toe</button>
-      <hr style="border-color:var(--border);margin:25px 0">
-      <h3>⚡ Reaction Test</h3>
-      <p class="muted">Wait until the button turns gold, then tap it.</p>
-      <button id="reactionBtn" class="btn secondary" onclick="reactionClick()">Start reaction test</button>
-      <div id="reactionResult" class="result" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <section id="profilePage" class="hidden game-area">
-    <h2 class="section-title">👤 My Profile</h2>
-    <div class="card">
-      <div class="center" style="font-size:55px" id="avatarDisplay">👑</div>
-      <div class="field"><label for="playerName">Display name</label><input id="playerName" maxlength="22" placeholder="Enter your nickname"></div>
-      <div class="field"><label for="avatarInput">Avatar emoji</label><input id="avatarInput" maxlength="4" placeholder="👑"></div>
-      <button class="btn" onclick="saveProfile()">Save profile</button>
-      <div class="stat-row">
-        <div class="stat"><strong id="profileCoins">100</strong><span>Points</span></div>
-        <div class="stat"><strong id="profilePlays">0</strong><span>Games played</span></div>
-        <div class="stat"><strong id="profileBest">0</strong><span>Best score</span></div>
-      </div>
-      <p class="muted">Your profile is saved locally in this browser.</p>
-    </div>
-    <h2 class="section-title">🪙 Demo Wallet</h2>
-    <div class="card">
-      <p>Virtual points: <strong style="color:var(--gold2)" id="walletCoins">100</strong></p>
-      <button class="btn secondary" onclick="dailyBonus()">🎁 Claim daily bonus</button>
-      <p class="muted">Points are for entertainment only. They cannot be purchased, transferred, withdrawn or exchanged for cash.</p>
-    </div>
-  </section>
-
-  <section id="leaderboardPage" class="hidden game-area">
-    <h2 class="section-title">🏆 Leaderboard</h2>
-    <div class="card">
-      <p class="muted">Demo rankings plus your locally saved score.</p>
-      <table class="scoreboard">
-        <thead><tr><th>Rank</th><th>Player</th><th>Best</th></tr></thead>
-        <tbody id="leaderRows"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <p class="notice">NEONPLAY GOLD · Virtual arcade points only · No real-money gambling.</p>
+<section class="hero">
+<div class="tag">WELCOME TO YOUR ARCADE</div>
+<h1>PLAY MORE.<br><span>LEVEL UP.</span></h1>
+<p>Play mini-games, challenge yourself and collect virtual coins. Your next high score starts here!</p>
+<button class="primary" onclick="document.getElementById('arcade').scrollIntoView({behavior:'smooth'})">Explore Games ↓</button>
+</section>
+<div class="stats">
+<div class="stat"><strong id="played">0</strong><small>Games played</small></div>
+<div class="stat"><strong id="best">0</strong><small>Best score</small></div>
+<div class="stat"><strong>10</strong><small>Mini-games</small></div>
+</div>
+<section class="section" id="arcade">
+<h2>🎮 Game Arcade</h2>
+<div class="filters">
+<button class="filter active" onclick="filter('all',this)">All</button>
+<button class="filter" onclick="filter('luck',this)">Lucky</button>
+<button class="filter" onclick="filter('classic',this)">Classic</button>
+<button class="filter" onclick="filter('brain',this)">Brain</button>
+</div>
+<div class="grid">
+<div class="game" data-cat="luck"><div class="emoji">🎡</div><h3>Lucky Spin</h3><p>Spin for virtual rewards.</p><button onclick="start('spin')">Play Now</button></div>
+<div class="game" data-cat="luck"><div class="emoji">🎰</div><h3>Neon Slots</h3><p>Match the symbols.</p><button onclick="start('slots')">Play Now</button></div>
+<div class="game" data-cat="luck"><div class="emoji">🎲</div><h3>Dice Roll</h3><p>Guess the dice number.</p><button onclick="start('dice')">Play Now</button></div>
+<div class="game" data-cat="luck"><div class="emoji">🃏</div><h3>High or Low</h3><p>Predict the next card.</p><button onclick="start('highlow')">Play Now</button></div>
+<div class="game" data-cat="classic"><div class="emoji">⭕</div><h3>Tic-Tac-Toe</h3><p>Play against the computer.</p><button onclick="start('ttt')">Play Now</button></div>
+<div class="game" data-cat="classic"><div class="emoji">🐍</div><h3>Snake</h3><p>Eat food and grow.</p><button onclick="start('snake')">Play Now</button></div>
+<div class="game" data-cat="classic"><div class="emoji">✊</div><h3>Rock Paper Scissors</h3><p>Beat your opponent.</p><button onclick="start('rps')">Play Now</button></div>
+<div class="game" data-cat="brain"><div class="emoji">🧠</div><h3>Quick Quiz</h3><p>Test your knowledge.</p><button onclick="start('quiz')">Play Now</button></div>
+<div class="game" data-cat="brain"><div class="emoji">⚡</div><h3>Reaction Test</h3><p>Test your reaction speed.</p><button onclick="start('reaction')">Play Now</button></div>
+<div class="game" data-cat="brain"><div class="emoji">🔢</div><h3>2048</h3><p>Combine matching numbers.</p><button onclick="start('2048')">Play Now</button></div>
+</div>
+</section>
+<section class="panel">
+<h2>🎯 Game Screen</h2><p id="description">Select a game above to begin.</p><div id="gameArea"></div>
+</section>
+<section class="panel">
+<h2>🏆 Your Progress</h2><p>Virtual coins: <strong id="coinText">1000</strong></p><p>Games played: <strong id="playedText">0</strong></p><p>All coins are for entertainment only and have no cash value.</p>
+<button class="secondary" onclick="resetGame()">Reset progress</button>
+</section>
 </main>
-
-<nav class="bottom-nav">
-  <button id="navHome" class="active" onclick="showPage('home')">🏠<br>Home</button>
-  <button id="navGames" onclick="openGame('slots')">🎮<br>Games</button>
-  <button id="navProfile" onclick="showPage('profile')">👤<br>Profile</button>
-  <button id="navLeaderboard" onclick="showPage('leaderboard')">🏆<br>Ranks</button>
-</nav>
-<div id="toast" class="hidden" role="status"></div>
-
+<footer>NEONPLAY ⚡ © 2026<br>Play fair. Have fun. Virtual points only — no cash prizes.</footer>
 <script>
-"use strict";
+let coins=1000,played=0,best=0,highCard=0,ttt=[],tttEnd=false,quizIndex=0,quizScore=0,tiles=[],snakeTimer=null,reactionTimer=null,reactionState=0;
+const $=id=>document.getElementById(id);
+function update(){['coins','coinText'].forEach(id=>$(id).textContent=coins);['played','playedText'].forEach(id=>$(id).textContent=played);$('best').textContent=best}
+function award(n){coins=Math.max(0,coins+n);best=Math.max(best,n);update()}
+function record(n=0){played++;best=Math.max(best,n);update()}
+function filter(cat,b){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.game').forEach(g=>g.style.display=cat==='all'||g.dataset.cat===cat?'':'none')}
+function resetGame(){if(!confirm('Reset virtual coins and scores?'))return;coins=1000;played=0;best=0;update();$('gameArea').innerHTML='';$('description').textContent='Select a game above to begin.'}
+function start(name){
+clearInterval(snakeTimer);clearTimeout(reactionTimer);snakeTimer=null;reactionTimer=null;reactionState=0;
+const a=$('gameArea');a.innerHTML='';$('description').textContent='Playing: '+name;
+const box=document.createElement('div');a.appendChild(box);
+const show=(title,html)=>{box.innerHTML='<h3>'+title+'</h3>'+html};
+const controls=()=>'<div class="controls" id="controls"></div>';
+const btn=(label,fn)=>{let b=document.createElement('button');b.textContent=label;b.onclick=fn;$('controls').appendChild(b)};
+const res=msg=>{let r=$('result');if(r)r.textContent=msg};
+if(name==='spin'){
+show('🎡 Lucky Spin','<div class="big" id="wheel">🎡</div><div class="result" id="result">Spin for a virtual reward.</div>'+controls());
+let used=false;btn('SPIN',()=>{if(used){res('Spin already used this round.');return}used=true;let n=[0,10,20,50,100][Math.floor(Math.random()*5)];$('wheel').textContent='✨';record(n);award(n);res('You earned '+n+' virtual coins!')});
+}else if(name==='slots'){
+show('🎰 Neon Slots','<div class="big" id="symbols">🍒 ⭐ 🔔</div><p>Each spin costs 10 virtual coins.</p><div class="result" id="result"></div>'+controls());
+btn('SPIN · 10',()=>{if(coins<10){res('Not enough coins.');return}coins-=10;let s=['🍒','⭐','💎','🔔','🍀','7️⃣'],v=Array.from({length:3},()=>s[Math.floor(Math.random()*s.length)]);$('symbols').textContent=v.join(' ');let n=v.every(x=>x===v[0])?80:v[0]===v[1]||v[1]===v[2]?20:0;record(n);award(n);res(n?'Matched! +'+n:'No match this time.');});
+}else if(name==='dice'){
+show('🎲 Dice Roll','<div class="big" id="die">🎲</div><p>Choose a number from 1 to 6.</p><div class="result" id="result"></div>'+controls());
+for(let n=1;n<=6;n++)btn(n,()=>{let r=1+Math.floor(Math.random()*6);$('die').textContent=['⚀','⚁','⚂','⚃','⚄','⚅'][r-1];record(r===n?20:0);award(r===n?20:0);res('Rolled '+r+(r===n?' — Correct! +20':' — Try again!'))});
+}else if(name==='highlow'){
+highCard=1+Math.floor(Math.random()*13);
+show('🃏 High or Low','<div class="big" id="card">'+highCard+'</div><p>Will the next card be higher or lower?</p><div class="result" id="result"></div>'+controls());
+btn('Higher ⬆',()=>guess(true));btn('Lower ⬇',()=>guess(false));
+function guess(high){let r=1+Math.floor(Math.random()*13),ok=high?r>highCard:r<highCard;$('card').textContent=r;record(ok?15:0);award(ok?15:0);res(r===highCard?'Same number!':ok?'Correct! +15':'Not this time.');highCard=r}
+}else if(name==='rps'){
+show('✊ Rock Paper Scissors','<p>Choose your move.</p><div class="result" id="result"></div>'+controls());
+['Rock','Paper','Scissors'].forEach(x=>btn(x,()=>{let y=['Rock','Paper','Scissors'][Math.floor(Math.random()*3)],win=x!==y&&((x==='Rock'&&y==='Scissors')||(x==='Paper'&&y==='Rock')||(x==='Scissors'&&y==='Paper'));record(win?10:0);award(win?10:0);res('You: '+x+' · Computer: '+y+' — '+(x===y?'Tie':win?'You win +10':'Computer wins'))}));
+}else if(name==='ttt'){
+ttt=Array(9).fill('');tttEnd=false;show('⭕ Tic-Tac-Toe','<p>You are X. Computer is O.</p><div class="board" id="board"></div><div class="result" id="result"></div>'+controls());draw();
+btn('Restart',()=>start('ttt'));
+function draw(){$('board').innerHTML=ttt.map((v,i)=>'<button class="cell" data-i="'+i+'">'+v+'</button>').join('');$('board').querySelectorAll('button').forEach(b=>b.onclick=()=>move(+b.dataset.i))}
+function wins(p){return [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]].some(line=>line.every(i=>ttt[i]===p))}
+function end(msg,n){tttEnd=true;record(n);award(n);res(msg);draw()}
+function move(i){if(tttEnd||ttt[i])return;ttt[i]='X';draw();if(wins('X'))return end('You win! +20',20);if(ttt.every(Boolean))return end('Draw!',2);let empty=ttt.map((v,i)=>v? -1:i).filter(i=>i>=0),m=null;for(let p of ['O','X']){for(let j of empty){let b=ttt.slice();b[j]=p;if([[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]].some(l=>l.every(k=>b[k]===p))){m=j;break}}if(m!==null)break}if(m===null)m=empty[Math.floor(Math.random()*empty.length)];ttt[m]='O';draw();if(wins('O'))return end('Computer wins.',0);if(ttt.every(Boolean))return end('Draw!',2)}
+}else if(name==='quiz'){
+const qs=[['Capital of France?',['Rome','Paris','Madrid'],1],['12 × 8 = ?',['86','96','108'],1],['Red Planet?',['Mars','Venus','Jupiter'],0],['How many sides in a hexagon?',['5','6','8'],1],['Largest ocean?',['Indian','Atlantic','Pacific'],2]];
+quizIndex=0;quizScore=0;show('🧠 Quick Quiz','<div id="qArea"></div>');question();
+function question(){if(quizIndex===qs.length){$('qArea').innerHTML='<h3>Score: '+quizScore+'/'+qs.length+'</h3><button class="primary" id="again">Play Again</button>';$('again').onclick=()=>start('quiz');record(quizScore*10);award(quizScore*10);return}let q=qs[quizIndex];$('qArea').innerHTML='<p>Question '+(quizIndex+1)+' of '+qs.length+'</p><h3>'+q[0]+'</h3><div class="controls" id="answers"></div><div class="result" id="result"></div>';q[1].forEach((s,i)=>btnAnswer(s,()=>{let ok=i===q[2];if(ok)quizScore++;res(ok?'Correct!':'Answer: '+q[1][q[2]]);$('answers').querySelectorAll('button').forEach(b=>b.disabled=true);setTimeout(()=>{quizIndex++;question()},650)}))}
+function btnAnswer(s,fn){let b=document.createElement('button');b.textContent=s;$('answers').appendChild(b);b.onclick=fn}
+}else if(name==='reaction'){
+show('⚡ Reaction Test','<div class="big" id="reactBox">Ready?</div><div class="result" id="result"></div>'+controls());
+btn('Start Test',()=>{clearTimeout(reactionTimer);reactionState=1;$('reactBox').textContent='Wait...';$('reactBox').style.color='#ff776e';$('controls').firstChild.disabled=true;reactionTimer=setTimeout(()=>{if(reactionState!==1)return;reactionState=2;reactStart=performance.now();$('reactBox').textContent='TAP NOW!';$('reactBox').style.color='#22e6dc'},1000+Math.random()*2500);$('reactBox').onclick=()=>{if(reactionState===1){clearTimeout(reactionTimer);reactionState=0;$('controls').firstChild.disabled=false;res('Too early! Try again.')}else if(reactionState===2){let ms=Math.round(performance.now()-reactStart);reactionState=0;$('controls').firstChild.disabled=false;record(ms<300?20:0);award(ms<300?20:0);res(ms+' ms reaction time');$('reactBox').onclick=null}}});
+}else if(name==='2048'){
+tiles=Array(16).fill(0);add();add();show('🔢 2048','<div class="tiles" id="tileBoard"></div><div class="result" id="result">Use the arrow buttons.</div>'+controls());['←','↑','↓','→'].forEach((s,i)=>btn(s,()=>move2048(['left','up','down','right'][i])));drawTiles();
+function add(){let e=tiles.map((v,i)=>v? -1:i).filter(i=>i>=0);if(e.length)tiles[e[Math.floor(Math.random()*e.length)]]=Math.random()<.9?2:4}
+function drawTiles(){$('tileBoard').innerHTML=tiles.map(v=>'<div class="tile '+(v?'filled':'')+'">'+(v||'')+'</div>').join('')}
+function move2048(d){let old=tiles.join(',');for(let k=0;k<4;k++){let ids=[];for(let j=0;j<4;j++){let r=d==='left'||d==='right'?k:(d==='up'?j:3-j),c=d==='up'||d==='down'?k:(d==='left'?j:3-j);ids.push(r*4+c)}let a=ids.map(i=>tiles[i]).filter(Boolean),o=[];for(let j=0;j<a.length;j++){if(a[j]===a[j+1]){o.push(a[j]*2);j++}else o.push(a[j])}while(o.length<4)o.push(0);ids.forEach((id,j)=>tiles[id]=o[j])}if(old!==tiles.join(',')){add();drawTiles();if(tiles.includes(2048))res('2048 reached!')} }
+}else if(name==='snake'){
+show('🐍 Snake','<canvas id="snakeCanvas" width="300" height="300"></canvas><div class="result" id="result">Score: 0</div>'+controls());
+let c=$('snakeCanvas'),ctx=c.getContext('2d'),s=[{x:9,y:9},{x:8,y:9}],d={x:1,y:0},food={x:14,y:9},score=0,dead=false;
+function dir(x,y){if(x!==-d.x||y!==-d.y)d={x,y}}
+btn('↑',()=>dir(0,-1));btn('←',()=>dir(-1,0));btn('↓',()=>dir(0,1));btn('→',()=>dir(1,0));
+function draw(){ctx.clearRect(0,0,300,300);ctx.fillStyle='#22e6dc';ctx.fillRect(food.x*15,food.y*15,13,13);ctx.fillStyle='#a855f7';s.forEach(p=>ctx.fillRect(p.x*15,p.y*15,13,13))}
+snakeTimer=setInterval(()=>{if(dead)return;let h={x:s[0].x+d.x,y:s[0].y+d.y};if(h.x<0||h.x>=20||h.y<0||h.y>=20||s.some(p=>p.x===h.x&&p.y===h.y)){dead=true;clearInterval(snakeTimer);record(score*5);award(score*5);res('Game over! Score '+score);return}s.unshift(h);if(h.x===food.x&&h.y===food.y){score++;food={x:Math.floor(Math.random()*20),y:Math.floor(Math.random()*20)};$('result').textContent='Score: '+score}else s.pop();draw()},140);draw();
+}
+}
+update();
+</script>
+</body>
+</html>
+```
 
-const DEFAULT = {
-  name:"Gold Player", avatar:"👑", coins:100, plays:0, best:0,
-  dailyDate:"", ticWins:0
-};
-let state = loadState();
-let currentCard = 1;
-let wheelBusy = false;
-let tic = Array(9).fill("");
-let ticOver = false;
-let reactionReady = false;
-let reactionStart = 0;
-let reactionTimer = null;
-let reactionTimeout = null;
+### Ab phone par ye 3 kaam kar
 
-function loadState(){
-  try {
-    const saved = JSON.parse(localStorage.getItem("neonplay_gold_v1") || "{}");
-    return {...DEFAULT,...saved};
-  } catch(e) { return {...DEFAULT}; }
-}
-function saveState(){
-  try { localStorage.setItem("neonplay_gold_v1",JSON.stringify(state)); }
-  catch(e) { toast("Browser storage unavailable."); }
-  updateUI();
-}
-function toast(message){
-  const el=document.getElementById("toast");
-  el.textContent=message; el.classList.remove("hidden");
-  clearTimeout(toast.timer);
-  toast.timer=setTimeout(()=>el.classList.add("hidden"),2300);
-}
-function addPoints(amount,message){
-  state.coins += amount;
-  if(amount>0) state.best=Math.max(state.best,amount);
-  saveState();
-  if(message) toast(message);
-}
-function countPlay(){state.plays++;saveState();}
-function updateUI(){
-  ["coinTop","homeCoins","profileCoins","walletCoins"].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.textContent=state.coins;
-  });
-  ["plays","profilePlays"].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.textContent=state.plays;
-  });
-  ["best","profileBest"].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.textContent=state.best;
-  });
-  document.getElementById("playerName").value=state.name;
-  document.getElementById("avatarInput").value=state.avatar;
-  document.getElementById("avatarDisplay").textContent=state.avatar;
-  renderLeaderboard();
-}
-function showPage(page){
-  document.getElementById("homePage").classList.toggle("hidden",page!=="home");
-  document.getElementById("gamePage").classList.toggle("hidden",page!=="game");
-  document.getElementById("profilePage").classList.toggle("hidden",page!=="profile");
-  document.getElementById("leaderboardPage").classList.toggle("hidden",page!=="leaderboard");
-  ["navHome","navGames","navProfile","navLeaderboard"].forEach(id=>document.getElementById(id).classList.remove("active"));
-  const nav={home:"navHome",game:"navGames",profile:"navProfile",leaderboard:"navLeaderboard"}[page];
-  if(nav)document.getElementById(nav).classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
-  updateUI();
-}
-function openGame(name){
-  showPage("game");
-  const titles={slots:"🎰 Gold Slots",spin:"🎡 Lucky Spin",cards:"🃏 High / Low Cards",dice:"🎲 Dice Guess",arcade:"🕹️ Arcade Zone"};
-  document.getElementById("gameTitle").textContent=titles[name]||"Game";
-  ["slots","spin","cards","dice","arcade"].forEach(g=>document.getElementById(g+"Game").classList.toggle("hidden",g!==name));
-  if(name==="arcade") renderTic();
-  if(name==="cards") newCardRound();
-}
-function dailyBonus(){
-  const today=new Date().toLocaleDateString("en-CA");
-  if(state.dailyDate===today){toast("Daily bonus already claimed. Come back tomorrow!");return;}
-  state.dailyDate=today;state.coins+=25;saveState();toast("🎁 Daily bonus: +25 virtual points!");
-}
+1. Upar ke code block mein **Copy** dabaa.
+2. GitHub ke `index.html` editor mein purana code replace karke poora code paste kar.
+3. **Commit changes** dabaa aur confirm kar.
 
-// SLOTS: free play, no staking or loss of points.
-const symbols=["🍒","⭐","💎","🍀","🔔","👑"];
-function playSlots(){
-  const reels=[1,2,3].map(()=>symbols[Math.floor(Math.random()*symbols.length)]);
-  reels.forEach((s,i)=>document.getElementById("r"+(i+1)).textContent=s);
-  const counts={};reels.forEach(s=>counts[s]=(counts[s]||0)+1);
-  let reward=0, message="No match this time—try again!";
-  if(reels[0]===reels[1]&&reels[1]===reels[2]){
-    reward=30;message="🎉 JACKPOT! +30 virtual points!";
-  }else if(Object.values(counts).some(n=>n===2)){
-    reward=8;message="✨ Two matching symbols! +8 points.";
-  }
-  countPlay();
-  if(reward)addPoints(reward,message);else {saveState();document.getElementById("slotResult").textContent=message;}
-  document.getElementById("slotResult").textContent=message;
-}
+Phir website kholo: [Ritesh Website](https://riteshmahato01.github.io/ritesh-website/)
 
-// LUCKY SPIN: free spins, random virtual reward.
-function playWheel(){
-  if(wheelBusy)return;
-  wheelBusy=true;
-  const wheel=document.getElementById("wheel");
-  const reward=[0,5,10,15,20,25,30,50][Math.floor(Math.random()*8)];
-  wheel.style.transition="transform 2s cubic-bezier(.15,.7,.2,1)";
-  wheel.style.transform="rotate("+(1440+Math.floor(Math.random()*360))+"deg)";
-  document.getElementById("wheelResult").textContent="Spinning...";
-  countPlay();
-  setTimeout(()=>{
-    wheel.style.transition="none";wheel.style.transform="rotate(0deg)";
-    const msg=reward?`🎉 You won +${reward} virtual points!`:"No bonus this time. Spin again!";
-    document.getElementById("wheelResult").textContent=msg;
-    if(reward)addPoints(reward);else saveState();
-    wheelBusy=false;
-  },2050);
-}
-
-// HIGH / LOW: no point stake.
-const ranks=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
-const suits=["♥","♦","♣","♠"];
-function drawCard(){return {value:Math.floor(Math.random()*13)+1,suit:suits[Math.floor(Math.random()*4)]};}
-function showCard(card){
-  const el=document.getElementById("currentCard");
-  const label=card.value===1?"A":card.value===11?"J":card.value===12?"Q":card.value===13?"K":card.value;
-  el.innerHTML=label+"<small>"+card.suit+"</small>";
-  el.style.color=(card.suit==="♥"||card.suit==="♦")?"#c32f35":"#24190b";
-}
-function newCardRound(){
-  currentCard=drawCard();showCard(currentCard);
-  document.getElementById("cardResult").textContent="Choose higher or lower.";
-}
-function guessCard(direction){
-  const next=drawCard();countPlay();
-  const old=currentCard.value;const val=next.value;
-  const correct=direction==="higher"?val>old:val<old;
-  showCard(next);
-  if(val===old)document.getElementById("cardResult").textContent="Tie! No points earned.";
-  else if(correct){document.getElementById("cardResult").textContent="Correct guess! +10 points.";addPoints(10);}
-  else document.getElementById("cardResult").textContent="Not quite! Start another round.";
-  currentCard=next;
-}
-
-// DICE: free guess.
-function rollDice(guess){
-  const n=Math.floor(Math.random()*6)+1;
-  document.getElementById
+Code ko abhi live environment mein test nahi kiya hai, isliye publish hone ke baad games check karna.
