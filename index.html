@@ -1,646 +1,449 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080711">
-  <meta name="google-site-verification" content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE">
-  <meta name="description" content="Ritesh Kumar's digital portfolio — website design, creative projects and digital services.">
-  <meta name="author" content="Ritesh Kumar">
-
-  <!-- Social preview (WhatsApp, LinkedIn, etc.) -->
-  <meta property="og:title" content="Ritesh Kumar | Digital Portfolio">
-  <meta property="og:description" content="Explore my digital portfolio, projects and website design services.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://riteshmahato01.github.io/ritesh-website/">
-  <meta property="og:image" content="https://riteshmahato01.github.io/ritesh-website/ritesh.webp">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <title>Ritesh Kumar | Digital Portfolio</title>
-
-  <!-- Favicon (inline, no extra file needed) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23080711'/%3E%3Ctext x='50' y='68' font-size='58' font-weight='900' text-anchor='middle' fill='%235eead4' font-family='Arial,sans-serif'%3ER%3C/text%3E%3C/svg%3E">
-
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script>
-    try {
-      const saved = localStorage.getItem("ritesh-theme");
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.dataset.theme = saved;
-      }
-    } catch (e) {}
-  </script>
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #080711;
-      --surface: #111020;
-      --surface2: #17152a;
-      --text: #f7f5ff;
-      --muted: #aaa7c2;
-      --purple: #a78bfa;
-      --cyan: #5eead4;
-      --border: rgba(195,174,255,.18);
-      --gradient: linear-gradient(115deg,#a78bfa,#7c83ff,#5eead4);
-      --header: rgba(8,7,17,.88);
-      --card: linear-gradient(145deg,#17152a,#0d0c19);
-      --field: #090815;
-    }
-
-    html[data-theme="light"] {
-      color-scheme: light;
-      --bg: #f6f7ff;
-      --surface: #ffffff;
-      --surface2: #eef0ff;
-      --text: #17152a;
-      --muted: #62627a;
-      --purple: #7041d8;
-      --cyan: #087f78;
-      --border: rgba(60,52,100,.17);
-      --header: rgba(246,247,255,.92);
-      --card: linear-gradient(145deg,#fff,#f0f1ff);
-      --field: #ffffff;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-
-    body {
-      background:
-        radial-gradient(ellipse at 12% 4%,rgba(124,58,237,.12),transparent 32%),
-        radial-gradient(ellipse at 88% 35%,rgba(94,234,212,.07),transparent 30%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden;
-      transition: background .25s,color .25s;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button,input,select,textarea { font: inherit; }
-    button,a { -webkit-tap-highlight-color: transparent; }
-    img { display: block; max-width: 100%; }
-
-    .container { width: min(1120px,90%); margin-inline: auto; }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 8px;
-      z-index: 1001;
-      background: var(--surface);
-      padding: 10px 14px;
-    }
-    .skip-link:focus { left: 12px; }
-
-    #progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      z-index: 1000;
-      background: var(--gradient);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--header);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      white-space: nowrap;
-    }
-    .logo span { color: var(--cyan); }
-
-    .navlinks {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-left: auto;
-    }
-    .navlinks a { color: var(--muted); font-size: .9rem; }
-    .navlinks a:hover { color: var(--cyan); }
-
-    .nav-cta {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 7px 13px;
-    }
-
-    .nav-actions { display: flex; align-items: center; gap: 8px; }
-
-    #theme-toggle,
-    #menu-toggle {
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      padding: 8px 11px;
-      background: var(--surface2);
-      color: var(--text);
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    #menu-toggle { display: none; font-size: 1.1rem; line-height: 1; }
-
-    section { padding: 82px 0; }
-
-    .hero {
-      min-height: 76vh;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 60px;
-      padding-top: 60px;
-      padding-bottom: 70px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 13px;
-      border-radius: 30px;
-      border: 1px solid var(--border);
-      background: rgba(167,139,250,.1);
-      color: var(--cyan);
-      font-size: .83rem;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem,6.5vw,5.2rem);
-      line-height: 1.07;
-      letter-spacing: -2px;
-      margin-bottom: 20px;
-    }
-
-    .gradient-text {
-      background: var(--gradient);
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    .hero-description,.section-intro { color: var(--muted); max-width: 650px; }
-
-    .typing-line {
-      color: var(--cyan);
-      font-weight: 800;
-      margin: 12px 0;
-      min-height: 30px;
-    }
-    .typing-line::after {
-      content: "|";
-      margin-left: 2px;
-      animation: blink 1s steps(1) infinite;
-    }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      min-height: 46px;
-      padding: 11px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s,border-color .2s;
-    }
-    .btn:hover { transform: translateY(-3px); border-color: var(--cyan); }
-
-    .btn-primary { color: #090817; background: var(--gradient); border: 0; }
-
-    .profile-card {
-      width: 100%;
-      max-width: 350px;
-      margin: auto;
-      padding: 13px;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: 0 0 48px rgba(124,58,237,.12);
-    }
-
-    .profile {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 19px;
-      background: var(--surface);
-    }
-
-    .profile-caption { padding: 16px 5px 6px; text-align: center; }
-    .profile-caption small { color: var(--muted); }
-
-    .section-heading {
-      font-size: clamp(1.9rem,4.5vw,3rem);
-      line-height: 1.2;
-      margin-bottom: 13px;
-      letter-spacing: -.8px;
-    }
-
-    .section-intro { margin-bottom: 30px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
-      gap: 19px;
-    }
-
-    .card {
-      min-width: 0;
-      padding: 25px;
-      border-radius: 21px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      transition: transform .22s,border-color .22s;
-    }
-    .card:hover { transform: translateY(-5px); border-color: var(--cyan); }
-
-    .card-icon { font-size: 1.9rem; margin-bottom: 13px; }
-    .card h3 { margin-bottom: 9px; font-size: 1.12rem; }
-    .card p { color: var(--muted); font-size: .95rem; }
-
-    .tag {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 5px 10px;
-      border-radius: 30px;
-      background: rgba(167,139,250,.12);
-      color: var(--purple);
-      font-size: .77rem;
-    }
-
-    .project-link {
-      display: inline-block;
-      margin-top: 16px;
-      color: var(--cyan);
-      font-weight: 700;
-    }
-    .project-link:hover { text-decoration: underline; }
-
-    .steps { counter-reset: step; }
-    .step { position: relative; padding-top: 76px; }
-    .step::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      position: absolute;
-      top: 20px;
-      left: 24px;
-      font-size: 1.7rem;
-      font-weight: 900;
-      color: var(--cyan);
-    }
-
-    .about-box,.contact-box {
-      padding: clamp(25px,5vw,48px);
-      border-radius: 25px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-    }
-
-    .about-box p { color: var(--muted); margin-top: 14px; max-width: 850px; }
-
-    .contact-box { text-align: center; border-radius: 26px; }
-    .contact-box > p { color: var(--muted); max-width: 650px; margin: 12px auto 22px; }
-
-    .enquiry-form {
-      max-width: 650px;
-      margin: 30px auto 0;
-      display: grid;
-      gap: 17px;
-      text-align: left;
-    }
-
-    .form-field label {
-      display: block;
-      font-size: .92rem;
-      font-weight: 700;
-      margin-bottom: 7px;
-    }
-
-    .enquiry-form input,
-    .enquiry-form select,
-    .enquiry-form textarea {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--text);
-      background: var(--field);
-      outline: none;
-    }
-
-    .enquiry-form select option { background: var(--field); color: var(--text); }
-
-    .enquiry-form textarea { min-height: 130px; resize: vertical; }
-
-    .enquiry-form input:focus,
-    .enquiry-form select:focus,
-    .enquiry-form textarea:focus {
-      border-color: var(--cyan);
-      box-shadow: 0 0 0 3px rgba(94,234,212,.12);
-    }
-
-    .enquiry-form .btn { width: 100%; }
-
-    .form-note { font-size: .8rem; color: var(--muted); text-align: left; }
-
-    /* Honeypot: hidden from people, visible to bots */
-    .hp-field {
-      position: absolute !important;
-      left: -9999px !important;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .form-success {
-      display: none;
-      max-width: 650px;
-      margin: 24px auto 0;
-      padding: 14px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--cyan);
-      color: var(--cyan);
-      background: rgba(94,234,212,.08);
-      font-weight: 700;
-    }
-    .form-success.show { display: block; }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 11px;
-      margin-top: 22px;
-    }
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-    footer p + p { margin-top: 4px; }
-
-    #back-to-top {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 90;
-      width: 46px;
-      height: 46px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface2);
-      color: var(--text);
-      font-size: 22px;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: .25s;
-    }
-    #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-
-    a:focus-visible,button:focus-visible,
-    input:focus-visible,select:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 4px;
-    }
-
-    @media (max-width: 820px) {
-      nav { flex-wrap: wrap; min-height: 68px; gap: 0 12px; }
-
-      .logo { order: 1; }
-      .nav-actions { order: 2; margin-left: auto; }
-
-      #menu-toggle { display: inline-block; }
-
-      .navlinks {
-        order: 3;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        flex-basis: 100%;
-        gap: 4px;
-        margin: 0;
-        padding: 6px 0 14px;
-      }
-      .navlinks.open { display: flex; }
-      .navlinks a { padding: 10px 4px; font-size: .95rem; }
-      .navlinks .nav-cta { text-align: center; margin-top: 6px; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 36px;
-        padding-top: 50px;
-      }
-      .hero-copy { text-align: center; }
-      .hero-description { margin-inline: auto; }
-      .hero .actions { justify-content: center; }
-      .profile-card { max-width: 290px; }
-
-      .grid { grid-template-columns: 1fr; }
-      section { padding: 58px 0; }
-      h1 { letter-spacing: -1px; }
-    }
-
-    @media (min-width: 600px) and (max-width: 820px) {
-      .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta name="google-site-verification" content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b16">
+<meta name="description" content="Ritesh Mahato - Personal websites, portfolio design and beginner-friendly digital services.">
+<title>Ritesh Mahato | Digital Services</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080b16;
+  --card:#11182b;
+  --text:#f4f7ff;
+  --muted:#aab4cc;
+  --accent:#7c83ff;
+  --cyan:#54e4d5;
+}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  font-family:Arial,sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 20%,#25265a22,transparent 40%),
+    radial-gradient(ellipse at 90% 70%,#54e4d511,transparent 35%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1080px,90%);margin:auto}
+
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,11,22,.94);
+  border-bottom:1px solid #252c43;
+  backdrop-filter:blur(14px);
+  box-shadow:0 5px 25px #00000022;
+}
+nav{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;padding:15px 0;
+}
+.logo{font-size:21px;font-weight:800}
+.logo span{color:var(--cyan)}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap}
+.navlinks a{
+  font-size:13px;color:var(--muted);
+  transition:.25s;
+}
+.navlinks a:hover{
+  color:var(--cyan);
+  text-shadow:0 0 12px #54e4d599;
+}
+
+.hero{
+  padding:75px 0 65px;
+  text-align:center;
+  background:radial-gradient(ellipse at top,#25265a 0%,transparent 65%);
+  animation:reveal .8s ease both;
+}
+@keyframes reveal{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.profile{
+  width:150px;height:150px;object-fit:cover;
+  border-radius:50%;border:3px solid var(--accent);
+  margin-bottom:20px;
+  animation:glow 3s ease-in-out infinite alternate;
+  transition:transform .3s;
+}
+.profile:hover{transform:scale(1.05)}
+@keyframes glow{
+  from{box-shadow:0 0 12px #7c83ff66}
+  to{box-shadow:0 0 25px #7c83ff,0 0 42px #54e4d555}
+}
+.tag{
+  display:inline-block;padding:5px 14px;
+  border:1px solid #454b85;border-radius:30px;
+  color:var(--cyan);font-size:13px;
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{
+  50%{box-shadow:0 0 20px #54e4d533}
+}
+h1{
+  font-size:clamp(36px,8vw,65px);
+  line-height:1.15;margin:20px 0;
+  letter-spacing:-1.5px;
+}
+h1 span{
+  background:linear-gradient(90deg,#a8adff,#54e4d5,#a8adff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;color:transparent;
+  animation:shine 4s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+.hero p,.section-intro{
+  color:var(--muted);max-width:650px;
+  margin:0 auto 25px;
+}
+.buttons{
+  display:flex;gap:12px;justify-content:center;
+  flex-wrap:wrap;margin-top:24px;
+}
+.btn{
+  display:inline-block;padding:12px 20px;
+  border-radius:12px;font-weight:bold;
+  border:1px solid #343d5c;
+  transition:transform .25s,box-shadow .25s;
+  text-align:center;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px #7c83ff55;
+}
+.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.primary:hover{background:#9298ff}
+.secondary{background:#141a2b}
+
+section{padding:60px 0;scroll-margin-top:75px}
+.section-title{text-align:center;font-size:30px;margin-bottom:10px}
+.section-intro{text-align:center;margin-bottom:30px}
+.grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.card{
+  padding:24px;background:var(--card);
+  border:1px solid #252e47;border-radius:18px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+  animation:reveal .6s ease both;
+}
+.card:hover{
+  transform:translateY(-7px);
+  border-color:var(--accent);
+  box-shadow:0 0 18px #7c83ff25,0 12px 30px #00000044;
+}
+.service-icon{font-size:30px;margin-bottom:12px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+.small-link{
+  display:inline-block;margin-top:16px;
+  color:var(--cyan);font-size:14px;font-weight:bold;
+}
+.small-link:hover{text-shadow:0 0 12px var(--cyan)}
+
+.about{
+  background:linear-gradient(120deg,#10162a,#0c1020);
+  border:1px solid #252e47;border-radius:22px;padding:30px;
+  transition:border-color .3s,box-shadow .3s;
+}
+.about:hover{border-color:#7c83ff88;box-shadow:0 0 25px #7c83ff12}
+.about p{color:var(--muted);margin-top:10px}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.skills span{
+  padding:7px 12px;border-radius:9px;
+  background:#202844;color:#dce1ff;font-size:13px;
+}
+.contact-card{text-align:center}
+.contact-card .buttons{margin-bottom:10px}
+.contact-card .btn{min-width:135px}
+
+.project-card{
+  max-width:760px;
+  margin:auto;
+  overflow:hidden;
+  padding:0;
+}
+.project-top{
+  padding:28px;
+  background:linear-gradient(135deg,#202650,#11182b);
+  border-bottom:1px solid #30395b;
+}
+.project-window{
+  display:flex;
+  gap:7px;
+  margin-bottom:20px;
+}
+.project-window span{
+  width:10px;height:10px;border-radius:50%;
+  background:#7c83ff;
+}
+.project-window span:nth-child(2){background:#54e4d5}
+.project-window span:nth-child(3){background:#f4c76b}
+.project-preview{
+  border:1px solid #424b78;
+  border-radius:14px;
+  padding:24px 16px;
+  text-align:center;
+  background:#080b16;
+}
+.project-preview .preview-icon{
+  font-size:38px;
+  margin-bottom:8px;
+}
+.project-preview h3{
+  font-size:23px;
+  margin-bottom:5px;
+}
+.project-preview p{
+  font-size:13px;
+  color:var(--muted);
+}
+.project-details{padding:25px}
+.project-details p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:8px;
+}
+.project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.project-tags span{
+  padding:5px 10px;
+  border-radius:8px;
+  background:#202844;
+  color:#dce1ff;
+  font-size:12px;
+}
+.project-details .buttons{justify-content:flex-start}
+
+footer{
+  border-top:1px solid #252c43;
+  padding:25px 0;text-align:center;
+  color:var(--muted);font-size:13px;
+}
+footer p:first-child{margin-bottom:5px}
+::selection{background:var(--accent);color:white}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  nav{align-items:flex-start;flex-direction:column}
+  .navlinks{gap:12px}
+  .navlinks a{font-size:12px}
+  .hero{padding:55px 0 45px}
+  section{padding:45px 0}
+  .about{padding:22px}
+  .section-title{font-size:27px}
+  .project-top{padding:18px}
+  .project-details{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+}
+</style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div id="progress" aria-hidden="true"></div>
-  <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home">Ritesh<span>.</span></a>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#my-project">My Project</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
-  <header>
-    <nav class="container" aria-label="Main navigation">
-      <a class="logo" href="#home">RITESH<span>.</span></a>
-
-      <div class="navlinks" id="navlinks">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+<main>
+  <section class="hero" id="home">
+    <div class="container">
+      <img class="profile" src="./ritesh.webp" alt="Ritesh Mahato">
+      <br>
+      <span class="tag">WELCOME TO MY DIGITAL WORLD ✨</span>
+      <h1>Hi, I'm <span>Ritesh Mahato</span></h1>
+      <p>
+        Student, learner and aspiring digital creator.
+        I build simple online experiences and help beginners
+        explore their digital ideas.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#services">Explore Services ↗</a>
+        <a class="btn secondary" href="#contact">Let's Connect</a>
       </div>
+    </div>
+  </section>
 
-      <div class="nav-actions">
-        <button id="theme-toggle" type="button" aria-label="Toggle colour theme">☀️ Light Mode</button>
-        <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">My Services 🛠️</h2>
+      <p class="section-intro">
+        Need a simple website or an online profile?
+        Explore the options and message me to discuss your idea.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="service-icon">🌐</div>
+          <h3>Personal Websites</h3>
+          <p>A website to introduce yourself, share your interests and showcase your work.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20a%20personal%20website.">Enquire on WhatsApp ↗</a>
+        </article>
+        <article class="card">
+          <div class="service-icon">🎨</div>
+          <h3>Portfolio Design</h3>
+          <p>A clean portfolio to present your skills, projects and experience.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20portfolio%20design.">Enquire on WhatsApp ↗</a>
+        </article>
+        <article class="card">
+          <div class="service-icon">📱</div>
+          <h3>Mobile-Friendly Pages</h3>
+          <p>Responsive page layouts designed for phones, tablets and computers.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20a%20mobile-friendly%20page.">Enquire on WhatsApp ↗</a>
+        </article>
+        <article class="card">
+          <div class="service-icon">⚙️</div>
+          <h3>Basic Website Updates</h3>
+          <p>Simple text, color, link and HTML/CSS changes to existing pages.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20help%20with%20a%20website%20update.">Enquire on WhatsApp ↗</a>
+        </article>
+        <article class="card">
+          <div class="service-icon">📄</div>
+          <h3>Online Profile Setup</h3>
+          <p>Bring your introduction, contact details and social links together on one page.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20discuss%20an%20online%20profile.">Enquire on WhatsApp ↗</a>
+        </article>
+        <article class="card">
+          <div class="service-icon">💡</div>
+          <h3>Beginner Coding Guidance</h3>
+          <p>Beginner-friendly guidance with HTML, CSS and GitHub Pages basics.</p>
+          <a class="small-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%27d%20like%20to%20ask%20about%20beginner%20HTML%20and%20CSS%20guidance.">Enquire on WhatsApp ↗</a>
+        </article>
       </div>
-    </nav>
-  </header>
+    </div>
+  </section>
 
-  <main id="main-content">
-    <section class="container hero" id="home">
-      <div class="hero-copy">
-        <span class="eyebrow">✦ Welcome to my digital space</span>
-        <h1>Ideas into <span class="gradient-text">Digital Experiences.</span></h1>
-        <div class="typing-line" id="typing" aria-live="polite">Website Design • Digital Creativity</div>
-        <p class="hero-description">
-          Hi, I'm Ritesh Kumar. I'm building my skills in website design
-          and digital creativity, one project at a time. Explore my work
-          or get in touch about your next idea.
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">How It Works 🤝</h2>
+      <p class="section-intro">A simple, clear process from first message to finished page.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="service-icon">💬</div>
+          <h3>1. Share Your Idea</h3>
+          <p>Tell me what you need, your main goal and any examples you like.</p>
+        </article>
+        <article class="card">
+          <div class="service-icon">🧭</div>
+          <h3>2. Discuss the Plan</h3>
+          <p>We discuss the scope, timeline and any costs before work begins.</p>
+        </article>
+        <article class="card">
+          <div class="service-icon">🚀</div>
+          <h3>3. Review the Result</h3>
+          <p>Review the draft, discuss agreed changes and get guidance on basic updates.</p>
+        </article>
+      </div>
+      <div class="buttons">
+        <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477?text=Hi%20Ritesh%2C%20I%20have%20a%20project%20idea%20to%20discuss.">Discuss Your Project ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="my-project">
+    <div class="container">
+      <h2 class="section-title">My First Project 🚀</h2>
+      <p class="section-intro">
+        My first personal website, built while learning web design
+        and GitHub Pages step by step.
+      </p>
+      <article class="about project-card">
+        <div class="project-top">
+          <div class="project-window"><span></span><span></span><span></span></div>
+          <div class="project-preview">
+            <div class="preview-icon">🌐</div>
+            <h3>Ritesh Mahato</h3>
+            <p>Personal Website • Digital Portfolio</p>
+          </div>
+        </div>
+        <div class="project-details">
+          <h3>My Digital Portfolio</h3>
+          <p>
+            This is my first live project. It introduces me,
+            showcases my digital services and makes it easy
+            for visitors to contact me.
+          </p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>Responsive Design</span><span>GitHub Pages</span>
+          </div>
+          <div class="buttons">
+            <a class="btn primary" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener noreferrer">View Live Website ↗</a>
+            <a class="btn secondary" href="https://github.com/riteshmahato01/ritesh-website" target="_blank" rel="noopener noreferrer">View Source Code ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="about">
+        <h2>About Me 👋</h2>
+        <p>
+          I'm Ritesh Mahato. I'm learning technology,
+          improving my coding skills and building my
+          own online projects step by step.
         </p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#contact">Discuss Your Idea ↗</a>
-          <a class="btn" href="#projects">Explore My Work ↓</a>
+        <div class="skills">
+          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+          <span>Web Design</span><span>Continuous Learning</span>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="profile-card">
-        <!-- Put ritesh.webp in the same folder as this file -->
-        <img class="profile" src="./ritesh.webp" alt="Ritesh Kumar" width="320" height="400"
-             onerror="this.style.display='none'">
-        <div class="profile-caption">
-          <h3>Ritesh Kumar ✨</h3>
-          <small>Learning · Creating · Growing</small>
+  <section id="contact">
+    <div class="container">
+      <div class="about contact-card">
+        <h2>Let's Connect 🤝</h2>
+        <p>
+          Have a project idea? Send a message and discuss
+          the requirements, timeline and cost before starting.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="mailto:mbackbencher01@gmail.com">📧 Email Me</a>
+          <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/6__nine_/">📸 Instagram</a>
+          <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://wa.me/919142518477">💬 WhatsApp</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <section id="services">
-      <div class="container">
-        <h2 class="section-heading">What I'm <span class="gradient-text">Exploring</span></h2>
-        <p class="section-intro">Digital skills and creative services I'm developing through practical projects.</p>
-        <div class="grid">
-          <article class="card">
-            <div class="card-icon">🌐</div>
-            <h3>Website Design</h3>
-            <p>Modern, responsive layouts designed to make information clear and easy to navigate.</p>
-            <span class="tag">Web Design</span>
-          </article>
-          <article class="card">
-            <div class="card-icon">🎨</div>
-            <h3>Creative Design</h3>
-            <p>Exploring visual styles, colour palettes and layouts for an engaging digital presence.</p>
-            <span class="tag">Visual Creativity</span>
-          </article>
-          <article class="card">
-            <div class="card-icon">📱</div>
-            <h3>Portfolio Websites</h3>
-            <p>Building personal pages that present a person's work, interests and contact information.</p>
-            <span class="tag">Personal Websites</span>
-          </article>
-        </div>
-      </div>
-    </section>
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Ritesh Mahato. Made with ❤️</p>
+    <p>Learning • Creating • Growing 🚀</p>
+  </div>
+</footer>
 
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-heading">Selected <span class="gradient-text">Projects</span></h2>
-        <p class="section-intro">A look at my digital journey and the projects I'm developing.</p>
-        <div class="grid">
-          <article class="card">
-            <div class="card-icon">💻</div>
-            <h3>Personal Portfolio</h3>
-            <p>This website introduces me, showcases my interests and gives visitors a way to contact me.</p>
-            <span class="tag">HTML · CSS · JavaScript</span>
-            <br>
-            <a class="project-link" href="https://riteshmahato01.github.io/ritesh-website/" target="_blank" rel="noopener noreferrer">View Live Website ↗</a>
-          </article>
-          <article class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Future Projects</h3>
-            <p>I'm exploring new ideas and practising ways to turn them into useful online experiences.</p>
-            <span class="tag">In Development</span>
-          </article>
-          <article class="card">
-            <div class="card-icon">📚</div>
-            <h3>Learning Journey</h3>
-            <p>Every experiment helps me understand web design better and improve my practical skills.</p>
-            <span class="tag">Continuous Learning</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works">
-      <div class="container">
-        <h2 class="section-heading">From Idea to <span class="gradient-text">Creation</span></h2>
-        <p class="section-intro">My simple approach to developing a digital project.</p>
-        <div class="grid steps">
-          <article class="card step">
-            <h3>Understand</h3>
-            <p>Start by understanding the idea, purpose and requirements of the project.</p>
-          </article>
-          <article class="card step">
-            <h3>Build</h3>
-            <p>Create a first version with a clear layout and a focus on usability.</p>
-          </article>
-          <article class="card step">
-            <h3>Improve</h3>
-            <p>Test the result, learn from feedback and refine the experience.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="about-box">
-          <span class="eyebrow">A little about me</span>
-          <h2 class="section-heading">Meet <span class="gradient-text">Ritesh Kumar 👋</span></h2>
-          <p>
-            I'm interested in technology, website design and digital creativity.
-            This portfolio is where I share my progress, experiment with ideas
-            and develop practical skills step by step.
-          </p>
-          <p>
-            My goal is to keep learning, create useful digital experiences
-            and build a stronger portfolio through real projects. I'm at the
-            beginning of the journey and focused on improving with every step.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#contact">Let's Connect ↗</a>
-            <a class="btn" href="https://github.com/rit
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
