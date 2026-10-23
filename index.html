@@ -1,826 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="google-site-verification"
-    content="r7hZdbEOl9WQbgCxUGO5DO8T4uiA6ItJUjCmm0LCwwE">
-
-  <meta name="theme-color" content="#090914">
-  <meta name="description"
-    content="Welcome to Ritesh Kumar's personal portfolio. Explore web design services, projects and contact details.">
-
-  <title>Ritesh Kumar | Personal Portfolio</title>
-
-  <style>
-    :root {
-      --bg: #090914;
-      --surface: #111123;
-      --surface2: #17172e;
-      --text: #f4f4ff;
-      --muted: #aaaac5;
-      --purple: #a855f7;
-      --cyan: #22d3ee;
-      --border: rgba(168, 85, 247, .24);
-      --shadow: 0 15px 45px rgba(0, 0, 0, .2);
-    }
-
-    body.light {
-      --bg: #f5f5ff;
-      --surface: #ffffff;
-      --surface2: #eeeeff;
-      --text: #17172b;
-      --muted: #5e607b;
-      --border: rgba(124, 58, 237, .2);
-      --shadow: 0 15px 45px rgba(45, 35, 90, .08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.7;
-      transition: background .25s, color .25s;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, textarea, select {
-      font: inherit;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      z-index: 1000;
-      background: linear-gradient(90deg, var(--purple), var(--cyan));
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      max-width: 1120px;
-      min-height: 72px;
-      padding: 12px 20px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--cyan);
-    }
-
-    .nav-right, .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-links a {
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    .theme-btn, .menu-btn {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      color: var(--text);
-      cursor: pointer;
-      padding: 8px 11px;
-    }
-
-    .menu-btn {
-      display: none;
-    }
-
-    .container {
-      max-width: 1050px;
-      padding: 0 22px;
-      margin: auto;
-    }
-
-    section {
-      padding: 82px 0;
-      scroll-margin-top: 65px;
-    }
-
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      padding-top: 65px;
-      padding-bottom: 65px;
-      background:
-        radial-gradient(ellipse at 15% 25%, rgba(168,85,247,.12), transparent 45%),
-        radial-gradient(ellipse at 90% 75%, rgba(34,211,238,.09), transparent 40%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.35fr .8fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--cyan);
-      background: rgba(34,211,238,.08);
-      border: 1px solid rgba(34,211,238,.2);
-      border-radius: 100px;
-      padding: 5px 13px;
-      margin-bottom: 18px;
-      font-size: .88rem;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1.12;
-      letter-spacing: -2px;
-      margin-bottom: 20px;
-    }
-
-    .gradient {
-      background: linear-gradient(100deg, var(--purple), var(--cyan));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 610px;
-      margin-bottom: 25px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 25px 0;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px 19px;
-      border-radius: 12px;
-      font-weight: 750;
-      border: 1px solid var(--border);
-      transition: transform .2s, opacity .2s;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      color: #090914;
-      background: linear-gradient(100deg, var(--purple), var(--cyan));
-      border: none;
-    }
-
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .hero-note {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .photo-card {
-      background: var(--surface);
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      max-width: 340px;
-      justify-self: center;
-      width: 100%;
-      transform: rotate(2deg);
-    }
-
-    .profile {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-      background: var(--surface2);
-    }
-
-    .photo-caption {
-      text-align: center;
-      padding: 12px 5px 4px;
-      font-weight: 750;
-    }
-
-    .section-head {
-      text-align: center;
-      margin: 0 auto 38px;
-      max-width: 680px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      transition: transform .2s, border-color .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--cyan);
-    }
-
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 20px;
-    }
-
-    .tag {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 5px 11px;
-      color: var(--muted);
-      font-size: .85rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .about-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 26px;
-    }
-
-    .about-panel p {
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .project-label {
-      display: inline-block;
-      color: var(--cyan);
-      font-size: .8rem;
-      margin-bottom: 10px;
-      font-weight: 750;
-    }
-
-    .project-link {
-      display: inline-block;
-      margin-top: 17px;
-      color: var(--cyan);
-      font-weight: 750;
-    }
-
-    .steps {
-      counter-reset: step;
-    }
-
-    .step {
-      position: relative;
-      padding-left: 52px;
-      margin-bottom: 25px;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      color: var(--text);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      font-weight: 800;
-    }
-
-    .step p {
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 25px;
-      align-items: start;
-    }
-
-    .contact-info, .contact-form {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 25px;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      margin: 12px 0 20px;
-    }
-
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .socials a {
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-    }
-
-    .socials a:hover {
-      color: var(--cyan);
-    }
-
-    .field {
-      margin-bottom: 16px;
-    }
-
-    .field label {
-      display: block;
-      margin-bottom: 7px;
-      font-weight: 700;
-      font-size: .9rem;
-    }
-
-    .field input, .field textarea, .field select {
-      width: 100%;
-      padding: 12px 13px;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      background: var(--bg);
-      color: var(--text);
-      outline: none;
-    }
-
-    .field input:focus, .field textarea:focus,
-    .field select:focus {
-      border-color: var(--cyan);
-    }
-
-    .field textarea {
-      min-height: 125px;
-      resize: vertical;
-    }
-
-    .contact-form .btn {
-      width: 100%;
-    }
-
-    .form-note {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .cta {
-      text-align: center;
-      background: linear-gradient(120deg, rgba(168,85,247,.12), rgba(34,211,238,.08));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 38px 22px;
-    }
-
-    .cta h2 {
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 25px 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    footer p + p {
-      margin-top: 5px;
-    }
-
-    .reveal {
-      animation: rise .65s ease both;
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .photo-card {
-        max-width: 260px;
-      }
-
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        gap: 11px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .nav {
-        flex-wrap: wrap;
-        min-height: 64px;
-      }
-
-      .menu-btn {
-        display: inline-block;
-      }
-
-      .nav-right {
-        gap: 8px;
-      }
-
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 5px 0;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 10px 4px;
-        border-top: 1px solid var(--border);
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .container {
-        padding: 0 17px;
-      }
-
-      h1 {
-        letter-spacing: -1.2px;
-      }
-
-      .cards, .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 21px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0917">
+<meta name="description" content="NeonPlay - a fun, original gaming hub.">
+<title>NeonPlay — Gaming Hub</title>
+
+<style>
+:root {
+  --bg:#0b0917;
+  --panel:#151127;
+  --panel2:#1e1835;
+  --text:#f8f6ff;
+  --muted:#aaa2c3;
+  --purple:#a855f7;
+  --cyan:#22d3ee;
+  --border:#30264c;
+  --green:#4ade80;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible,input:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:3px
+}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:14px 5%;
+  background:rgba(11,9,23,.94);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px)
+}
+.brand{font-size:1.4rem;font-weight:900;letter-spacing:-.5px}
+.brand span{color:var(--cyan)}
+.brand small{display:block;color:var(--muted);font-size:.65rem;font-weight:500}
+.points-pill{
+  background:var(--panel2);border:1px solid var(--border);
+  padding:9px 13px;border-radius:30px;font-weight:800;
+  white-space:nowrap
+}
+.points-pill b{color:var(--cyan)}
+main{max-width:1120px;margin:auto;padding:24px 18px 110px}
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(120deg,#251443,#15112b 55%,#10303b);
+  border:1px solid #3d2b60;border-radius:26px;
+  padding:30px 25px;margin-bottom:24px
+}
+.hero:after{
+  content:"🎮";position:absolute;right:7%;top:18%;
+  font-size:clamp(5rem,16vw,9rem);opacity:.18;
+  transform:rotate(-12deg);pointer-events:none
+}
+.eyebrow{
+  display:inline-block;color:var(--cyan);font-size:.78rem;
+  font-weight:800;letter-spacing:1.5px;text-transform:uppercase
+}
+h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.1;margin:12px 0}
+.hero p{max-width:520px;color:#d2cbe8;line-height:1.7}
+.primary,.secondary,.navbtn,.filter{
+  border:0;border-radius:12px;padding:11px 15px;font-weight:800
+}
+.primary{background:linear-gradient(100deg,var(--purple),var(--cyan));color:#090817}
+.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}
+.section-head{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin:28px 0 15px
+}
+h2{font-size:1.25rem;margin:0}
+.muted{color:var(--muted);font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.game{
+  min-width:0;background:var(--panel);border:1px solid var(--border);
+  border-radius:19px;overflow:hidden;transition:transform .2s,border-color .2s
+}
+.game:hover{transform:translateY(-3px);border-color:var(--purple)}
+.game-art{
+  min-height:115px;display:grid;place-items:center;
+  font-size:3.4rem;background:linear-gradient(140deg,#302052,#142b43)
+}
+.art-2{background:linear-gradient(140deg,#48203f,#30204f)}
+.art-3{background:linear-gradient(140deg,#173b47,#292052)}
+.art-4{background:linear-gradient(140deg,#51351e,#31204c)}
+.art-5{background:linear-gradient(140deg,#1e4a39,#27204d)}
+.art-6{background:linear-gradient(140deg,#422448,#1c3d4c)}
+.game-info{padding:13px}
+.game-info h3{font-size:1rem;margin:0 0 5px}
+.game-info p{font-size:.8rem;color:var(--muted);margin:0 0 12px}
+.game-info button{width:100%}
+.badge{
+  display:inline-block;font-size:.7rem;color:var(--cyan);
+  background:#152d3b;border-radius:7px;padding:4px 7px;margin-bottom:8px
+}
+.filters{display:flex;gap:8px;overflow:auto;padding:2px 0 8px}
+.filter{white-space:nowrap;background:var(--panel);color:var(--muted);border:1px solid var(--border)}
+.filter.active{background:var(--panel2);color:var(--cyan);border-color:var(--purple)}
+.view{display:none}
+.view.active{display:block;animation:appear .2s ease}
+@keyframes appear{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:20px;padding:20px;margin-bottom:15px
+}
+.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel2);padding:14px;border-radius:14px;min-width:0}
+.stat strong{display:block;font-size:1.25rem;overflow-wrap:anywhere}
+.stat span{font-size:.78rem;color:var(--muted)}
+.avatar{
+  width:75px;height:75px;display:grid;place-items:center;
+  border-radius:22px;background:linear-gradient(135deg,var(--purple),var(--cyan));
+  color:#0b0917;font-size:2rem;font-weight:900;margin-bottom:15px
+}
+.field{display:grid;gap:7px;margin:14px 0}
+.field label{color:var(--muted);font-size:.88rem}
+.field input{
+  width:100%;background:var(--bg);color:var(--text);
+  border:1px solid var(--border);border-radius:11px;padding:12px
+}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:13px 7px;text-align:left;border-bottom:1px solid var(--border)}
+.table th{color:var(--muted);font-size:.8rem;font-weight:600}
+.table td{font-size:.9rem}
+.table-wrap{overflow-x:auto}
+.rank{color:var(--cyan);font-weight:900}
+.wallet-total{
+  border-radius:18px;padding:22px;
+  background:linear-gradient(120deg,#302052,#12303a);
+  border:1px solid #3d4569;margin-bottom:16px
+}
+.wallet-total strong{display:block;font-size:2.3rem}
+.wallet-total span{color:#d2cbe8;font-size:.85rem}
+.history-item{
+  display:flex;justify-content:space-between;gap:10px;
+  padding:13px 0;border-bottom:1px solid var(--border)
+}
+.plus{color:var(--green);font-weight:800}
+.note{font-size:.8rem;color:var(--muted);line-height:1.6}
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:30;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:3px;
+  background:rgba(16,13,31,.97);border-top:1px solid var(--border);
+  padding:9px 8px max(9px,env(safe-area-inset-bottom));
+  backdrop-filter:blur(15px)
+}
+.navbtn{
+  padding:9px 3px;background:transparent;color:var(--muted);
+  font-size:.73rem;border-radius:12px
+}
+.navbtn span{display:block;font-size:1.2rem;margin-bottom:3px}
+.navbtn.active{color:var(--cyan);background:var(--panel2)}
+.modal{
+  position:fixed;inset:0;z-index:50;background:#000b;
+  display:none;place-items:center;padding:20px
+}
+.modal.open{display:grid}
+.modal-box{
+  width:min(100%,430px);background:var(--panel);
+  border:1px solid var(--border);border-radius:22px;padding:23px
+}
+.modal-box h2{margin-bottom:12px}
+.modal-box p{color:var(--muted);line-height:1.7}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions button{flex:1}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+footer{text-align:center;padding:24px 15px 12px;color:var(--muted);font-size:.8rem}
+@media(max-width:700px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .game-art{min-height:100px;font-size:2.8rem}
+  main{padding:17px 12px 110px}
+  .hero{padding:24px 18px}
+  .stat{padding:11px}
+  .stat strong{font-size:1.05rem}
+}
+@media(max-width:360px){
+  .grid{grid-template-columns:1fr}
+  .points-pill{font-size:.8rem}
+}
+</style>
 </head>
 
 <body>
-  <div class="progress" id="progress"></div>
+<header class="topbar">
+  <a href="#home" class="brand" aria-label="NeonPlay home">
+    NEON<span>PLAY</span><small>YOUR NEXT LEVEL STARTS HERE</small>
+  </a>
+  <div class="points-pill">🪙 <b id="headerPoints">1,000</b> pts</div>
+</header>
 
-  <header>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#home" class="logo">Ritesh<span>.</span></a>
+<main>
+  <section class="view active" id="home">
+    <div class="hero">
+      <span class="eyebrow">⚡ Welcome to the arena</span>
+      <h1>Play your way.<br><span style="color:var(--cyan)">Level up daily.</span></h1>
+      <p>Discover mini-games, build your player profile, and climb the leaderboard. All points are virtual and for fun.</p>
+      <button class="primary" onclick="showView('games')">Explore Games →</button>
+      <button class="secondary" onclick="showView('profile')">My Profile</button>
+    </div>
 
-      <div class="nav-right">
-        <button class="theme-btn" id="themeToggle"
-          type="button" aria-label="Toggle colour theme">☀️</button>
-        <button class="menu-btn" id="menuToggle"
-          type="button" aria-expanded="false"
-          aria-controls="navLinks">☰ Menu</button>
+    <div class="section-head">
+      <h2>🔥 Featured Games</h2>
+      <button class="secondary" onclick="showView('games')">View all</button>
+    </div>
+    <div class="grid" id="featuredGames"></div>
+
+    <div class="section-head"><h2>🏆 Top Players</h2></div>
+    <div class="card">
+      <div class="table-wrap"><table class="table">
+        <thead><tr><th>Rank</th><th>Player</th><th>Points</th></tr></thead>
+        <tbody id="homeLeaderboard"></tbody>
+      </table></div>
+      <button class="secondary" style="width:100%;margin-top:15px" onclick="showView('leaderboard')">Full leaderboard →</button>
+    </div>
+  </section>
+
+  <section class="view" id="games">
+    <div class="section-head">
+      <div><h2>🎮 Game Lobby</h2><p class="muted">Choose a game and have fun.</p></div>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-filter="All">All Games</button>
+      <button class="filter" data-filter="Puzzle">Puzzle</button>
+      <button class="filter" data-filter="Arcade">Arcade</button>
+      <button class="filter" data-filter="Strategy">Strategy</button>
+    </div>
+    <div class="grid" id="allGames" style="margin-top:12px"></div>
+  </section>
+
+  <section class="view" id="profile">
+    <div class="section-head"><div><h2>👤 Player Profile</h2><p class="muted">Make this player space yours.</p></div></div>
+    <div class="card">
+      <div class="avatar" id="avatar">P</div>
+      <h2 id="profileHeading">Player One</h2>
+      <p class="muted">NeonPlay Member</p>
+      <div class="stat-grid">
+        <div class="stat"><strong id="profilePoints">1,000</strong><span>Virtual points</span></div>
+        <div class="stat"><strong id="profilePlayed">0</strong><span>Games opened</span></div>
+        <div class="stat"><strong>Rookie</strong><span>Player level</span></div>
       </div>
+    </div>
+    <div class="card">
+      <h2>Edit Profile</h2>
+      <div class="field"><label for="playerName">Display name</label><input id="playerName" maxlength="24" placeholder="Your gaming name"></div>
+      <div class="field"><label for="playerBio">About you</label><input id="playerBio" maxlength="100" placeholder="I love gaming!"></div>
+      <button class="primary" onclick="saveProfile()">Save Profile</button>
+      <p class="note" style="margin-top:12px">This demo stores your profile in this browser only. There is no online account or password system.</p>
+    </div>
+  </section>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <section class="view" id="leaderboard">
+    <div class="section-head"><div><h2>🏆 Leaderboard</h2><p class="muted">Demo rankings for the NeonPlay community.</p></div></div>
+    <div class="card">
+      <div class="table-wrap"><table class="table">
+        <thead><tr><th>Rank</th><th>Player</th><th>Points</th></tr></thead>
+        <tbody id="fullLeaderboard"></tbody>
+      </table></div>
+      <p class="note" style="margin-top:12px">Sample players are fictional. Your score is stored on this device and is not shared online.</p>
+    </div>
+  </section>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <span class="eyebrow">👋 Welcome to my personal website</span>
-          <h1>Hi, I'm <span class="gradient">Ritesh Kumar</span></h1>
-          <p class="lead">
-            I'm building my digital presence, exploring web design,
-            and turning creative ideas into websites. Welcome to my
-            corner of the internet.
-          </p>
+  <section class="view" id="wallet">
+    <div class="section-head"><div><h2>🪙 Demo Wallet</h2><p class="muted">Virtual points for trying out the interface.</p></div></div>
+    <div class="wallet-total">
+      <span>YOUR VIRTUAL BALANCE</span>
+      <strong><span id="walletPoints">1,000</span> pts</strong>
+      <span>Not real money. No deposits or withdrawals.</span>
+    </div>
+    <div class="card">
+      <h2>Daily Demo Bonus</h2>
+      <p class="muted" style="margin:8px 0 16px">Try the demo bonus once per calendar day on this device.</p>
+      <button id="bonusButton" class="primary" onclick="claimBonus()">Claim 50 demo points</button>
+    </div>
+    <div class="card">
+      <h2>Recent Activity</h2>
+      <div id="history"><p class="empty">Your demo activity will appear here.</p></div>
+    </div>
+    <p class="note">NeonPlay points have no cash value and cannot be bought, sold, transferred, or redeemed.</p>
+  </section>
 
-          <div class="actions">
-            <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
-            <a class="btn btn-secondary" href="#contact">Contact Me</a>
-          </div>
+  <footer>
+    <p>© <span id="year"></span> NeonPlay. Built for fun. 💜</p>
+    <p>Original demo gaming interface · No real-money gaming.</p>
+  </footer>
+</main>
 
-          <p class="hero-note">
-            ✨ Learning · Creating · Growing
-          </p>
-        </div>
+<nav class="bottom-nav" aria-label="Main navigation">
+  <button class="navbtn active" data-view="home"><span>🏠</span>Home</button>
+  <button class="navbtn" data-view="games"><span>🎮</span>Games</button>
+  <button class="navbtn" data-view="leaderboard"><span>🏆</span>Ranks</button>
+  <button class="navbtn" data-view="wallet"><span>🪙</span>Wallet</button>
+</nav>
 
-        <div class="photo-card reveal">
-          <img class="profile" src="./ritesh.webp"
-            alt="Ritesh Kumar"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
-          <div style="display:none;aspect-ratio:4/5;place-items:center;
-            font-size:3rem;font-weight:800;color:var(--cyan);
-            background:var(--surface2);border-radius:20px;">RK</div>
-          <div class="photo-caption">Ritesh Kumar 🚀</div>
-        </div>
-      </div>
-    </section>
+<div class="modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <span class="eyebrow">NEONPLAY MINI-GAME</span>
+    <h2 id="modalTitle">Ready to play?</h2>
+    <p id="modalText">Choose an option to start.</p>
+    <div id="gameArea"></div>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">Close</button>
+      <button class="primary" id="gameAction">Start game</button>
+    </div>
+  </div>
+</div>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">A little about me</span>
-          <h2>More Than Just a <span class="gradient">Website</span></h2>
-          <p>A personal space to share who I am, what I do, and what I'm building.</p>
-        </div>
+<script>
+const games = [
+  {id:"memory",name:"Memory Match",category:"Puzzle",icon:"🧠",art:"",desc:"Find matching symbols in this memory challenge."},
+  {id:"tap",name:"Neon Tap",category:"Arcade",icon:"⚡",art:"art-2",desc:"Test your focus in a quick tapping challenge."},
+  {id:"number",name:"Number Quest",category:"Puzzle",icon:"🔢",art:"art-3",desc:"Solve a number puzzle and challenge yourself."},
+  {id:"orbit",name:"Orbit Runner",category:"Arcade",icon:"🪐",art:"art-4",desc:"A space-themed mini-game concept."},
+  {id:"chess",name:"Brain Tactics",category:"Strategy",icon:"♟️",art:"art-5",desc:"Plan your next move in a strategy challenge."},
+  {id:"crystal",name:"Crystal Quest",category:"Puzzle",icon:"💎",art:"art-6",desc:"Explore a colourful puzzle game concept."}
+];
 
-        <div class="about-grid">
-          <article class="about-panel">
-            <h3>👤 About Me</h3>
-            <p>
-              Hello! I'm Ritesh Kumar. I'm interested in technology,
-              creative ideas, and building a strong online presence.
-              This website is where I share my journey and projects.
-            </p>
-          </article>
+const defaultState = {
+  name:"Player One",
+  bio:"Ready to level up!",
+  points:1000,
+  played:0,
+  bonusDate:"",
+  history:[]
+};
+let state = loadState();
+let activeGame = null;
+let currentFilter = "All";
+let tapCount = 0;
+let tapTimer = null;
+let numberAnswer = null;
+let memoryValues = [];
+let memoryChosen = [];
 
-          <article class="about-panel">
-            <h3>🎯 My Focus</h3>
-            <p>
-              I'm developing my web design skills, learning by building,
-              and exploring ways to create useful, attractive experiences
-              for people online.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Web Design</span>
-              <span class="tag">HTML & CSS</span>
-              <span class="tag">Learning</span>
-              <span class="tag">Creative Ideas</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+function loadState(){
+  try{
+    const saved = JSON.parse(localStorage.getItem("neonplay-demo-v1"));
+    return saved ? {...defaultState,...saved} : {...defaultState};
+  }catch(e){
+    return {...defaultState};
+  }
+}
+function persist(){
+  try{
+    localStorage.setItem("neonplay-demo-v1",JSON.stringify(state));
+  }catch(e){}
+}
+function fmt(n){return Number(n).toLocaleString("en-US")}
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+function renderGame(game){
+  return `<article class="game">
+    <div class="game-art ${game.art}">${game.icon}</div>
+    <div class="game-info">
+      <span class="badge">${game.category}</span>
+      <h3>${game.name}</h3>
+      <p>${game.desc}</p>
+      <button class="secondary" onclick="openGame('${game.id}')">Play Demo →</button>
+    </div>
+  </article>`;
+}
+function renderGames(){
+  document.getElementById("featuredGames").innerHTML=games.slice(0,3).map(renderGame).join("");
+  document.getElementById("allGames").innerHTML=games
+    .filter(g=>currentFilter==="All"||g.category===currentFilter)
+    .map(renderGame).join("");
+}
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    currentFilter=btn.dataset.filter;
+    document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===btn));
+    renderGames();
+  });
+});
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">What I can help with</span>
-          <h2>My <span class="gradient">Services</span></h2>
-          <p>Simple, modern web experiences for personal brands and small projects.</p>
-        </div>
+function showView(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===id));
+  document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.view===id));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="profile")renderProfile();
+  if(id==="wallet")renderWallet();
+  if(id==="leaderboard")renderLeaderboard();
+}
+document.querySelectorAll(".navbtn").forEach(btn=>{
+  btn.addEventListener("click",()=>showView(btn.dataset.view));
+});
 
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">🌐</div>
-            <h3>Personal Websites</h3>
-            <p>Personal portfolio pages to introduce you, showcase your skills, and share your links.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">🎨</div>
-            <h3>Website Design</h3>
-            <p>Modern layouts, thoughtful colours, clear sections, and mobile-friendly designs.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">📱</div>
-            <h3>Responsive Layouts</h3>
-            <p>Pages designed to work across mobile phones, tablets, and desktop screens.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">My portfolio</span>
-          <h2>Projects & <span class="gradient">Ideas</span></h2>
-          <p>A showcase area for my website, experiments, and future work.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">💻</div>
-            <span class="project-label">PERSONAL PROJECT</span>
-            <h3>My Personal Website</h3>
-            <p>A personal website built with HTML and CSS and published using GitHub Pages.</p>
-            <a class="project-link" href="https://github.com/riteshmahato01/ritesh-website"
-              target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">✨</div>
-            <span class="project-label">DESIGN CONCEPT</span>
-            <h3>Creative Web Designs</h3>
-            <p>A space for future experiments with layouts, colours, animations, and user experiences.</p>
-            <span class="project-link">More coming soon</span>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">🚀</div>
-            <span class="project-label">IN PROGRESS</span>
-            <h3>What's Next?</h3>
-            <p>I'm continuing to learn and add new ideas and projects as I build my skills.</p>
-            <a class="project-link" href="#contact">Let's Connect ↗</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Simple process</span>
-          <h2>How a Project <span class="gradient">Works</span></h2>
-          <p>A clear process helps turn an idea into a website.</p>
-        </div>
-
-        <div class="about-panel steps">
-          <div class="step">
-            <h3>Share your idea</h3>
-            <p>Explain what the website should do and who it is for.</p>
-          </div>
-          <div class="step">
-            <h3>Plan the design</h3>
-            <p>Choose the layout, content, colours, and important features.</p>
-          </div>
-          <div class="step">
-            <h3>Build and review</h3>
-            <p>Create the page, test it on mobile, and make improvements.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Get in touch</span>
-          <h2>Let's <span class="gradient">Connect</span></h2>
-          <p>Have a question, an idea, or a website project? Send me a message.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Contact Details 🤝</h3>
-            <p>
-              Reach out about a project, collaboration, or just to say hello.
-            </p>
-
-            <div class="socials">
-              <a href="https://github.com/riteshmahato01"
-                target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-              <a href="https://www.instagram.com/6__nine_/"
-                target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-              <a href="mailto:mbackbencher01@gmail.com">Email ✉️</a>
-            </div>
-          </div>
-
-          <form class="contact-form"
-            action="https://formsubmit.co/mbackbencher01@gmail.com"
-            method="POST">
-
-            <input type="hidden" name="_subject"
-              value="New message from Ritesh's website">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="true">
-
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text"
-                placeholder="Enter your name" required maxlength="100">
-            </div>
-
-   
+function renderProfile(){
+  document.getElementById("avatar").textContent=(state.name.trim()[0]||"P").toUpperCase();
+  document.getElementById("profileHeading").textContent=state.name;
+  document.getElementById("playerName").value=state.name;
+  document.getElementById("playerBio").value=state.bio;
+  document.getElementById("profilePoints").textContent=fmt(state.points);
+  document.getElementById("profilePlayed").textContent=state.played;
+}
+function saveProfile(){
+  const name=document.getElementById("playerName").value.trim().slice(0,24);
+  const bio=document.getElementById("playerBio").value.trim().slice(0,100);
+  if(!name){alert("Please enter a display name.");return;}
+  state.name=name;
+  state.bio=bio||"Ready to level up!";
+  persist();
+  renderAll();
+  alert("Demo profile saved on this device!");
+}
+function renderLeaderboard(){
+  const players=[
+    {name:"PixelPilot",points:3200},
+    {name:"NovaQuest",points:2750},
+    {name:"CyberFox",points:2300},
+    {name:"StarByte",points:1850},
+    {name:state.name,points:state.points,me:true}
+  ].sort((a,b)=>b.points-a.points);
+  const rows=players.map((p,i)=>`<tr>
+    <td class="rank">#${i+1}</td>
+    <td>${escapeHTML(p.name)}${p.me?' <span class="badge">YOU</span>':''}</td>
+    <td>${fmt(p.points)}</td>
+  </tr>`).join("");
+  document.getElementById("homeLeaderboard").innerHTML=rows;
+  document.getElementById("fullLeaderboard").innerHTML=rows;
+}
+function renderWallet(){
+  document.getElementById("walletPoints").textContent=fmt(state.points);
+  const today=new Date().toLocaleDateString("en-CA");
+  const claimed=state.bonusDate===today;
+  const btn=document.getElementById("bonusButton");
+  btn.disabled=claimed;
+  btn.textContent=claimed?"Today's bonus claimed":"Claim 50 demo points";
+  btn.style.opacity=claimed?".55":"1";
+  const history=document.getElementById("history");
+  history.innerHTML=state.history.length?state.history.slice(0,8).map(h=>
+    `<div class="history-item"><span>${escapeHTML(h.label)}</span><strong class="${h.amount>0?'plus':''}">${h.amount>0?'+':''}${fmt(h.amount)} pts</strong></div>`
+  ).join(""):'<p class="empty">Your demo activity will appear here.</p>';
+}
+function addActivity(label,amount){
+  state.history.unshift({label,amount});
+  state.history=state.history.slice(0,12);
+}
+function claimBonus(){
+  const today=new Date().toLocaleDateString("en-CA");
+  if(state.bonusDate===today){alert("You already claimed today's demo bonus.");return;}
+  state.bonusDate=today;
+  state.points+=50;
+  addActivity("Daily demo bonus",50);
+  persist();renderAll();renderWallet();
+}
+function renderAll(){
+  document.getElementById("headerPoints").textContent=fmt(state.points);
+  renderProfile();renderLeaderboard();renderWallet();
+}
+function closeModal(){
+  document.getElementById("gameModal").classList.remove("open");
+  if(tapTimer){clearInterval(tapTimer);tapTimer=null;}
+}
+function openGame(id){
+  activeGame=games.find(g=>g.id===id);
+  if(!activeGame)return;
+  document.getElementById("modalTitle").textContent=activeGame.icon+" "+activeGame.name;
+  document.getElementById("modalText").textContent=activeGame.desc;
+  document.getElementById("gameArea").innerHTML="";
+  const action=document.getElementById("gameAction");
+  action.disabled=false;
+  action.textContent="Start game";
+  action.onclick=startGame;
+  document.getElementById("gameModal").classList.add("open");
+}
+function startGame(){
+  if(!activeGame)return;
+  const area=document.getElementById("gameArea");
+  const action=document.getElementById("gameAction");
+  if(activeGame.id==="memory"){
+    memoryValues=["🌟","🌟","🚀","🚀","💎","💎","🎯","🎯"].sort(()=>Math.random()-.5);
+    memoryChosen=[];
+    area.innerHTML='<p class="muted">Find all four matching pairs.</p><div id="memoryBoard" style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:12px"></div>';
+    const board=document.getElementById("memoryBoard");
+    memoryValues.forEach((v,i)=>{
+      const b=document.createElement("button");
+      b.className="secondary";b.style.padding="12px 3px";b.style.fontSize="1.4rem"
